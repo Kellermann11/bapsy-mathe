@@ -5102,25 +5102,220 @@ window.BAPSY_DATA = {
    "id": "G6.32",
    "kap": 6,
    "th": "Analysis",
-   "q": "Für eine Funktion gilt $f'(2)=0$ und $f''(2)=-3$. Was hat der Graph bei $x=2$?",
+   "q": "Gegeben sind $f(x)=(x-3)^2$ und $g(x)=x^2-5$. Welche Symmetrie hat $f(g(x))$?",
    "o": [
-    "Nullstelle bei $x=2$",
-    "Tiefpunkt bei $x=2$",
-    "Wendepunkt bei $x=2$",
-    "Hochpunkt bei $x=2$"
+    "beide Symmetrien",
+    "Punktsymmetrie zum Ursprung",
+    "keine dieser Symmetrien",
+    "Achsensymmetrie zur $y$-Achse"
    ],
    "a": 3,
-   "e": "$f'(2)=0$: der Graph ist dort waagerecht. $f''(2)$ ist negativ: Hochpunkt.",
-   "typ": "Hoch- und Tiefpunkte"
+   "e": "Die innere Funktion $g$ enthält nur $x^2$, also ist $g(-x)=g(x)$. Dann ist auch $f(g(-x))=f(g(x))$: achsensymmetrisch, egal wie $f$ aussieht. Dass $f$ allein nicht symmetrisch ist, spielt keine Rolle.",
+   "typ": "Symmetrie"
   },
   {
    "id": "G6.33",
    "kap": 6,
    "th": "Analysis",
+   "q": "Gegeben sind $f(x)=x^3+1$ und $g(x)=2x^4+1$. Welche Symmetrie hat $f(g(x))$?",
+   "o": [
+    "keine dieser Symmetrien",
+    "beide Symmetrien",
+    "Punktsymmetrie zum Ursprung",
+    "Achsensymmetrie zur $y$-Achse"
+   ],
+   "a": 3,
+   "e": "Die innere Funktion $g$ hat nur gerade Hochzahlen, also $g(-x)=g(x)$. Damit ist die ganze Verkettung achsensymmetrisch.",
+   "typ": "Symmetrie"
+  },
+  {
+   "id": "G6.34",
+   "kap": 6,
+   "th": "Analysis",
+   "q": "Gegeben sind $f(x)=x^3$ und $g(x)=x^3-x$. Welche Symmetrie hat $f(g(x))$?",
+   "o": [
+    "Achsensymmetrie zur $y$-Achse",
+    "Punktsymmetrie zum Ursprung",
+    "beide Symmetrien",
+    "keine dieser Symmetrien"
+   ],
+   "a": 1,
+   "e": "Beide Funktionen sind punktsymmetrisch (nur ungerade Hochzahlen). Dann gilt $f(g(-x))=f(-g(x))=-f(g(x))$: punktsymmetrisch.",
+   "typ": "Symmetrie"
+  },
+  {
+   "id": "G6.35",
+   "kap": 6,
+   "th": "Analysis",
+   "q": "Gegeben sind $f(x)=x^2+1$ und $g(x)=2x+3$. Welche Symmetrie hat $f(g(x))$?",
+   "o": [
+    "Achsensymmetrie zur $y$-Achse",
+    "beide Symmetrien",
+    "keine dieser Symmetrien",
+    "Punktsymmetrie zum Ursprung"
+   ],
+   "a": 2,
+   "e": "Die innere Funktion $2x+3$ ist weder achsen- noch punktsymmetrisch. Ausgerechnet: $f(g(x))=(2x+3)^2+1=4x^2+12x+10$, gemischte Hochzahlen, also keine dieser Symmetrien.",
+   "typ": "Symmetrie"
+  },
+  {
+   "id": "G6.36",
+   "kap": 6,
+   "th": "Analysis",
+   "q": "Welche Symmetrie hat der Graph von $f(x)=x^2\\cdot\\sin x$?",
+   "o": [
+    "keine dieser Symmetrien",
+    "beide Symmetrien",
+    "Punktsymmetrie zum Ursprung",
+    "Achsensymmetrie zur $y$-Achse"
+   ],
+   "a": 2,
+   "e": "$x^2$ ist gerade, $\\sin x$ ist ungerade. Gerade mal ungerade ergibt ungerade, also punktsymmetrisch.",
+   "typ": "Symmetrie"
+  },
+  {
+   "id": "G6.37",
+   "kap": 6,
+   "th": "Analysis",
+   "q": "Welche Symmetrie hat der Graph von $f(x)=x\\cdot\\sin x$?",
+   "o": [
+    "beide Symmetrien",
+    "Achsensymmetrie zur $y$-Achse",
+    "keine dieser Symmetrien",
+    "Punktsymmetrie zum Ursprung"
+   ],
+   "a": 1,
+   "e": "Beide Faktoren sind ungerade. Ungerade mal ungerade ergibt gerade, also achsensymmetrisch, wie Minus mal Minus.",
+   "typ": "Symmetrie"
+  },
+  {
+   "id": "G6.38",
+   "kap": 6,
+   "th": "Analysis",
+   "q": "Welche Symmetrie hat der Graph von $f(x)=\\cos x+x^2$?",
+   "o": [
+    "Achsensymmetrie zur $y$-Achse",
+    "Punktsymmetrie zum Ursprung",
+    "keine dieser Symmetrien",
+    "beide Symmetrien"
+   ],
+   "a": 0,
+   "e": "$\\cos x$ und $x^2$ sind beide gerade. Die Summe zweier gerader Funktionen ist gerade, also achsensymmetrisch.",
+   "typ": "Symmetrie"
+  },
+  {
+   "id": "G6.39",
+   "kap": 6,
+   "th": "Analysis",
+   "q": "Welche Symmetrie hat der Graph von $f(x)=e^x$?",
+   "o": [
+    "keine dieser Symmetrien",
+    "Punktsymmetrie zum Ursprung",
+    "Achsensymmetrie zur $y$-Achse",
+    "beide Symmetrien"
+   ],
+   "a": 0,
+   "e": "$e^{-x}$ ist weder $e^x$ noch $-e^x$. Die e-Funktion hat keine dieser Symmetrien.",
+   "typ": "Symmetrie"
+  },
+  {
+   "id": "G6.40",
+   "kap": 6,
+   "th": "Analysis",
+   "q": "Welche Symmetrie hat der Graph von $f(x)=|x|-4$?",
+   "o": [
+    "beide Symmetrien",
+    "Achsensymmetrie zur $y$-Achse",
+    "Punktsymmetrie zum Ursprung",
+    "keine dieser Symmetrien"
+   ],
+   "a": 1,
+   "e": "Der Betrag macht $x$ und $-x$ gleich: $|-x|=|x|$. Die $-4$ verschiebt nur nach unten. Achsensymmetrisch.",
+   "typ": "Symmetrie"
+  },
+  {
+   "id": "G6.41",
+   "kap": 6,
+   "th": "Analysis",
+   "q": "Welche Symmetrie hat der Graph von $f(x)=\\dfrac{1}{x}+x^3$?",
+   "o": [
+    "keine dieser Symmetrien",
+    "Punktsymmetrie zum Ursprung",
+    "Achsensymmetrie zur $y$-Achse",
+    "beide Symmetrien"
+   ],
+   "a": 1,
+   "e": "$\\tfrac1x$ und $x^3$ sind beide ungerade. Die Summe zweier ungerader Funktionen ist ungerade, also punktsymmetrisch.",
+   "typ": "Symmetrie"
+  },
+  {
+   "id": "G6.42",
+   "kap": 6,
+   "th": "Analysis",
+   "q": "Welche Symmetrie hat der Graph von $f(x)=(x+2)^2$?",
+   "o": [
+    "beide Symmetrien",
+    "Punktsymmetrie zum Ursprung",
+    "Achsensymmetrie zur $y$-Achse",
+    "keine dieser Symmetrien"
+   ],
+   "a": 3,
+   "e": "Ausmultipliziert $x^2+4x+4$: gemischte Hochzahlen. Die Parabel ist zwar symmetrisch, aber zur Linie $x=-2$ durch ihren Scheitel, nicht zur $y$-Achse.",
+   "typ": "Symmetrie"
+  },
+  {
+   "id": "G6.43",
+   "kap": 6,
+   "th": "Analysis",
+   "q": "Zu welcher Linie ist der Graph von $f(x)=(x-4)^2+1$ symmetrisch?",
+   "o": [
+    "zur $y$-Achse",
+    "zur waagerechten Linie $y=1$",
+    "zur senkrechten Linie $x=-4$",
+    "zur senkrechten Linie $x=4$"
+   ],
+   "a": 3,
+   "e": "Jede Parabel ist symmetrisch zur senkrechten Linie durch ihren Scheitel. Der Scheitel ist $S(4\\,|\\,1)$, also ist die Symmetrieachse $x=4$.",
+   "typ": "Symmetrie"
+  },
+  {
+   "id": "G6.44",
+   "kap": 6,
+   "th": "Analysis",
+   "q": "Welche Funktion ist eine gerade Funktion, also achsensymmetrisch zur $y$-Achse?",
+   "o": [
+    "$f(x)=x^3-2x$",
+    "$f(x)=x^4-2x^2$",
+    "$f(x)=x^4-2x$",
+    "$f(x)=(x-2)^2$"
+   ],
+   "a": 1,
+   "e": "Gerade heißt $f(-x)=f(x)$. Bei Polynomen: nur gerade Hochzahlen. $x^4-2x$ ist gemischt, $(x-2)^2=x^2-4x+4$ auch.",
+   "typ": "Symmetrie"
+  },
+  {
+   "id": "G6.45",
+   "kap": 6,
+   "th": "Analysis",
+   "q": "Für eine Funktion gilt $f'(2)=0$ und $f''(2)=-3$. Was hat der Graph bei $x=2$?",
+   "o": [
+    "Tiefpunkt bei $x=2$",
+    "Hochpunkt bei $x=2$",
+    "Nullstelle bei $x=2$",
+    "Wendepunkt bei $x=2$"
+   ],
+   "a": 1,
+   "e": "$f'(2)=0$: der Graph ist dort waagerecht. $f''(2)$ ist negativ: Hochpunkt.",
+   "typ": "Hoch- und Tiefpunkte"
+  },
+  {
+   "id": "G6.46",
+   "kap": 6,
+   "th": "Analysis",
    "q": "Für eine Funktion gilt $f'(2)=0$ und $f''(2)=5$. Was hat der Graph bei $x=2$?",
    "o": [
-    "Wendepunkt bei $x=2$",
     "Nullstelle bei $x=2$",
+    "Wendepunkt bei $x=2$",
     "Hochpunkt bei $x=2$",
     "Tiefpunkt bei $x=2$"
    ],
@@ -5129,17 +5324,17 @@ window.BAPSY_DATA = {
    "typ": "Hoch- und Tiefpunkte"
   },
   {
-   "id": "G6.34",
+   "id": "G6.47",
    "kap": 6,
    "th": "Analysis",
    "q": "Die Ableitung einer Funktion ist $f'(x)=2x-6$. Was hat der Graph von $f$ bei $x=3$?",
    "o": [
-    "einen Hochpunkt",
-    "einen Tiefpunkt",
     "einen Wendepunkt",
-    "eine Nullstelle"
+    "eine Nullstelle",
+    "einen Tiefpunkt",
+    "einen Hochpunkt"
    ],
-   "a": 1,
+   "a": 2,
    "e": "$f'(3)=0$, und $f''(x)=2$ ist positiv: Tiefpunkt.",
    "typ": "Hoch- und Tiefpunkte"
   },
@@ -5150,11 +5345,11 @@ window.BAPSY_DATA = {
    "q": "Welche Funktion ist eine Stammfunktion von $f(x)=9x^{2}-4x+5$?",
    "o": [
     "$F(x)=18x-4$",
-    "$F(x)=27x^{3}-8x^{2}+5x$",
     "$F(x)=3x^{3}-2x^{2}+5x$",
-    "$F(x)=9x^{3}-4x^{2}+5x$"
+    "$F(x)=9x^{3}-4x^{2}+5x$",
+    "$F(x)=27x^{3}-8x^{2}+5x$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Bei jedem Teil: Hochzahl um 1 größer, durch die neue Hochzahl teilen. Probe: Die Antwort ableiten muss wieder $f$ ergeben.",
    "typ": "Stammfunktion"
   },
@@ -5164,10 +5359,10 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Welche Funktion ist eine Stammfunktion von $f(x)=8x^{3}-6x$?",
    "o": [
-    "$F(x)=8x^{4}-6x^{2}$",
     "$F(x)=32x^{4}-12x^{2}$",
+    "$F(x)=24x^{2}-6$",
     "$F(x)=2x^{4}-3x^{2}$",
-    "$F(x)=24x^{2}-6$"
+    "$F(x)=8x^{4}-6x^{2}$"
    ],
    "a": 2,
    "e": "Bei jedem Teil: Hochzahl um 1 größer, durch die neue Hochzahl teilen. Probe: Die Antwort ableiten muss wieder $f$ ergeben.",
@@ -5179,12 +5374,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Welche Funktion ist eine Stammfunktion von $f(x)=5x^{4}+3x^{2}-2$?",
    "o": [
-    "$F(x)=25x^{5}+9x^{3}-2x$",
     "$F(x)=x^{5}+x^{3}-2x$",
+    "$F(x)=20x^{3}+6x$",
     "$F(x)=5x^{5}+3x^{3}-2x$",
-    "$F(x)=20x^{3}+6x$"
+    "$F(x)=25x^{5}+9x^{3}-2x$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Bei jedem Teil: Hochzahl um 1 größer, durch die neue Hochzahl teilen. Probe: Die Antwort ableiten muss wieder $f$ ergeben.",
    "typ": "Stammfunktion"
   },
@@ -5194,12 +5389,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Welche Funktion ist eine Stammfunktion von $f(x)=10x-7$?",
    "o": [
-    "$F(x)=5x^{2}-7x$",
+    "$F(x)=20x^{2}-7x$",
     "$F(x)=10$",
-    "$F(x)=10x^{2}-7x$",
-    "$F(x)=20x^{2}-7x$"
+    "$F(x)=5x^{2}-7x$",
+    "$F(x)=10x^{2}-7x$"
    ],
-   "a": 0,
+   "a": 2,
    "e": "Bei jedem Teil: Hochzahl um 1 größer, durch die neue Hochzahl teilen. Probe: Die Antwort ableiten muss wieder $f$ ergeben.",
    "typ": "Stammfunktion"
   },
@@ -5209,12 +5404,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Berechne $\\displaystyle\\int_{1}^{3}\\left(4x\\right)dx$.",
    "o": [
-    "$16$",
-    "$8$",
     "$-16$",
-    "$20$"
+    "$16$",
+    "$20$",
+    "$8$"
    ],
-   "a": 0,
+   "a": 1,
    "e": "Stammfunktion: $F(x)=2x^{2}$. Obere Grenze minus untere Grenze: $F(3)-F(1)=18-2=16$.",
    "typ": "Integral"
   },
@@ -5224,9 +5419,9 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Berechne $\\displaystyle\\int_{0}^{2}\\left(3x^{2}+2\\right)dx$.",
    "o": [
-    "$11$",
-    "$12$",
     "$-12$",
+    "$12$",
+    "$11$",
     "$14$"
    ],
    "a": 1,
@@ -5240,11 +5435,11 @@ window.BAPSY_DATA = {
    "q": "Berechne $\\displaystyle\\int_{2}^{5}\\left(2x-3\\right)dx$.",
    "o": [
     "$6$",
+    "$8$",
     "$12$",
-    "$-12$",
-    "$8$"
+    "$-12$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "Stammfunktion: $F(x)=x^{2}-3x$. Obere Grenze minus untere Grenze: $F(5)-F(2)=10-(-2)=12$.",
    "typ": "Integral"
   },
@@ -5255,8 +5450,8 @@ window.BAPSY_DATA = {
    "q": "Berechne $\\displaystyle\\int_{-1}^{1}\\left(6x^{2}\\right)dx$.",
    "o": [
     "$2$",
-    "$0$",
     "$-4$",
+    "$0$",
     "$4$"
    ],
    "a": 3,
@@ -5284,12 +5479,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Berechne $\\displaystyle\\int_{0}^{3}\\left(-2x+6\\right)dx$.",
    "o": [
-    "$-9$",
-    "$9$",
     "$-6$",
-    "$11$"
+    "$11$",
+    "$9$",
+    "$-9$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "Stammfunktion: $F(x)=-x^{2}+6x$. Obere Grenze minus untere Grenze: $F(3)-F(0)=9-0=9$.",
    "typ": "Integral"
   },
@@ -5299,10 +5494,10 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Wie groß ist die Fläche, die der Graph von $f(x)=-x^{2}+3x$ mit der $x$-Achse einschließt?",
    "o": [
-    "$9$",
-    "$\\dfrac{9}{2}$",
     "$\\dfrac{11}{2}$",
-    "$\\dfrac{27}{2}$"
+    "$\\dfrac{9}{2}$",
+    "$\\dfrac{27}{2}$",
+    "$9$"
    ],
    "a": 1,
    "e": "Nullstellen: $x(-x+3)=0$, also $x=0$ und $x=3$. Integral: $\\left[-\\tfrac13x^3+\\tfrac{3}{2}x^2\\right]_0^{3}=-9+\\tfrac{27}{2}=\\tfrac{9}{2}$.",
@@ -5314,12 +5509,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Wie groß ist die Fläche, die der Graph von $f(x)=-x^{2}+6x$ mit der $x$-Achse einschließt?",
    "o": [
-    "$18$",
-    "$108$",
     "$72$",
-    "$36$"
+    "$36$",
+    "$108$",
+    "$18$"
    ],
-   "a": 3,
+   "a": 1,
    "e": "Nullstellen: $x(-x+6)=0$, also $x=0$ und $x=6$. Integral: $\\left[-\\tfrac13x^3+3x^2\\right]_0^{6}=-72+108=36$.",
    "typ": "Fläche"
   },
@@ -5329,10 +5524,10 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Wie groß ist die Fläche zwischen den Graphen von $f(x)=x^2$ und $g(x)=3x$?",
    "o": [
-    "$\\dfrac{11}{2}$",
     "$\\dfrac{27}{2}$",
+    "$9$",
     "$\\dfrac{9}{2}$",
-    "$9$"
+    "$\\dfrac{11}{2}$"
    ],
    "a": 2,
    "e": "Schnittstellen: $x^2=3x$ gilt für $x=0$ und $x=3$. Obere minus untere Funktion: $\\int_0^{3}(3x-x^2)\\,dx=\\tfrac{27}{2}-9=\\tfrac{9}{2}$.",
@@ -5344,12 +5539,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Wie groß ist die Fläche zwischen den Graphen von $f(x)=x^2$ und $g(x)=6x$?",
    "o": [
+    "$108$",
     "$72$",
     "$36$",
-    "$108$",
     "$37$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "Schnittstellen: $x^2=6x$ gilt für $x=0$ und $x=6$. Obere minus untere Funktion: $\\int_0^{6}(6x-x^2)\\,dx=108-72=36$.",
    "typ": "Fläche"
   },
@@ -5359,12 +5554,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme die Ableitung von $f(x)=(2x-3)^{4}$.",
    "o": [
-    "$f'(x)=8(2x-3)^{4}$",
-    "$f'(x)=4(2x-3)^{3}$",
     "$f'(x)=8(2x-3)^{3}$",
-    "$f'(x)=2(2x-3)^{3}$"
+    "$f'(x)=2(2x-3)^{3}$",
+    "$f'(x)=4(2x-3)^{3}$",
+    "$f'(x)=8(2x-3)^{4}$"
    ],
-   "a": 2,
+   "a": 0,
    "e": "Kettenregel: äußere mal innere Ableitung. Außen: $4(2x-3)^{3}$. Innen: $2x-3$ abgeleitet ist $2$. Zusammen $4\\cdot2=8$ als Faktor.",
    "typ": "Kettenregel"
   },
@@ -5374,12 +5569,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme die Ableitung von $f(x)=(5x+1)^{3}$.",
    "o": [
+    "$f'(x)=5(5x+1)^{2}$",
     "$f'(x)=15(5x+1)^{2}$",
     "$f'(x)=3(5x+1)^{2}$",
-    "$f'(x)=5(5x+1)^{2}$",
     "$f'(x)=15(5x+1)^{3}$"
    ],
-   "a": 0,
+   "a": 1,
    "e": "Kettenregel: äußere mal innere Ableitung. Außen: $3(5x+1)^{2}$. Innen: $5x+1$ abgeleitet ist $5$. Zusammen $3\\cdot5=15$ als Faktor.",
    "typ": "Kettenregel"
   },
@@ -5389,10 +5584,10 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme die Ableitung von $f(x)=(-x+4)^{5}$.",
    "o": [
-    "$f'(x)=-5(-x+4)^{5}$",
+    "$f'(x)=-(-x+4)^{4}$",
     "$f'(x)=5(-x+4)^{4}$",
     "$f'(x)=-5(-x+4)^{4}$",
-    "$f'(x)=-(-x+4)^{4}$"
+    "$f'(x)=-5(-x+4)^{5}$"
    ],
    "a": 2,
    "e": "Kettenregel: äußere mal innere Ableitung. Außen: $5(-x+4)^{4}$. Innen: $-x+4$ abgeleitet ist $-1$. Zusammen $5\\cdot(-1)=-5$ als Faktor.",
@@ -5405,11 +5600,11 @@ window.BAPSY_DATA = {
    "q": "Bestimme die Ableitung von $f(x)=(3x+2)^{2}$.",
    "o": [
     "$f'(x)=2(3x+2)$",
-    "$f'(x)=6(3x+2)$",
+    "$f'(x)=3(3x+2)$",
     "$f'(x)=6(3x+2)^{2}$",
-    "$f'(x)=3(3x+2)$"
+    "$f'(x)=6(3x+2)$"
    ],
-   "a": 1,
+   "a": 3,
    "e": "Kettenregel: äußere mal innere Ableitung. Außen: $2(3x+2)$. Innen: $3x+2$ abgeleitet ist $3$. Zusammen $2\\cdot3=6$ als Faktor.",
    "typ": "Kettenregel"
   },
@@ -5419,12 +5614,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme die Ableitung von $f(x)=e^{3x}$.",
    "o": [
-    "$f'(x)=e^{3x}$",
     "$f'(x)=3e^{3x}$",
-    "$f'(x)=3e^{x}$",
-    "$f'(x)=3xe^{3x}$"
+    "$f'(x)=e^{3x}$",
+    "$f'(x)=3xe^{3x}$",
+    "$f'(x)=3e^{x}$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Kettenregel: $e^{\\ldots}$ bleibt stehen, mal die Ableitung der Hochzahl. $3x$ abgeleitet ist $3$.",
    "typ": "Kettenregel"
   },
@@ -5434,12 +5629,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme die Ableitung von $f(x)=e^{-2x}$.",
    "o": [
-    "$f'(x)=-2xe^{-2x}$",
+    "$f'(x)=e^{-2x}$",
     "$f'(x)=-2e^{x}$",
-    "$f'(x)=-2e^{-2x}$",
-    "$f'(x)=e^{-2x}$"
+    "$f'(x)=-2xe^{-2x}$",
+    "$f'(x)=-2e^{-2x}$"
    ],
-   "a": 2,
+   "a": 3,
    "e": "Kettenregel: $e^{\\ldots}$ bleibt stehen, mal die Ableitung der Hochzahl. $-2x$ abgeleitet ist $-2$.",
    "typ": "Kettenregel"
   },
@@ -5450,8 +5645,8 @@ window.BAPSY_DATA = {
    "q": "Bestimme die Ableitung von $f(x)=e^{5x}$.",
    "o": [
     "$f'(x)=5e^{x}$",
-    "$f'(x)=e^{5x}$",
     "$f'(x)=5xe^{5x}$",
+    "$f'(x)=e^{5x}$",
     "$f'(x)=5e^{5x}$"
    ],
    "a": 3,
@@ -5465,11 +5660,11 @@ window.BAPSY_DATA = {
    "q": "Gegeben ist $f(x)=(x^2+1)^3$. Berechne $f'(1)$.",
    "o": [
     "$8$",
-    "$48$",
     "$12$",
-    "$24$"
+    "$24$",
+    "$48$"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Kettenregel: $f'(x)=3(x^2+1)^2\\cdot2x$. Einsetzen: $3\\cdot2^2\\cdot2=24$.",
    "typ": "Kettenregel"
   },
@@ -5480,11 +5675,11 @@ window.BAPSY_DATA = {
    "q": "Gegeben ist $f(x)=(x^2+2)^3$. Berechne $f'(1)$.",
    "o": [
     "$162$",
-    "$60$",
     "$54$",
+    "$60$",
     "$27$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Kettenregel: $f'(x)=3(x^2+2)^2\\cdot2x$. Einsetzen: $3\\cdot3^2\\cdot2=54$.",
    "typ": "Kettenregel"
   },
@@ -5495,11 +5690,11 @@ window.BAPSY_DATA = {
    "q": "Bestimme die Ableitung von $f(x)=e^{x^2}$.",
    "o": [
     "$f'(x)=2e^{x^2}$",
+    "$f'(x)=e^{x^2}$",
     "$f'(x)=2xe^{x^2}$",
-    "$f'(x)=x^2e^{x^2-1}$",
-    "$f'(x)=e^{x^2}$"
+    "$f'(x)=x^2e^{x^2-1}$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "Kettenregel: $e^{\\ldots}$ bleibt stehen, mal die Ableitung der Hochzahl. $x^2$ abgeleitet ist $2x$.",
    "typ": "Kettenregel"
   },
@@ -5509,12 +5704,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme die Ableitung von $f(x)=\\sqrt{4x+1}$.",
    "o": [
-    "$f'(x)=\\dfrac{1}{2\\sqrt{4x+1}}$",
     "$f'(x)=\\dfrac{2}{\\sqrt{4x+1}}$",
+    "$f'(x)=2\\sqrt{4x+1}$",
     "$f'(x)=\\dfrac{4}{\\sqrt{4x+1}}$",
-    "$f'(x)=2\\sqrt{4x+1}$"
+    "$f'(x)=\\dfrac{1}{2\\sqrt{4x+1}}$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Kettenregel: außen $\\tfrac{1}{2\\sqrt{\\ldots}}$, innen ist die Ableitung 4. Zusammen $\\tfrac{4}{2\\sqrt{4x+1}}=\\tfrac{2}{\\sqrt{4x+1}}$.",
    "typ": "Kettenregel"
   },
@@ -5524,12 +5719,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme die Ableitung von $f(x)=x^3\\cdot e^x$.",
    "o": [
-    "$f'(x)=x^3e^x$",
     "$f'(x)=3x^2e^x$",
-    "$f'(x)=(3x^2+x^3)\\,e^x$",
-    "$f'(x)=3x^2+e^x$"
+    "$f'(x)=x^3e^x$",
+    "$f'(x)=3x^2+e^x$",
+    "$f'(x)=(3x^2+x^3)\\,e^x$"
    ],
-   "a": 2,
+   "a": 3,
    "e": "Produktregel $u'v+uv'$ mit $u=x^3$ und $v=e^x$: $3x^2e^x+x^3e^x$.",
    "typ": "Produktregel"
   },
@@ -5539,12 +5734,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme die Ableitung von $f(x)=(2x+1)\\cdot e^x$.",
    "o": [
-    "$f'(x)=(2x+1)\\,e^x$",
     "$f'(x)=2e^x$",
-    "$f'(x)=(2x+3)\\,e^x$",
-    "$f'(x)=(2x+2)\\,e^x$"
+    "$f'(x)=(2x+1)\\,e^x$",
+    "$f'(x)=(2x+2)\\,e^x$",
+    "$f'(x)=(2x+3)\\,e^x$"
    ],
-   "a": 2,
+   "a": 3,
    "e": "Produktregel $u'v+uv'$ mit $u=2x+1$ und $v=e^x$: $2e^x+(2x+1)e^x=(2x+3)e^x$.",
    "typ": "Produktregel"
   },
@@ -5554,12 +5749,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme die Ableitung von $f(x)=x^2\\cdot\\ln x$.",
    "o": [
-    "$f'(x)=2x\\ln x+x$",
     "$f'(x)=2$",
-    "$f'(x)=2x\\ln x$",
-    "$f'(x)=2x\\ln x+x^2$"
+    "$f'(x)=2x\\ln x+x^2$",
+    "$f'(x)=2x\\ln x+x$",
+    "$f'(x)=2x\\ln x$"
    ],
-   "a": 0,
+   "a": 2,
    "e": "Produktregel $u'v+uv'$ mit $u=x^2$ und $v=\\ln x$: $2x\\ln x+x^2\\cdot\\tfrac1x=2x\\ln x+x$.",
    "typ": "Produktregel"
   },
@@ -5569,10 +5764,10 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Zwei Würfel werden geworfen. Wie wahrscheinlich ist die Augensumme 4?",
    "o": [
-    "$\\dfrac{1}{18}$",
-    "$\\dfrac{1}{12}$",
     "$\\dfrac{1}{9}$",
-    "$\\dfrac{1}{6}$"
+    "$\\dfrac{1}{12}$",
+    "$\\dfrac{1}{6}$",
+    "$\\dfrac{1}{18}$"
    ],
    "a": 1,
    "e": "Passende Paare zählen: $(1,3),(2,2),(3,1)$. Das sind 3 von 36, also $\\tfrac{1}{12}$.",
@@ -5584,12 +5779,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Zwei Würfel werden geworfen. Wie wahrscheinlich ist die Augensumme 6?",
    "o": [
-    "$\\dfrac{1}{9}$",
-    "$\\dfrac{1}{6}$",
     "$\\dfrac{5}{36}$",
+    "$\\dfrac{1}{6}$",
+    "$\\dfrac{1}{9}$",
     "$\\dfrac{1}{12}$"
    ],
-   "a": 2,
+   "a": 0,
    "e": "Passende Paare zählen: $(1,5),(2,4),(3,3),(4,2),(5,1)$. Das sind 5 von 36, also $\\tfrac{5}{36}$.",
    "typ": "Zwei Würfel"
   },
@@ -5599,9 +5794,9 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Zwei Würfel werden geworfen. Wie wahrscheinlich ist die Augensumme 9?",
    "o": [
+    "$\\dfrac{1}{4}$",
     "$\\dfrac{5}{36}$",
     "$\\dfrac{1}{12}$",
-    "$\\dfrac{1}{4}$",
     "$\\dfrac{1}{9}$"
    ],
    "a": 3,
@@ -5614,12 +5809,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Zwei Würfel werden geworfen. Wie wahrscheinlich ist die Augensumme 10?",
    "o": [
-    "$\\dfrac{1}{12}$",
-    "$\\dfrac{1}{9}$",
     "$\\dfrac{1}{18}$",
-    "$\\dfrac{5}{18}$"
+    "$\\dfrac{1}{9}$",
+    "$\\dfrac{5}{18}$",
+    "$\\dfrac{1}{12}$"
    ],
-   "a": 0,
+   "a": 3,
    "e": "Passende Paare zählen: $(4,6),(5,5),(6,4)$. Das sind 3 von 36, also $\\tfrac{1}{12}$.",
    "typ": "Zwei Würfel"
   },
@@ -5629,12 +5824,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Zwei Würfel werden geworfen. Wie wahrscheinlich ist die Augensumme 3?",
    "o": [
-    "$\\dfrac{1}{12}$",
     "$\\dfrac{1}{6}$",
+    "$\\dfrac{1}{18}$",
     "$\\dfrac{1}{36}$",
-    "$\\dfrac{1}{18}$"
+    "$\\dfrac{1}{12}$"
    ],
-   "a": 3,
+   "a": 1,
    "e": "Passende Paare zählen: $(1,2),(2,1)$. Das sind 2 von 36, also $\\tfrac{1}{18}$.",
    "typ": "Zwei Würfel"
   },
@@ -5644,12 +5839,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Zwei Würfel werden geworfen. Wie wahrscheinlich ist mindestens eine 6?",
    "o": [
-    "$\\dfrac{25}{36}$",
-    "$\\dfrac{1}{36}$",
     "$\\dfrac{1}{3}$",
-    "$\\dfrac{11}{36}$"
+    "$\\dfrac{1}{36}$",
+    "$\\dfrac{11}{36}$",
+    "$\\dfrac{25}{36}$"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Gegenteil: keine 6 bei beiden Würfeln: $\\tfrac56\\cdot\\tfrac56=\\tfrac{25}{36}$. Also $1-\\tfrac{25}{36}=\\tfrac{11}{36}$.",
    "typ": "Zwei Würfel"
   },
@@ -5659,12 +5854,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Zwei Würfel werden geworfen. Wie wahrscheinlich ist zwei gerade Zahlen?",
    "o": [
-    "$\\dfrac{1}{3}$",
-    "$\\dfrac{1}{2}$",
     "$\\dfrac{1}{4}$",
+    "$\\dfrac{1}{2}$",
+    "$\\dfrac{1}{3}$",
     "$\\dfrac{1}{6}$"
    ],
-   "a": 2,
+   "a": 0,
    "e": "Jeder Würfel zeigt mit $\\tfrac12$ eine gerade Zahl. Beide: $\\tfrac12\\cdot\\tfrac12=\\tfrac{1}{4}$.",
    "typ": "Zwei Würfel"
   },
@@ -5674,12 +5869,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Zwei Würfel werden geworfen. Wie wahrscheinlich ist das Produkt 12?",
    "o": [
-    "$\\dfrac{1}{18}$",
     "$\\dfrac{1}{9}$",
+    "$\\dfrac{1}{18}$",
     "$\\dfrac{1}{6}$",
     "$\\dfrac{1}{12}$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Passende Paare: $(2,6),(3,4),(4,3),(6,2)$. Das sind 4 von 36, also $\\tfrac{1}{9}$.",
    "typ": "Zwei Würfel"
   },
@@ -5690,11 +5885,11 @@ window.BAPSY_DATA = {
    "q": "In einer Urne liegen 4 rote und 6 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie wahrscheinlich sind beide rot?",
    "o": [
     "$\\dfrac{8}{45}$",
-    "$\\dfrac{4}{25}$",
     "$\\dfrac{2}{15}$",
+    "$\\dfrac{4}{25}$",
     "$\\dfrac{2}{5}$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Entlang des Weges malnehmen. Erste Kugel rot: $\\tfrac{4}{10}$. Dann fehlt eine rote Kugel: $\\tfrac{3}{9}$. Zusammen $\\tfrac{4}{10}\\cdot\\tfrac{3}{9}=\\tfrac{2}{15}$.",
    "typ": "Urne"
   },
@@ -5704,12 +5899,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "In einer Urne liegen 5 rote und 3 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie wahrscheinlich sind beide rot?",
    "o": [
-    "$\\dfrac{5}{14}$",
     "$\\dfrac{25}{56}$",
-    "$\\dfrac{5}{8}$",
-    "$\\dfrac{25}{64}$"
+    "$\\dfrac{5}{14}$",
+    "$\\dfrac{25}{64}$",
+    "$\\dfrac{5}{8}$"
    ],
-   "a": 0,
+   "a": 1,
    "e": "Entlang des Weges malnehmen. Erste Kugel rot: $\\tfrac{5}{8}$. Dann fehlt eine rote Kugel: $\\tfrac{4}{7}$. Zusammen $\\tfrac{5}{8}\\cdot\\tfrac{4}{7}=\\tfrac{5}{14}$.",
    "typ": "Urne"
   },
@@ -5720,11 +5915,11 @@ window.BAPSY_DATA = {
    "q": "In einer Urne liegen 2 rote und 8 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie wahrscheinlich sind beide rot?",
    "o": [
     "$\\dfrac{1}{25}$",
-    "$\\dfrac{1}{5}$",
     "$\\dfrac{2}{45}$",
-    "$\\dfrac{1}{45}$"
+    "$\\dfrac{1}{45}$",
+    "$\\dfrac{1}{5}$"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Entlang des Weges malnehmen. Erste Kugel rot: $\\tfrac{2}{10}$. Dann fehlt eine rote Kugel: $\\tfrac{1}{9}$. Zusammen $\\tfrac{2}{10}\\cdot\\tfrac{1}{9}=\\tfrac{1}{45}$.",
    "typ": "Urne"
   },
@@ -5734,9 +5929,9 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "In einer Urne liegen 4 rote und 6 blaue Kugeln. Es wird zweimal ohne Zurücklegen gezogen. Wie wahrscheinlich haben die beiden Kugeln verschiedene Farben?",
    "o": [
+    "$\\dfrac{6}{25}$",
     "$\\dfrac{4}{15}$",
     "$\\dfrac{12}{25}$",
-    "$\\dfrac{6}{25}$",
     "$\\dfrac{8}{15}$"
    ],
    "a": 3,
@@ -5749,12 +5944,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "In einer Urne liegen 2 rote und 3 blaue Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie wahrscheinlich haben die beiden Kugeln verschiedene Farben?",
    "o": [
-    "$\\dfrac{3}{5}$",
-    "$\\dfrac{13}{25}$",
+    "$\\dfrac{6}{25}$",
     "$\\dfrac{12}{25}$",
-    "$\\dfrac{6}{25}$"
+    "$\\dfrac{3}{5}$",
+    "$\\dfrac{13}{25}$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Zwei Wege passen: erst rot, dann blau, oder erst blau, dann rot. Beide sind gleich wahrscheinlich: $2\\cdot\\tfrac{2}{5}\\cdot\\tfrac{3}{5}=\\tfrac{12}{25}$.",
    "typ": "Urne"
   },
@@ -5764,12 +5959,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "In einer Urne liegen 5 rote und 5 blaue Kugeln. Es wird zweimal ohne Zurücklegen gezogen. Wie wahrscheinlich haben die beiden Kugeln verschiedene Farben?",
    "o": [
+    "$\\dfrac{1}{2}$",
     "$\\dfrac{5}{18}$",
     "$\\dfrac{5}{9}$",
-    "$\\dfrac{1}{4}$",
-    "$\\dfrac{1}{2}$"
+    "$\\dfrac{1}{4}$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "Zwei Wege passen: erst rot, dann blau, oder erst blau, dann rot. Beide sind gleich wahrscheinlich: $2\\cdot\\tfrac{5}{10}\\cdot\\tfrac{5}{9}=\\tfrac{5}{9}$.",
    "typ": "Urne"
   },
@@ -5779,12 +5974,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "In einer Urne liegen 3 rote und 5 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie wahrscheinlich ist mindestens eine rot?",
    "o": [
-    "$\\dfrac{9}{14}$",
-    "$\\dfrac{5}{14}$",
     "$\\dfrac{15}{28}$",
+    "$\\dfrac{5}{14}$",
+    "$\\dfrac{9}{14}$",
     "$\\dfrac{3}{8}$"
    ],
-   "a": 0,
+   "a": 2,
    "e": "Gegenteil: keine rote, also zweimal blau: $\\tfrac{5}{8}\\cdot\\tfrac{4}{7}=\\tfrac{5}{14}$. Also $1-\\tfrac{5}{14}=\\tfrac{9}{14}$.",
    "typ": "Gegenereignis"
   },
@@ -5794,9 +5989,9 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "In einer Urne liegen 2 rote und 4 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie wahrscheinlich ist mindestens eine rot?",
    "o": [
+    "$\\dfrac{8}{15}$",
     "$\\dfrac{1}{3}$",
     "$\\dfrac{2}{5}$",
-    "$\\dfrac{8}{15}$",
     "$\\dfrac{3}{5}$"
    ],
    "a": 3,
@@ -5809,12 +6004,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Eine Münze wird dreimal geworfen. Wie wahrscheinlich ist mindestens einmal Kopf?",
    "o": [
-    "$\\dfrac{3}{8}$",
-    "$\\dfrac{1}{8}$",
     "$\\dfrac{1}{2}$",
-    "$\\dfrac{7}{8}$"
+    "$\\dfrac{7}{8}$",
+    "$\\dfrac{3}{8}$",
+    "$\\dfrac{1}{8}$"
    ],
-   "a": 3,
+   "a": 1,
    "e": "Gegenteil: nie Kopf, also nur Zahl: $\\left(\\tfrac12\\right)^{3}=\\tfrac{1}{8}$. Also $1-\\tfrac{1}{8}=\\tfrac{7}{8}$.",
    "typ": "Gegenereignis"
   },
@@ -5824,12 +6019,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Eine Münze wird sechsmal geworfen. Wie wahrscheinlich ist mindestens einmal Kopf?",
    "o": [
-    "$\\dfrac{1}{2}$",
     "$\\dfrac{63}{64}$",
-    "$\\dfrac{3}{32}$",
-    "$\\dfrac{1}{64}$"
+    "$\\dfrac{1}{64}$",
+    "$\\dfrac{1}{2}$",
+    "$\\dfrac{3}{32}$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Gegenteil: nie Kopf, also nur Zahl: $\\left(\\tfrac12\\right)^{6}=\\tfrac{1}{64}$. Also $1-\\tfrac{1}{64}=\\tfrac{63}{64}$.",
    "typ": "Gegenereignis"
   },
@@ -5839,12 +6034,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Aus den Zahlen 1 bis 30 wird eine zufällig gezogen. Wie wahrscheinlich ist sie durch 2 oder durch 5 teilbar?",
    "o": [
-    "$\\dfrac{7}{10}$",
-    "$\\dfrac{1}{2}$",
     "$\\dfrac{3}{5}$",
-    "$\\dfrac{1}{10}$"
+    "$\\dfrac{1}{10}$",
+    "$\\dfrac{7}{10}$",
+    "$\\dfrac{1}{2}$"
    ],
-   "a": 2,
+   "a": 0,
    "e": "15 Zahlen sind durch 2 teilbar, 6 durch 5. Doppelt gezählt sind die 3 Zahlen, die durch beides teilbar sind. Also $\\tfrac{15+6-3}{30}=\\tfrac{3}{5}$.",
    "typ": "Oder-Regel"
   },
@@ -5854,12 +6049,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Aus den Zahlen 1 bis 24 wird eine zufällig gezogen. Wie wahrscheinlich ist sie durch 3 oder durch 4 teilbar?",
    "o": [
-    "$\\dfrac{1}{2}$",
-    "$\\dfrac{7}{12}$",
     "$\\dfrac{5}{12}$",
-    "$\\dfrac{1}{12}$"
+    "$\\dfrac{1}{12}$",
+    "$\\dfrac{7}{12}$",
+    "$\\dfrac{1}{2}$"
    ],
-   "a": 0,
+   "a": 3,
    "e": "8 Zahlen sind durch 3 teilbar, 6 durch 4. Doppelt gezählt sind die 2 Zahlen, die durch beides teilbar sind. Also $\\tfrac{8+6-2}{24}=\\tfrac{1}{2}$.",
    "typ": "Oder-Regel"
   },
@@ -5869,12 +6064,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Aus den Zahlen 1 bis 60 wird eine zufällig gezogen. Wie wahrscheinlich ist sie durch 4 oder durch 6 teilbar?",
    "o": [
-    "$\\dfrac{1}{3}$",
     "$\\dfrac{1}{4}$",
+    "$\\dfrac{1}{3}$",
     "$\\dfrac{1}{12}$",
     "$\\dfrac{5}{12}$"
    ],
-   "a": 0,
+   "a": 1,
    "e": "15 Zahlen sind durch 4 teilbar, 10 durch 6. Doppelt gezählt sind die 5 Zahlen, die durch beides teilbar sind. Also $\\tfrac{15+10-5}{60}=\\tfrac{1}{3}$.",
    "typ": "Oder-Regel"
   },
@@ -5884,12 +6079,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "$A$ und $B$ sind unabhängig mit $P(A)=0{,}5$ und $P(B)=0{,}2$. Berechne $P(A\\text{ und }B)$.",
    "o": [
-    "$0{,}3$",
     "$0{,}1$",
+    "$0{,}3$",
     "$0{,}7$",
     "$0{,}6$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Unabhängig heißt malnehmen: $0{,}5\\cdot0{,}2=0{,}1$.",
    "typ": "Unabhängige Ereignisse"
   },
@@ -5899,12 +6094,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "$A$ und $B$ sind unabhängig mit $P(A)=0{,}3$ und $P(B)=0{,}4$. Berechne $P(A\\text{ oder }B)$.",
    "o": [
-    "$0{,}1$",
     "$0{,}58$",
     "$0{,}7$",
-    "$0{,}12$"
+    "$0{,}12$",
+    "$0{,}1$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Addieren und das doppelt Gezählte abziehen: $0{,}3+0{,}4-0{,}3\\cdot0{,}4=0{,}58$.",
    "typ": "Unabhängige Ereignisse"
   },
@@ -5914,12 +6109,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "$A$ und $B$ sind unabhängig mit $P(A)=0{,}25$ und $P(B)=0{,}4$. Berechne $P(A\\text{ und }B)$.",
    "o": [
-    "$0{,}65$",
-    "$0{,}15$",
+    "$0{,}55$",
     "$0{,}1$",
-    "$0{,}55$"
+    "$0{,}65$",
+    "$0{,}15$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Unabhängig heißt malnehmen: $0{,}25\\cdot0{,}4=0{,}1$.",
    "typ": "Unabhängige Ereignisse"
   },
@@ -5929,9 +6124,9 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "$A$ und $B$ sind unabhängig mit $P(A)=0{,}2$ und $P(B)=0{,}5$. Berechne $P(A\\text{ oder }B)$.",
    "o": [
-    "$0{,}3$",
     "$0{,}7$",
     "$0{,}1$",
+    "$0{,}3$",
     "$0{,}6$"
    ],
    "a": 3,
@@ -5944,10 +6139,10 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "In einer Umfrage wurden 100 Personen nach Wohnort und Auto gefragt (siehe Tabelle). Eine Person aus der Gruppe „Auto“ wird zufällig ausgewählt. Wie wahrscheinlich gehört sie zur Gruppe „Stadt“?",
    "o": [
-    "$\\dfrac{6}{25}$",
+    "$\\dfrac{14}{25}$",
     "$\\dfrac{3}{7}$",
     "$\\dfrac{2}{5}$",
-    "$\\dfrac{14}{25}$"
+    "$\\dfrac{6}{25}$"
    ],
    "a": 1,
    "e": "Die Grundmenge ist jetzt nur die Spalte „Auto“ mit 56 Personen. Davon sind 24 „Stadt“: $\\tfrac{24}{56}=\\tfrac{3}{7}$.",
@@ -5986,9 +6181,9 @@ window.BAPSY_DATA = {
    "q": "In einer Umfrage wurden 100 Personen nach Wohnort und Auto gefragt (siehe Tabelle). Eine Person aus der Gruppe „Stadt“ wird zufällig ausgewählt. Wie wahrscheinlich gehört sie zur Gruppe „Auto“?",
    "o": [
     "$\\dfrac{3}{7}$",
-    "$\\dfrac{6}{25}$",
+    "$\\dfrac{3}{5}$",
     "$\\dfrac{2}{5}$",
-    "$\\dfrac{3}{5}$"
+    "$\\dfrac{6}{25}$"
    ],
    "a": 2,
    "e": "Die Grundmenge ist jetzt nur die Zeile „Stadt“ mit 60 Personen. Davon sind 24 „Auto“: $\\tfrac{24}{60}=\\tfrac{2}{5}$.",
@@ -6027,11 +6222,11 @@ window.BAPSY_DATA = {
    "q": "80 Studierende wurden gefragt, ob sie morgens oder abends lernen und ob sie eine Lerngruppe haben (siehe Tabelle). Eine der 80 Personen wird zufällig ausgewählt. Wie wahrscheinlich gehört sie zu „morgens“ und zugleich zu „Lerngruppe“?",
    "o": [
     "$\\dfrac{3}{8}$",
+    "$\\dfrac{3}{20}$",
     "$\\dfrac{3}{5}$",
-    "$\\dfrac{9}{40}$",
-    "$\\dfrac{3}{20}$"
+    "$\\dfrac{9}{40}$"
    ],
-   "a": 2,
+   "a": 3,
    "e": "Hier zählen alle 80 Personen als Grundmenge. Im passenden Feld stehen 18: $\\tfrac{18}{80}=\\tfrac{9}{40}$.",
    "tabelle": [
     [
@@ -6067,9 +6262,9 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "80 Studierende wurden gefragt, ob sie morgens oder abends lernen und ob sie eine Lerngruppe haben (siehe Tabelle). Eine Person aus der Gruppe „Lerngruppe“ wird zufällig ausgewählt. Wie wahrscheinlich gehört sie zur Gruppe „morgens“?",
    "o": [
+    "$\\dfrac{9}{40}$",
     "$\\dfrac{3}{5}$",
     "$\\dfrac{3}{20}$",
-    "$\\dfrac{9}{40}$",
     "$\\dfrac{3}{8}$"
    ],
    "a": 3,
@@ -6108,12 +6303,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Aus einem Kartenspiel mit 32 Karten (4 Farben mit je 8 Karten, darunter je ein König) wird eine Karte gezogen. Wie wahrscheinlich ist ein König?",
    "o": [
+    "$\\dfrac{1}{32}$",
     "$\\dfrac{1}{16}$",
     "$\\dfrac{1}{8}$",
-    "$\\dfrac{1}{32}$",
     "$\\dfrac{1}{4}$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "Es gibt 4 Könige unter 32 Karten: $\\tfrac4{32}=\\tfrac18$.",
    "typ": "Grundformel"
   },
@@ -6123,12 +6318,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Aus einem Kartenspiel mit 32 Karten (4 Farben mit je 8 Karten, darunter je ein König) wird eine Karte gezogen. Wie wahrscheinlich ist eine Herz-Karte?",
    "o": [
-    "$\\dfrac{1}{4}$",
+    "$\\dfrac{1}{32}$",
     "$\\dfrac{1}{8}$",
-    "$\\dfrac{1}{2}$",
-    "$\\dfrac{1}{32}$"
+    "$\\dfrac{1}{4}$",
+    "$\\dfrac{1}{2}$"
    ],
-   "a": 0,
+   "a": 2,
    "e": "Es gibt 8 Herz-Karten unter 32 Karten: $\\tfrac8{32}=\\tfrac14$.",
    "typ": "Grundformel"
   },
@@ -6138,12 +6333,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Aus einem Kartenspiel mit 32 Karten (4 Farben mit je 8 Karten, darunter je ein König) wird eine Karte gezogen. Wie wahrscheinlich ist ein König oder eine Herz-Karte?",
    "o": [
-    "$\\dfrac{11}{32}$",
-    "$\\dfrac{1}{4}$",
     "$\\dfrac{3}{8}$",
-    "$\\dfrac{1}{32}$"
+    "$\\dfrac{11}{32}$",
+    "$\\dfrac{1}{32}$",
+    "$\\dfrac{1}{4}$"
    ],
-   "a": 0,
+   "a": 1,
    "e": "4 Könige plus 8 Herz-Karten, aber der Herz-König ist doppelt gezählt: $\\tfrac{4+8-1}{32}=\\tfrac{11}{32}$.",
    "typ": "Grundformel"
   },
@@ -6155,10 +6350,10 @@ window.BAPSY_DATA = {
    "o": [
     "$64$",
     "$16$",
-    "$56$",
-    "$28$"
+    "$28$",
+    "$56$"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Die Reihenfolge ist egal: $\\binom{8}{2}=\\dfrac{8\\cdot7}{2\\cdot1}=28$. Mit Reihenfolge wären es $56$.",
    "typ": "Auswahl ohne Reihenfolge"
   },
@@ -6168,12 +6363,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Aus 10 Büchern nimmst du 3 mit in den Urlaub. Wie viele Möglichkeiten gibt es?",
    "o": [
-    "$1000$",
     "$120$",
-    "$30$",
-    "$720$"
+    "$1000$",
+    "$720$",
+    "$30$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Die Reihenfolge ist egal: $\\binom{10}{3}=\\dfrac{10\\cdot9\\cdot8}{3\\cdot2\\cdot1}=120$. Mit Reihenfolge wären es $720$.",
    "typ": "Auswahl ohne Reihenfolge"
   },
@@ -6183,12 +6378,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Aus 6 Farben werden 4 für ein Logo ausgewählt. Wie viele Möglichkeiten gibt es?",
    "o": [
-    "$15$",
     "$24$",
     "$360$",
-    "$1296$"
+    "$1296$",
+    "$15$"
    ],
-   "a": 0,
+   "a": 3,
    "e": "Die Reihenfolge ist egal: $\\binom{6}{4}=\\dfrac{6\\cdot5\\cdot4\\cdot3}{4\\cdot3\\cdot2\\cdot1}=15$. Mit Reihenfolge wären es $360$.",
    "typ": "Auswahl ohne Reihenfolge"
   },
@@ -6198,12 +6393,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "12 Personen stoßen an, jede mit jeder genau einmal. Gezählt werden die Paare. Wie viele Möglichkeiten gibt es?",
    "o": [
-    "$66$",
     "$132$",
-    "$144$",
-    "$24$"
+    "$24$",
+    "$66$",
+    "$144$"
    ],
-   "a": 0,
+   "a": 2,
    "e": "Die Reihenfolge ist egal: $\\binom{12}{2}=\\dfrac{12\\cdot11}{2\\cdot1}=66$. Mit Reihenfolge wären es $132$.",
    "typ": "Auswahl ohne Reihenfolge"
   },
@@ -6213,10 +6408,10 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Bei einem Rennen mit 6 Läufern werden Platz 1, 2 und 3 vergeben. Wie viele Möglichkeiten gibt es?",
    "o": [
-    "$216$",
+    "$18$",
     "$120$",
     "$20$",
-    "$18$"
+    "$216$"
    ],
    "a": 1,
    "e": "Die Reihenfolge zählt, und niemand kommt doppelt vor: $6\\cdot5\\cdot4=120$.",
@@ -6228,12 +6423,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Aus 10 Mitgliedern werden eine Vorsitzende und ein Kassenwart gewählt. Wie viele Möglichkeiten gibt es?",
    "o": [
-    "$45$",
-    "$100$",
+    "$90$",
     "$20$",
-    "$90$"
+    "$45$",
+    "$100$"
    ],
-   "a": 3,
+   "a": 0,
    "e": "Die Reihenfolge zählt, und niemand kommt doppelt vor: $10\\cdot9=90$.",
    "typ": "Auswahl mit Reihenfolge"
   },
@@ -6244,11 +6439,11 @@ window.BAPSY_DATA = {
    "q": "Von 7 verschiedenen Bildern werden 3 nebeneinander aufgehängt. Wie viele Möglichkeiten gibt es?",
    "o": [
     "$21$",
-    "$210$",
+    "$35$",
     "$343$",
-    "$35$"
+    "$210$"
    ],
-   "a": 1,
+   "a": 3,
    "e": "Die Reihenfolge zählt, und niemand kommt doppelt vor: $7\\cdot6\\cdot5=210$.",
    "typ": "Auswahl mit Reihenfolge"
   },
@@ -6258,12 +6453,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "5 Freunde setzen sich nebeneinander auf eine Bank. Wie viele Reihenfolgen gibt es?",
    "o": [
-    "$32$",
-    "$15$",
     "$120$",
+    "$15$",
+    "$32$",
     "$25$"
    ],
-   "a": 2,
+   "a": 0,
    "e": "Alle 5 anordnen: $5!=5\\cdot4\\cdot3\\cdot2\\cdot1=120$. Für den ersten Platz gibt es 5 Möglichkeiten, für den zweiten noch 4 und so weiter.",
    "typ": "Anordnen"
   },
@@ -6273,12 +6468,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "6 verschiedene Lieder werden in einer Playlist angeordnet. Wie viele Reihenfolgen gibt es?",
    "o": [
-    "$64$",
-    "$21$",
     "$36$",
-    "$720$"
+    "$21$",
+    "$720$",
+    "$64$"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Alle 6 anordnen: $6!=6\\cdot5\\cdot4\\cdot3\\cdot2\\cdot1=720$. Für den ersten Platz gibt es 6 Möglichkeiten, für den zweiten noch 5 und so weiter.",
    "typ": "Anordnen"
   },
@@ -6288,12 +6483,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Die Buchstaben A, B und C werden angeordnet. Wie viele Reihenfolgen gibt es?",
    "o": [
+    "$6$",
     "$9$",
-    "$8$",
     "$27$",
-    "$6$"
+    "$8$"
    ],
-   "a": 3,
+   "a": 0,
    "e": "Alle 3 anordnen: $3!=3\\cdot2\\cdot1=6$. Für den ersten Platz gibt es 3 Möglichkeiten, für den zweiten noch 2 und so weiter.",
    "typ": "Anordnen"
   },
@@ -6304,11 +6499,11 @@ window.BAPSY_DATA = {
    "q": "Ein Würfel wird dreimal geworfen. Wie viele verschiedene Ergebnisfolgen gibt es?",
    "o": [
     "$729$",
-    "$84$",
     "$216$",
+    "$84$",
     "$18$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Jeder der 3 Schritte hat 6 Möglichkeiten, Wiederholung ist erlaubt: $6^{3}=216$.",
    "typ": "Mit Wiederholung"
   },
@@ -6318,12 +6513,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Eine Münze wird fünfmal geworfen. Wie viele verschiedene Folgen aus Kopf und Zahl gibt es?",
    "o": [
-    "$25$",
-    "$10$",
+    "$21$",
     "$32$",
-    "$21$"
+    "$25$",
+    "$10$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Jeder der 5 Schritte hat 2 Möglichkeiten, Wiederholung ist erlaubt: $2^{5}=32$.",
    "typ": "Mit Wiederholung"
   },
@@ -6334,11 +6529,11 @@ window.BAPSY_DATA = {
    "q": "Ein Kürzel besteht aus 2 Buchstaben (26 stehen zur Wahl, Wiederholung erlaubt). Wie viele Kürzel gibt es?",
    "o": [
     "$52$",
-    "$676$",
+    "$378$",
     "$67108864$",
-    "$378$"
+    "$676$"
    ],
-   "a": 1,
+   "a": 3,
    "e": "Jeder der 2 Schritte hat 26 Möglichkeiten, Wiederholung ist erlaubt: $26^{2}=676$.",
    "typ": "Mit Wiederholung"
   },
@@ -6348,12 +6543,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Berechne $\\dfrac{7!}{5!}$.",
    "o": [
+    "$2$",
     "$\\dfrac{7}{5}$",
     "$35$",
-    "$42$",
-    "$2$"
+    "$42$"
    ],
-   "a": 2,
+   "a": 3,
    "e": "Ausschreiben und kürzen: Von $7!$ bleibt nur $7\\cdot6=42$ übrig.",
    "typ": "Anordnen"
   },
@@ -6364,8 +6559,8 @@ window.BAPSY_DATA = {
    "q": "Berechne $\\dfrac{8!}{6!}$.",
    "o": [
     "$56$",
-    "$\\dfrac{4}{3}$",
     "$2$",
+    "$\\dfrac{4}{3}$",
     "$48$"
    ],
    "a": 0,
@@ -6379,11 +6574,11 @@ window.BAPSY_DATA = {
    "q": "Berechne $\\dfrac{5!}{3!}$.",
    "o": [
     "$15$",
+    "$20$",
     "$2$",
-    "$\\dfrac{5}{3}$",
-    "$20$"
+    "$\\dfrac{5}{3}$"
    ],
-   "a": 3,
+   "a": 1,
    "e": "Ausschreiben und kürzen: Von $5!$ bleibt nur $5\\cdot4=20$ übrig.",
    "typ": "Anordnen"
   },
@@ -6393,12 +6588,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Ein Spiel kostet 2 € Einsatz. Dann gilt: mit Wahrscheinlichkeit $0{,}25$ werden 4 € ausgezahlt, mit Wahrscheinlichkeit $0{,}25$ werden 2 € ausgezahlt, sonst nichts. Was gilt für den erwarteten Gewinn pro Spiel?",
    "o": [
-    "1,50 € Gewinn",
-    "0 € (faires Spiel)",
     "0,50 € Verlust",
+    "0 € (faires Spiel)",
+    "1,50 € Gewinn",
     "0,50 € Gewinn"
    ],
-   "a": 2,
+   "a": 0,
    "e": "Erwartete Auszahlung: $0{,}25\\cdot4+0{,}25\\cdot2=1{,}5$ €. Minus 2 € Einsatz ergibt $-0{,}5$ €.",
    "typ": "Erwartungswert"
   },
@@ -6408,12 +6603,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Ein Spiel kostet 3 € Einsatz. Dann gilt: mit Wahrscheinlichkeit $0{,}5$ werden 5 € ausgezahlt, mit Wahrscheinlichkeit $0{,}1$ werden 10 € ausgezahlt, sonst nichts. Was gilt für den erwarteten Gewinn pro Spiel?",
    "o": [
+    "0,50 € Verlust",
     "0 € (faires Spiel)",
-    "0,50 € Gewinn",
     "3,50 € Gewinn",
-    "0,50 € Verlust"
+    "0,50 € Gewinn"
    ],
-   "a": 1,
+   "a": 3,
    "e": "Erwartete Auszahlung: $0{,}5\\cdot5+0{,}1\\cdot10=3{,}5$ €. Minus 3 € Einsatz ergibt $0{,}5$ €.",
    "typ": "Erwartungswert"
   },
@@ -6423,12 +6618,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Ein Spiel kostet 5 € Einsatz. Dann gilt: mit Wahrscheinlichkeit $0{,}2$ werden 20 € ausgezahlt, sonst nichts. Was gilt für den erwarteten Gewinn pro Spiel?",
    "o": [
-    "1 € Verlust",
     "0 € (faires Spiel)",
-    "4 € Gewinn",
-    "1 € Gewinn"
+    "1 € Verlust",
+    "1 € Gewinn",
+    "4 € Gewinn"
    ],
-   "a": 0,
+   "a": 1,
    "e": "Erwartete Auszahlung: $0{,}2\\cdot20=4$ €. Minus 5 € Einsatz ergibt $-1$ €.",
    "typ": "Erwartungswert"
   },
@@ -6440,10 +6635,10 @@ window.BAPSY_DATA = {
    "o": [
     "2 € Gewinn",
     "1 € Gewinn",
-    "1 € Verlust",
-    "0 € (faires Spiel)"
+    "0 € (faires Spiel)",
+    "1 € Verlust"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Erwartete Auszahlung: $0{,}1\\cdot10=1$ €. Minus 1 € Einsatz ergibt $0$ €.",
    "typ": "Erwartungswert"
   },
@@ -6453,12 +6648,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Eine Zufallsgröße $X$ nimmt die Werte aus der Tabelle an. Wie groß ist der Erwartungswert von $X$?",
    "o": [
-    "$0{,}7$",
     "$3$",
     "$0$",
+    "$0{,}7$",
     "$1$"
    ],
-   "a": 0,
+   "a": 2,
    "e": "Jeden Wert mit seiner Wahrscheinlichkeit malnehmen und alles addieren: $0\\cdot0{,}5+1\\cdot0{,}3+2\\cdot0{,}2=0{,}7$.",
    "tabelle": [
     [
@@ -6482,12 +6677,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Eine Zufallsgröße $X$ nimmt die Werte aus der Tabelle an. Wie groß ist der Erwartungswert von $X$?",
    "o": [
+    "$3$",
     "$2{,}5$",
     "$10$",
-    "$3$",
     "$4$"
    ],
-   "a": 2,
+   "a": 0,
    "e": "Jeden Wert mit seiner Wahrscheinlichkeit malnehmen und alles addieren: $1\\cdot0{,}1+2\\cdot0{,}2+3\\cdot0{,}3+4\\cdot0{,}4=3$.",
    "tabelle": [
     [
@@ -6514,9 +6709,9 @@ window.BAPSY_DATA = {
    "q": "Eine Münze wird viermal geworfen. Wie wahrscheinlich ist genau einmal Kopf?",
    "o": [
     "$\\dfrac{1}{4}$",
-    "$\\dfrac{1}{16}$",
     "$\\dfrac{3}{8}$",
-    "$\\dfrac{1}{2}$"
+    "$\\dfrac{1}{2}$",
+    "$\\dfrac{1}{16}$"
    ],
    "a": 0,
    "e": "$n=4$, $k=1$, $p=\\tfrac12$: $\\binom{4}{1}\\cdot\\left(\\tfrac12\\right)^{4}=4\\cdot\\tfrac{1}{16}=\\tfrac{1}{4}$. Die $4$ zählt, an welchen Stellen Kopf fallen kann.",
@@ -6528,12 +6723,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Eine Münze wird viermal geworfen. Wie wahrscheinlich ist genau dreimal Kopf?",
    "o": [
+    "$\\dfrac{1}{2}$",
     "$\\dfrac{3}{4}$",
     "$\\dfrac{1}{4}$",
-    "$\\dfrac{1}{2}$",
     "$\\dfrac{1}{16}$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "$n=4$, $k=3$, $p=\\tfrac12$: $\\binom{4}{3}\\cdot\\left(\\tfrac12\\right)^{4}=4\\cdot\\tfrac{1}{16}=\\tfrac{1}{4}$. Die $4$ zählt, an welchen Stellen Kopf fallen kann.",
    "typ": "Binomialverteilung"
   },
@@ -6543,12 +6738,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Eine Münze wird fünfmal geworfen. Wie wahrscheinlich ist genau zweimal Kopf?",
    "o": [
-    "$\\dfrac{5}{32}$",
-    "$\\dfrac{5}{16}$",
     "$\\dfrac{2}{5}$",
-    "$\\dfrac{1}{32}$"
+    "$\\dfrac{1}{32}$",
+    "$\\dfrac{5}{16}$",
+    "$\\dfrac{5}{32}$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "$n=5$, $k=2$, $p=\\tfrac12$: $\\binom{5}{2}\\cdot\\left(\\tfrac12\\right)^{5}=10\\cdot\\tfrac{1}{32}=\\tfrac{5}{16}$. Die $10$ zählt, an welchen Stellen Kopf fallen kann.",
    "typ": "Binomialverteilung"
   },
@@ -6558,12 +6753,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Eine Münze wird sechsmal geworfen. Wie wahrscheinlich ist genau dreimal Kopf?",
    "o": [
-    "$\\dfrac{1}{64}$",
     "$\\dfrac{3}{32}$",
+    "$\\dfrac{5}{16}$",
     "$\\dfrac{1}{2}$",
-    "$\\dfrac{5}{16}$"
+    "$\\dfrac{1}{64}$"
    ],
-   "a": 3,
+   "a": 1,
    "e": "$n=6$, $k=3$, $p=\\tfrac12$: $\\binom{6}{3}\\cdot\\left(\\tfrac12\\right)^{6}=20\\cdot\\tfrac{1}{64}=\\tfrac{5}{16}$. Die $20$ zählt, an welchen Stellen Kopf fallen kann.",
    "typ": "Binomialverteilung"
   },
@@ -6573,12 +6768,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Ein Glücksrad hat drei gleich große Felder, eines davon gewinnt. Es wird dreimal gedreht. Wie wahrscheinlich ist genau einmal Gewinn?",
    "o": [
+    "$\\dfrac{4}{9}$",
     "$\\dfrac{4}{27}$",
-    "$\\dfrac{1}{3}$",
     "$1$",
-    "$\\dfrac{4}{9}$"
+    "$\\dfrac{1}{3}$"
    ],
-   "a": 3,
+   "a": 0,
    "e": "$n=3$, $k=1$, $p=\\tfrac13$: $\\binom{3}{1}\\cdot\\left(\\tfrac13\\right)^{1}\\cdot\\left(\\tfrac23\\right)^{2}=\\tfrac{4}{9}$.",
    "typ": "Binomialverteilung"
   },
@@ -6588,12 +6783,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Ein Glücksrad hat drei gleich große Felder, eines davon gewinnt. Es wird dreimal gedreht. Wie wahrscheinlich ist genau zweimal Gewinn?",
    "o": [
-    "$\\dfrac{2}{9}$",
     "$\\dfrac{2}{27}$",
     "$\\dfrac{2}{3}$",
-    "$\\dfrac{1}{3}$"
+    "$\\dfrac{1}{3}$",
+    "$\\dfrac{2}{9}$"
    ],
-   "a": 0,
+   "a": 3,
    "e": "$n=3$, $k=2$, $p=\\tfrac13$: $\\binom{3}{2}\\cdot\\left(\\tfrac13\\right)^{2}\\cdot\\left(\\tfrac23\\right)^{1}=\\tfrac{2}{9}$.",
    "typ": "Binomialverteilung"
   },
@@ -6603,10 +6798,10 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Ein Glücksrad hat drei gleich große Felder, eines davon gewinnt. Es wird viermal gedreht. Wie wahrscheinlich ist genau keinmal Gewinn?",
    "o": [
-    "$\\dfrac{65}{81}$",
+    "$1$",
     "$\\dfrac{16}{81}$",
     "$0$",
-    "$1$"
+    "$\\dfrac{65}{81}$"
    ],
    "a": 1,
    "e": "$n=4$, $k=0$, $p=\\tfrac13$: $\\binom{4}{0}\\cdot\\left(\\tfrac13\\right)^{0}\\cdot\\left(\\tfrac23\\right)^{4}=\\tfrac{16}{81}$.",
@@ -6620,8 +6815,8 @@ window.BAPSY_DATA = {
    "o": [
     "$\\mu=32,\\;\\sigma=4$",
     "$\\mu=32,\\;\\sigma=6$",
-    "$\\mu=32,\\;\\sigma=16$",
-    "$\\mu=32,\\;\\sigma=8$"
+    "$\\mu=32,\\;\\sigma=8$",
+    "$\\mu=32,\\;\\sigma=16$"
    ],
    "a": 0,
    "e": "$\\mu=n\\cdot p=32$. $\\sigma^2=n\\cdot p\\cdot(1-p)=16$, am Ende noch die Wurzel: $\\sigma=4$.",
@@ -6633,9 +6828,9 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "$X$ ist binomialverteilt mit $n=100$ und $p=0{,}1$. Welche Werte haben $\\mu$ und $\\sigma$?",
    "o": [
-    "$\\mu=90,\\;\\sigma=3$",
     "$\\mu=10,\\;\\sigma=6$",
     "$\\mu=10,\\;\\sigma=9$",
+    "$\\mu=90,\\;\\sigma=3$",
     "$\\mu=10,\\;\\sigma=3$"
    ],
    "a": 3,
@@ -6648,9 +6843,9 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "$X$ ist binomialverteilt mit $n=400$ und $p=0{,}5$. Welche Werte haben $\\mu$ und $\\sigma$?",
    "o": [
-    "$\\mu=200,\\;\\sigma=12$",
-    "$\\mu=200,\\;\\sigma=10$",
     "$\\mu=200,\\;\\sigma=20$",
+    "$\\mu=200,\\;\\sigma=10$",
+    "$\\mu=200,\\;\\sigma=12$",
     "$\\mu=200,\\;\\sigma=100$"
    ],
    "a": 1,
@@ -6678,12 +6873,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "$X$ ist binomialverteilt mit $n=150$ und $p=0{,}4$. Welche Werte haben $\\mu$ und $\\sigma$?",
    "o": [
+    "$\\mu=60,\\;\\sigma=36$",
     "$\\mu=60,\\;\\sigma=12$",
     "$\\mu=90,\\;\\sigma=6$",
-    "$\\mu=60,\\;\\sigma=6$",
-    "$\\mu=60,\\;\\sigma=36$"
+    "$\\mu=60,\\;\\sigma=6$"
    ],
-   "a": 2,
+   "a": 3,
    "e": "$\\mu=n\\cdot p=60$. $\\sigma^2=n\\cdot p\\cdot(1-p)=36$, am Ende noch die Wurzel: $\\sigma=6$.",
    "typ": "Binomialverteilung"
   },
@@ -6694,9 +6889,9 @@ window.BAPSY_DATA = {
    "q": "Ein Test hat 40 Fragen mit je 4 Antworten, von denen eine stimmt. Jemand rät bei allen Fragen. Wie viele richtige Antworten sind zu erwarten?",
    "o": [
     "$10$",
-    "$20$",
+    "$4$",
     "$30$",
-    "$4$"
+    "$20$"
    ],
    "a": 0,
    "e": "Erwartungswert $\\mu=n\\cdot p=40\\cdot\\tfrac1{4}=10$.",
@@ -6708,12 +6903,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Ein Würfel wird 30-mal geworfen. Wie oft ist die 6 zu erwarten?",
    "o": [
-    "$5$",
     "$25$",
     "$6$",
-    "$15$"
+    "$15$",
+    "$5$"
    ],
-   "a": 0,
+   "a": 3,
    "e": "Erwartungswert $\\mu=n\\cdot p=30\\cdot\\tfrac1{6}=5$.",
    "typ": "Binomialverteilung"
   },
@@ -6723,12 +6918,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Wie lang ist der Vektor $\\vec v=\\begin{pmatrix}1\\\\-2\\\\2\\end{pmatrix}$?",
    "o": [
-    "$\\sqrt{5}$",
-    "$9$",
     "$3$",
-    "$5$"
+    "$5$",
+    "$9$",
+    "$\\sqrt{5}$"
    ],
-   "a": 2,
+   "a": 0,
    "e": "Alle Zahlen quadrieren, addieren, Wurzel ziehen: $\\sqrt{1+4+4}=\\sqrt{9}=3$. Das Minus verschwindet beim Quadrieren.",
    "typ": "Länge und Abstand"
   },
@@ -6738,12 +6933,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Wie lang ist der Vektor $\\vec v=\\begin{pmatrix}2\\\\3\\\\-6\\end{pmatrix}$?",
    "o": [
-    "$49$",
-    "$11$",
     "$7$",
-    "$\\sqrt{11}$"
+    "$\\sqrt{11}$",
+    "$11$",
+    "$49$"
    ],
-   "a": 2,
+   "a": 0,
    "e": "Alle Zahlen quadrieren, addieren, Wurzel ziehen: $\\sqrt{4+9+36}=\\sqrt{49}=7$. Das Minus verschwindet beim Quadrieren.",
    "typ": "Länge und Abstand"
   },
@@ -6753,10 +6948,10 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Wie lang ist der Vektor $\\vec v=\\begin{pmatrix}4\\\\-4\\\\7\\end{pmatrix}$?",
    "o": [
-    "$\\sqrt{15}$",
-    "$9$",
     "$81$",
-    "$15$"
+    "$9$",
+    "$15$",
+    "$\\sqrt{15}$"
    ],
    "a": 1,
    "e": "Alle Zahlen quadrieren, addieren, Wurzel ziehen: $\\sqrt{16+16+49}=\\sqrt{81}=9$. Das Minus verschwindet beim Quadrieren.",
@@ -6768,12 +6963,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Wie lang ist der Vektor $\\vec v=\\begin{pmatrix}2\\\\6\\\\9\\end{pmatrix}$?",
    "o": [
-    "$11$",
-    "$17$",
     "$\\sqrt{17}$",
-    "$121$"
+    "$17$",
+    "$121$",
+    "$11$"
    ],
-   "a": 0,
+   "a": 3,
    "e": "Alle Zahlen quadrieren, addieren, Wurzel ziehen: $\\sqrt{4+36+81}=\\sqrt{121}=11$. Das Minus verschwindet beim Quadrieren.",
    "typ": "Länge und Abstand"
   },
@@ -6783,12 +6978,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Wie lang ist der Vektor $\\vec v=\\begin{pmatrix}-1\\\\4\\\\8\\end{pmatrix}$?",
    "o": [
-    "$13$",
     "$81$",
-    "$\\sqrt{13}$",
-    "$9$"
+    "$9$",
+    "$13$",
+    "$\\sqrt{13}$"
    ],
-   "a": 3,
+   "a": 1,
    "e": "Alle Zahlen quadrieren, addieren, Wurzel ziehen: $\\sqrt{1+16+64}=\\sqrt{81}=9$. Das Minus verschwindet beim Quadrieren.",
    "typ": "Länge und Abstand"
   },
@@ -6798,12 +6993,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Bestimme den Vektor $\\overrightarrow{AB}$ für $A(2\\,|\\,1\\,|\\,4)$ und $B(5\\,|\\,-3\\,|\\,6)$.",
    "o": [
-    "$\\begin{pmatrix}7\\\\-2\\\\10\\end{pmatrix}$",
-    "$\\begin{pmatrix}3\\\\-4\\\\2\\end{pmatrix}$",
+    "$\\begin{pmatrix}\\tfrac{7}{2}\\\\-1\\\\5\\end{pmatrix}$",
     "$\\begin{pmatrix}-3\\\\4\\\\-2\\end{pmatrix}$",
-    "$\\begin{pmatrix}\\tfrac{7}{2}\\\\-1\\\\5\\end{pmatrix}$"
+    "$\\begin{pmatrix}3\\\\-4\\\\2\\end{pmatrix}$",
+    "$\\begin{pmatrix}7\\\\-2\\\\10\\end{pmatrix}$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "Spitze minus Fuß, also $B$ minus $A$, Zeile für Zeile: $5-2=3,\\ -3-1=-4,\\ 6-4=2$.",
    "typ": "Verbindungsvektor"
   },
@@ -6814,9 +7009,9 @@ window.BAPSY_DATA = {
    "q": "Bestimme den Vektor $\\overrightarrow{AB}$ für $A(-1\\,|\\,0\\,|\\,3)$ und $B(2\\,|\\,2\\,|\\,-1)$.",
    "o": [
     "$\\begin{pmatrix}3\\\\2\\\\-4\\end{pmatrix}$",
-    "$\\begin{pmatrix}\\tfrac{1}{2}\\\\1\\\\1\\end{pmatrix}$",
+    "$\\begin{pmatrix}-3\\\\-2\\\\4\\end{pmatrix}$",
     "$\\begin{pmatrix}1\\\\2\\\\2\\end{pmatrix}$",
-    "$\\begin{pmatrix}-3\\\\-2\\\\4\\end{pmatrix}$"
+    "$\\begin{pmatrix}\\tfrac{1}{2}\\\\1\\\\1\\end{pmatrix}$"
    ],
    "a": 0,
    "e": "Spitze minus Fuß, also $B$ minus $A$, Zeile für Zeile: $2-(-1)=3,\\ 2-0=2,\\ -1-3=-4$.",
@@ -6829,11 +7024,11 @@ window.BAPSY_DATA = {
    "q": "Bestimme den Vektor $\\overrightarrow{AB}$ für $A(4\\,|\\,-2\\,|\\,0)$ und $B(1\\,|\\,3\\,|\\,5)$.",
    "o": [
     "$\\begin{pmatrix}\\tfrac{5}{2}\\\\\\tfrac{1}{2}\\\\\\tfrac{5}{2}\\end{pmatrix}$",
+    "$\\begin{pmatrix}-3\\\\5\\\\5\\end{pmatrix}$",
     "$\\begin{pmatrix}3\\\\-5\\\\-5\\end{pmatrix}$",
-    "$\\begin{pmatrix}5\\\\1\\\\5\\end{pmatrix}$",
-    "$\\begin{pmatrix}-3\\\\5\\\\5\\end{pmatrix}$"
+    "$\\begin{pmatrix}5\\\\1\\\\5\\end{pmatrix}$"
    ],
-   "a": 3,
+   "a": 1,
    "e": "Spitze minus Fuß, also $B$ minus $A$, Zeile für Zeile: $1-4=-3,\\ 3-(-2)=5,\\ 5-0=5$.",
    "typ": "Verbindungsvektor"
   },
@@ -6844,11 +7039,11 @@ window.BAPSY_DATA = {
    "q": "Wie weit sind $P(1\\,|\\,1\\,|\\,1)$ und $Q(3\\,|\\,4\\,|\\,7)$ voneinander entfernt?",
    "o": [
     "$49$",
-    "$7$",
     "$\\sqrt{11}$",
+    "$7$",
     "$11$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "Erst der Vektor dazwischen: $\\overrightarrow{PQ}=\\begin{pmatrix}2\\\\3\\\\6\\end{pmatrix}$. Dann seine Länge: $\\sqrt{4+9+36}=\\sqrt{49}=7$.",
    "typ": "Länge und Abstand"
   },
@@ -6858,12 +7053,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Wie weit sind $P(0\\,|\\,2\\,|\\,-1)$ und $Q(4\\,|\\,6\\,|\\,6)$ voneinander entfernt?",
    "o": [
-    "$\\sqrt{15}$",
-    "$15$",
     "$9$",
-    "$81$"
+    "$\\sqrt{15}$",
+    "$81$",
+    "$15$"
    ],
-   "a": 2,
+   "a": 0,
    "e": "Erst der Vektor dazwischen: $\\overrightarrow{PQ}=\\begin{pmatrix}4\\\\4\\\\7\\end{pmatrix}$. Dann seine Länge: $\\sqrt{16+16+49}=\\sqrt{81}=9$.",
    "typ": "Länge und Abstand"
   },
@@ -6873,9 +7068,9 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Wie weit sind $P(2\\,|\\,-1\\,|\\,3)$ und $Q(4\\,|\\,5\\,|\\,12)$ voneinander entfernt?",
    "o": [
-    "$17$",
-    "$\\sqrt{17}$",
     "$121$",
+    "$\\sqrt{17}$",
+    "$17$",
     "$11$"
    ],
    "a": 3,
@@ -6889,8 +7084,8 @@ window.BAPSY_DATA = {
    "q": "Bestimme den Mittelpunkt der Strecke zwischen $A(1\\,|\\,5\\,|\\,-2)$ und $B(3\\,|\\,-1\\,|\\,6)$.",
    "o": [
     "$M(2\\,|\\,2\\,|\\,2)$",
-    "$M(4\\,|\\,4\\,|\\,4)$",
     "$M(1\\,|\\,-3\\,|\\,4)$",
+    "$M(4\\,|\\,4\\,|\\,4)$",
     "$M(2\\,|\\,-6\\,|\\,8)$"
    ],
    "a": 0,
@@ -6903,12 +7098,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Bestimme den Mittelpunkt der Strecke zwischen $A(-4\\,|\\,2\\,|\\,0)$ und $B(2\\,|\\,8\\,|\\,4)$.",
    "o": [
-    "$M(3\\,|\\,3\\,|\\,2)$",
-    "$M(-2\\,|\\,10\\,|\\,4)$",
     "$M(6\\,|\\,6\\,|\\,4)$",
-    "$M(-1\\,|\\,5\\,|\\,2)$"
+    "$M(-2\\,|\\,10\\,|\\,4)$",
+    "$M(-1\\,|\\,5\\,|\\,2)$",
+    "$M(3\\,|\\,3\\,|\\,2)$"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Bei jeder Koordinate den Durchschnitt bilden: $\\tfrac{-4+2}{2}=-1,\\ \\tfrac{2+8}{2}=5,\\ \\tfrac{0+4}{2}=2$.",
    "typ": "Mittelpunkt"
   },
@@ -6920,8 +7115,8 @@ window.BAPSY_DATA = {
    "o": [
     "$M(4\\,|\\,-2\\,|\\,4)$",
     "$M(8\\,|\\,-4\\,|\\,-4)$",
-    "$M(8\\,|\\,-4\\,|\\,8)$",
-    "$M(4\\,|\\,-2\\,|\\,-2)$"
+    "$M(4\\,|\\,-2\\,|\\,-2)$",
+    "$M(8\\,|\\,-4\\,|\\,8)$"
    ],
    "a": 0,
    "e": "Bei jeder Koordinate den Durchschnitt bilden: $\\tfrac{0+8}{2}=4,\\ \\tfrac{0+(-4)}{2}=-2,\\ \\tfrac{6+2}{2}=4$.",
@@ -6933,12 +7128,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne das Skalarprodukt $\\begin{pmatrix}1\\\\3\\\\-2\\end{pmatrix}\\cdot\\begin{pmatrix}4\\\\0\\\\5\\end{pmatrix}$.",
    "o": [
-    "$-6$",
+    "$18$",
     "$-4$",
-    "$14$",
-    "$18$"
+    "$-6$",
+    "$14$"
    ],
-   "a": 0,
+   "a": 2,
    "e": "Zeile für Zeile malnehmen und addieren: $4+0+(-10)=-6$. Das Ergebnis ist eine Zahl, kein Vektor.",
    "typ": "Skalarprodukt"
   },
@@ -6948,12 +7143,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne das Skalarprodukt $\\begin{pmatrix}2\\\\-1\\\\4\\end{pmatrix}\\cdot\\begin{pmatrix}3\\\\2\\\\1\\end{pmatrix}$.",
    "o": [
-    "$0$",
-    "$8$",
     "$12$",
-    "$30$"
+    "$0$",
+    "$30$",
+    "$8$"
    ],
-   "a": 1,
+   "a": 3,
    "e": "Zeile für Zeile malnehmen und addieren: $6+(-2)+4=8$. Das Ergebnis ist eine Zahl, kein Vektor.",
    "typ": "Skalarprodukt"
   },
@@ -6963,12 +7158,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne das Skalarprodukt $\\begin{pmatrix}3\\\\-2\\\\2\\end{pmatrix}\\cdot\\begin{pmatrix}1\\\\4\\\\-1\\end{pmatrix}$.",
    "o": [
-    "$12$",
-    "$13$",
     "$-3$",
-    "$-7$"
+    "$12$",
+    "$-7$",
+    "$13$"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Zeile für Zeile malnehmen und addieren: $3+(-8)+(-2)=-7$. Das Ergebnis ist eine Zahl, kein Vektor.",
    "typ": "Skalarprodukt"
   },
@@ -6979,11 +7174,11 @@ window.BAPSY_DATA = {
    "q": "Für welches $a$ stehen $\\begin{pmatrix}a\\\\3\\\\4\\end{pmatrix}$ und $\\begin{pmatrix}1\\\\a\\\\-3\\end{pmatrix}$ senkrecht aufeinander?",
    "o": [
     "$a=4$",
-    "$a=3$",
+    "$a=12$",
     "$a=-3$",
-    "$a=12$"
+    "$a=3$"
    ],
-   "a": 1,
+   "a": 3,
    "e": "Senkrecht heißt Skalarprodukt null: $a+3a-12=0$, also $4a=12$ und $a=3$.",
    "typ": "Rechter Winkel"
   },
@@ -7008,12 +7203,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Für welches $a$ stehen $\\begin{pmatrix}a\\\\2\\\\4\\end{pmatrix}$ und $\\begin{pmatrix}2\\\\a\\\\-5\\end{pmatrix}$ senkrecht aufeinander?",
    "o": [
-    "$a=5$",
-    "$a=-5$",
     "$a=6$",
-    "$a=20$"
+    "$a=20$",
+    "$a=5$",
+    "$a=-5$"
    ],
-   "a": 0,
+   "a": 2,
    "e": "Senkrecht heißt Skalarprodukt null: $2a+2a-20=0$, also $4a=20$ und $a=5$.",
    "typ": "Rechter Winkel"
   },
@@ -7023,12 +7218,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Welcher Vektor ist orthogonal zu $\\begin{pmatrix}1\\\\-2\\\\3\\end{pmatrix}$?",
    "o": [
-    "$\\begin{pmatrix}2\\\\1\\\\1\\end{pmatrix}$",
     "$\\begin{pmatrix}4\\\\-1\\\\-2\\end{pmatrix}$",
     "$\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}$",
-    "$\\begin{pmatrix}3\\\\0\\\\1\\end{pmatrix}$"
+    "$\\begin{pmatrix}3\\\\0\\\\1\\end{pmatrix}$",
+    "$\\begin{pmatrix}2\\\\1\\\\1\\end{pmatrix}$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Orthogonal heißt Skalarprodukt null. Für $\\begin{pmatrix}4\\\\-1\\\\-2\\end{pmatrix}$: $4+2+(-6)=0$. Bei den anderen kommt nicht null heraus.",
    "typ": "Rechter Winkel"
   },
@@ -7039,11 +7234,11 @@ window.BAPSY_DATA = {
    "q": "Welcher Vektor ist orthogonal zu $\\begin{pmatrix}2\\\\2\\\\-1\\end{pmatrix}$?",
    "o": [
     "$\\begin{pmatrix}2\\\\-2\\\\1\\end{pmatrix}$",
-    "$\\begin{pmatrix}-1\\\\2\\\\1\\end{pmatrix}$",
     "$\\begin{pmatrix}1\\\\1\\\\4\\end{pmatrix}$",
+    "$\\begin{pmatrix}-1\\\\2\\\\1\\end{pmatrix}$",
     "$\\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Orthogonal heißt Skalarprodukt null. Für $\\begin{pmatrix}1\\\\1\\\\4\\end{pmatrix}$: $2+2+(-4)=0$. Bei den anderen kommt nicht null heraus.",
    "typ": "Rechter Winkel"
   },
@@ -7053,12 +7248,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Gegeben ist $g:\\ \\vec x=\\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix}+t\\begin{pmatrix}2\\\\1\\\\-1\\end{pmatrix}$. Welcher Punkt gehört zu $t=3$?",
    "o": [
-    "$(7\\,|\\,3\\,|\\,-1)$",
-    "$(5\\,|\\,1\\,|\\,5)$",
     "$(5\\,|\\,2\\,|\\,0)$",
-    "$(9\\,|\\,4\\,|\\,-2)$"
+    "$(5\\,|\\,1\\,|\\,5)$",
+    "$(9\\,|\\,4\\,|\\,-2)$",
+    "$(7\\,|\\,3\\,|\\,-1)$"
    ],
-   "a": 0,
+   "a": 3,
    "e": "$t=3$ einsetzen, Zeile für Zeile: $1+3\\cdot2=7,\\ 0+3\\cdot1=3,\\ 2+3\\cdot(-1)=-1$.",
    "typ": "Geraden im Raum"
   },
@@ -7068,12 +7263,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Gegeben ist $g:\\ \\vec x=\\begin{pmatrix}-2\\\\4\\\\1\\end{pmatrix}+t\\begin{pmatrix}1\\\\-2\\\\3\\end{pmatrix}$. Welcher Punkt gehört zu $t=2$?",
    "o": [
+    "$(0\\,|\\,0\\,|\\,7)$",
     "$(-1\\,|\\,2\\,|\\,4)$",
-    "$(-3\\,|\\,6\\,|\\,5)$",
     "$(1\\,|\\,-2\\,|\\,10)$",
-    "$(0\\,|\\,0\\,|\\,7)$"
+    "$(-3\\,|\\,6\\,|\\,5)$"
    ],
-   "a": 3,
+   "a": 0,
    "e": "$t=2$ einsetzen, Zeile für Zeile: $-2+2\\cdot1=0,\\ 4+2\\cdot(-2)=0,\\ 1+2\\cdot3=7$.",
    "typ": "Geraden im Raum"
   },
@@ -7083,12 +7278,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Gegeben ist $g:\\ \\vec x=\\begin{pmatrix}3\\\\3\\\\0\\end{pmatrix}+t\\begin{pmatrix}-1\\\\2\\\\2\\end{pmatrix}$. Welcher Punkt gehört zu $t=-2$?",
    "o": [
-    "$(5\\,|\\,-1\\,|\\,-4)$",
     "$(-7\\,|\\,-4\\,|\\,2)$",
-    "$(6\\,|\\,-3\\,|\\,-6)$",
-    "$(4\\,|\\,1\\,|\\,-2)$"
+    "$(5\\,|\\,-1\\,|\\,-4)$",
+    "$(4\\,|\\,1\\,|\\,-2)$",
+    "$(6\\,|\\,-3\\,|\\,-6)$"
    ],
-   "a": 0,
+   "a": 1,
    "e": "$t=-2$ einsetzen, Zeile für Zeile: $3-2\\cdot(-1)=5,\\ 3-2\\cdot2=-1,\\ 0-2\\cdot2=-4$.",
    "typ": "Geraden im Raum"
   },
@@ -7113,12 +7308,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Für welchen Wert von $t$ liegt $P(6\\,|\\,2\\,|\\,1)$ auf $g:\\ \\vec x=\\begin{pmatrix}0\\\\5\\\\-2\\end{pmatrix}+t\\begin{pmatrix}2\\\\-1\\\\1\\end{pmatrix}$?",
    "o": [
-    "$t=3$",
     "$t=4$",
+    "$t=3$",
     "$P$ liegt nicht auf $g$",
     "$t=2$"
    ],
-   "a": 0,
+   "a": 1,
    "e": "Erste Zeile: $0+2t=6$ ergibt $t=3$. Probe: zweite Zeile $2$, dritte Zeile $1$. Beides passt.",
    "typ": "Geraden im Raum"
   },
@@ -7128,12 +7323,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Für welchen Wert von $t$ liegt $P(5\\,|\\,4\\,|\\,2)$ auf $g:\\ \\vec x=\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}+t\\begin{pmatrix}2\\\\1\\\\-1\\end{pmatrix}$?",
    "o": [
+    "$P$ liegt nicht auf $g$",
     "$t=3$",
     "$t=1$",
-    "$P$ liegt nicht auf $g$",
     "$t=2$"
    ],
-   "a": 2,
+   "a": 0,
    "e": "Erste Zeile: $1+2t=5$ ergibt $t=2$. Probe in der dritten Zeile: $3+2\\cdot(-1)=1$, das ist nicht $2$. Der Punkt liegt nicht auf der Geraden.",
    "typ": "Geraden im Raum"
   },
@@ -7145,10 +7340,10 @@ window.BAPSY_DATA = {
    "o": [
     "$\\vec x=\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}+t\\begin{pmatrix}4\\\\0\\\\5\\end{pmatrix}$",
     "$\\vec x=\\begin{pmatrix}4\\\\0\\\\5\\end{pmatrix}+t\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}$",
-    "$\\vec x=\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}+t\\begin{pmatrix}5\\\\2\\\\8\\end{pmatrix}$",
-    "$\\vec x=\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}+t\\begin{pmatrix}3\\\\-2\\\\2\\end{pmatrix}$"
+    "$\\vec x=\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}+t\\begin{pmatrix}3\\\\-2\\\\2\\end{pmatrix}$",
+    "$\\vec x=\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}+t\\begin{pmatrix}5\\\\2\\\\8\\end{pmatrix}$"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Stützvektor ist $A$. Richtungsvektor ist $B$ minus $A$: $\\begin{pmatrix}3\\\\-2\\\\2\\end{pmatrix}$. Der Punkt $B$ selbst ist kein Richtungsvektor.",
    "typ": "Geraden im Raum"
   },
@@ -7158,12 +7353,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Welche Gleichung beschreibt die Gerade durch $A(0\\,|\\,-1\\,|\\,2)$ und $B(3\\,|\\,3\\,|\\,3)$?",
    "o": [
-    "$\\vec x=\\begin{pmatrix}3\\\\3\\\\3\\end{pmatrix}+t\\begin{pmatrix}0\\\\-1\\\\2\\end{pmatrix}$",
     "$\\vec x=\\begin{pmatrix}0\\\\-1\\\\2\\end{pmatrix}+t\\begin{pmatrix}3\\\\2\\\\5\\end{pmatrix}$",
     "$\\vec x=\\begin{pmatrix}0\\\\-1\\\\2\\end{pmatrix}+t\\begin{pmatrix}3\\\\4\\\\1\\end{pmatrix}$",
+    "$\\vec x=\\begin{pmatrix}3\\\\3\\\\3\\end{pmatrix}+t\\begin{pmatrix}0\\\\-1\\\\2\\end{pmatrix}$",
     "$\\vec x=\\begin{pmatrix}0\\\\-1\\\\2\\end{pmatrix}+t\\begin{pmatrix}3\\\\3\\\\3\\end{pmatrix}$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Stützvektor ist $A$. Richtungsvektor ist $B$ minus $A$: $\\begin{pmatrix}3\\\\4\\\\1\\end{pmatrix}$. Der Punkt $B$ selbst ist kein Richtungsvektor.",
    "typ": "Geraden im Raum"
   },
@@ -7173,12 +7368,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Welcher Vektor ist parallel zu $\\begin{pmatrix}1\\\\-2\\\\3\\end{pmatrix}$?",
    "o": [
-    "$\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}$",
     "$\\begin{pmatrix}3\\\\-2\\\\1\\end{pmatrix}$",
-    "$\\begin{pmatrix}2\\\\4\\\\6\\end{pmatrix}$",
-    "$\\begin{pmatrix}-2\\\\4\\\\-6\\end{pmatrix}$"
+    "$\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}$",
+    "$\\begin{pmatrix}-2\\\\4\\\\-6\\end{pmatrix}$",
+    "$\\begin{pmatrix}2\\\\4\\\\6\\end{pmatrix}$"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Parallel heißt: ein Vielfaches. $\\begin{pmatrix}-2\\\\4\\\\-6\\end{pmatrix}$ ist $-2$ mal $\\begin{pmatrix}1\\\\-2\\\\3\\end{pmatrix}$, in allen drei Zeilen. Bei den anderen stimmt mindestens ein Vorzeichen nicht.",
    "typ": "Geraden im Raum"
   },
@@ -7188,12 +7383,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Welcher Vektor ist parallel zu $\\begin{pmatrix}4\\\\2\\\\-6\\end{pmatrix}$?",
    "o": [
-    "$\\begin{pmatrix}4\\\\2\\\\6\\end{pmatrix}$",
-    "$\\begin{pmatrix}2\\\\1\\\\3\\end{pmatrix}$",
     "$\\begin{pmatrix}2\\\\1\\\\-3\\end{pmatrix}$",
+    "$\\begin{pmatrix}2\\\\1\\\\3\\end{pmatrix}$",
+    "$\\begin{pmatrix}4\\\\2\\\\6\\end{pmatrix}$",
     "$\\begin{pmatrix}-4\\\\2\\\\6\\end{pmatrix}$"
    ],
-   "a": 2,
+   "a": 0,
    "e": "Parallel heißt: ein Vielfaches. $\\begin{pmatrix}2\\\\1\\\\-3\\end{pmatrix}$ ist $\\tfrac{1}{2}$ mal $\\begin{pmatrix}4\\\\2\\\\-6\\end{pmatrix}$, in allen drei Zeilen. Bei den anderen stimmt mindestens ein Vorzeichen nicht.",
    "typ": "Geraden im Raum"
   },
@@ -7203,12 +7398,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "$A$ ist eine $3\\times2$-Matrix, $B$ eine $2\\times4$-Matrix. Welches Format hat $A\\cdot B$?",
    "o": [
-    "$2\\times2$",
     "$3\\times2$",
     "$3\\times4$",
-    "$4\\times3$"
+    "$4\\times3$",
+    "$2\\times2$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "$(3\\times2)\\cdot(2\\times4)$: Die inneren Zahlen sind gleich (2), also geht es. Das Ergebnis hat die äußeren Zahlen: $3\\times4$.",
    "typ": "Format"
   },
@@ -7220,8 +7415,8 @@ window.BAPSY_DATA = {
    "o": [
     "$2\\times3$",
     "$3\\times2$",
-    "$5\\times5$",
-    "$2\\times5$"
+    "$2\\times5$",
+    "$5\\times5$"
    ],
    "a": 0,
    "e": "$(2\\times5)\\cdot(5\\times3)$: Die inneren Zahlen sind gleich (5), also geht es. Das Ergebnis hat die äußeren Zahlen: $2\\times3$.",
@@ -7233,12 +7428,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "$A$ ist eine $1\\times3$-Matrix, $B$ eine $3\\times3$-Matrix. Welches Format hat $A\\cdot B$?",
    "o": [
+    "$3\\times1$",
     "$3\\times3$",
     "$1\\times3$",
-    "nicht definiert",
-    "$3\\times1$"
+    "nicht definiert"
    ],
-   "a": 1,
+   "a": 2,
    "e": "$(1\\times3)\\cdot(3\\times3)$: Die inneren Zahlen sind gleich (3), also geht es. Das Ergebnis hat die äußeren Zahlen: $1\\times3$.",
    "typ": "Format"
   },
@@ -7249,11 +7444,11 @@ window.BAPSY_DATA = {
    "q": "$A$ ist eine $4\\times1$-Matrix, $B$ eine $1\\times2$-Matrix. Welches Format hat $A\\cdot B$?",
    "o": [
     "$1\\times1$",
+    "$4\\times2$",
     "$4\\times1$",
-    "$2\\times4$",
-    "$4\\times2$"
+    "$2\\times4$"
    ],
-   "a": 3,
+   "a": 1,
    "e": "$(4\\times1)\\cdot(1\\times2)$: Die inneren Zahlen sind gleich (1), also geht es. Das Ergebnis hat die äußeren Zahlen: $4\\times2$.",
    "typ": "Format"
   },
@@ -7263,12 +7458,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "$A$ ist eine $2\\times3$-Matrix, $B$ eine $2\\times3$-Matrix. Welches Format hat $A\\cdot B$?",
    "o": [
-    "nicht definiert",
     "$3\\times2$",
-    "$2\\times3$",
-    "$2\\times2$"
+    "nicht definiert",
+    "$2\\times2$",
+    "$2\\times3$"
    ],
-   "a": 0,
+   "a": 1,
    "e": "$(2\\times3)\\cdot(2\\times3)$: Die inneren Zahlen 3 und 2 sind verschieden. Das Produkt gibt es nicht.",
    "typ": "Format"
   },
@@ -7278,12 +7473,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "$A$ ist eine $3\\times2$-Matrix, $B$ eine $3\\times3$-Matrix. Welches Format hat $A\\cdot B$?",
    "o": [
-    "$3\\times2$",
     "nicht definiert",
-    "$3\\times3$",
-    "$2\\times3$"
+    "$3\\times2$",
+    "$2\\times3$",
+    "$3\\times3$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "$(3\\times2)\\cdot(3\\times3)$: Die inneren Zahlen 2 und 3 sind verschieden. Das Produkt gibt es nicht.",
    "typ": "Format"
   },
@@ -7293,12 +7488,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne $\\begin{pmatrix}2&1\\\\0&3\\end{pmatrix}\\cdot\\begin{pmatrix}1\\\\4\\end{pmatrix}$.",
    "o": [
-    "$\\begin{pmatrix}2\\\\13\\end{pmatrix}$",
-    "$\\begin{pmatrix}2\\\\12\\end{pmatrix}$",
+    "$\\begin{pmatrix}3\\\\3\\end{pmatrix}$",
     "$\\begin{pmatrix}6\\\\12\\end{pmatrix}$",
-    "$\\begin{pmatrix}3\\\\3\\end{pmatrix}$"
+    "$\\begin{pmatrix}2\\\\13\\end{pmatrix}$",
+    "$\\begin{pmatrix}2\\\\12\\end{pmatrix}$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Zeile mal Spalte: oben $2\\cdot1+1\\cdot4=6$, unten $0\\cdot1+3\\cdot4=12$.",
    "typ": "Matrix mal Vektor"
   },
@@ -7308,10 +7503,10 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne $\\begin{pmatrix}1&-2\\\\3&1\\end{pmatrix}\\cdot\\begin{pmatrix}2\\\\1\\end{pmatrix}$.",
    "o": [
-    "$\\begin{pmatrix}5\\\\-3\\end{pmatrix}$",
+    "$\\begin{pmatrix}2\\\\1\\end{pmatrix}$",
     "$\\begin{pmatrix}0\\\\7\\end{pmatrix}$",
     "$\\begin{pmatrix}-1\\\\4\\end{pmatrix}$",
-    "$\\begin{pmatrix}2\\\\1\\end{pmatrix}$"
+    "$\\begin{pmatrix}5\\\\-3\\end{pmatrix}$"
    ],
    "a": 1,
    "e": "Zeile mal Spalte: oben $1\\cdot2+(-2)\\cdot1=0$, unten $3\\cdot2+1\\cdot1=7$.",
@@ -7323,12 +7518,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne $\\begin{pmatrix}0&5\\\\2&-1\\end{pmatrix}\\cdot\\begin{pmatrix}3\\\\2\\end{pmatrix}$.",
    "o": [
-    "$\\begin{pmatrix}10\\\\4\\end{pmatrix}$",
     "$\\begin{pmatrix}0\\\\-2\\end{pmatrix}$",
+    "$\\begin{pmatrix}10\\\\4\\end{pmatrix}$",
     "$\\begin{pmatrix}5\\\\1\\end{pmatrix}$",
     "$\\begin{pmatrix}4\\\\13\\end{pmatrix}$"
    ],
-   "a": 0,
+   "a": 1,
    "e": "Zeile mal Spalte: oben $0\\cdot3+5\\cdot2=10$, unten $2\\cdot3+(-1)\\cdot2=4$.",
    "typ": "Matrix mal Vektor"
   },
@@ -7338,12 +7533,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne $\\begin{pmatrix}4&0\\\\1&2\\end{pmatrix}\\cdot\\begin{pmatrix}-1\\\\3\\end{pmatrix}$.",
    "o": [
-    "$\\begin{pmatrix}-1\\\\6\\end{pmatrix}$",
     "$\\begin{pmatrix}-4\\\\6\\end{pmatrix}$",
-    "$\\begin{pmatrix}-4\\\\5\\end{pmatrix}$",
-    "$\\begin{pmatrix}4\\\\3\\end{pmatrix}$"
+    "$\\begin{pmatrix}4\\\\3\\end{pmatrix}$",
+    "$\\begin{pmatrix}-1\\\\6\\end{pmatrix}$",
+    "$\\begin{pmatrix}-4\\\\5\\end{pmatrix}$"
    ],
-   "a": 2,
+   "a": 3,
    "e": "Zeile mal Spalte: oben $4\\cdot(-1)+0\\cdot3=-4$, unten $1\\cdot(-1)+2\\cdot3=5$.",
    "typ": "Matrix mal Vektor"
   },
@@ -7353,10 +7548,10 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne $\\begin{pmatrix}1&2\\\\3&0\\end{pmatrix}\\cdot\\begin{pmatrix}2&1\\\\1&4\\end{pmatrix}$.",
    "o": [
-    "$\\begin{pmatrix}3&3\\\\4&4\\end{pmatrix}$",
+    "$\\begin{pmatrix}5&4\\\\13&2\\end{pmatrix}$",
     "$\\begin{pmatrix}4&9\\\\6&3\\end{pmatrix}$",
     "$\\begin{pmatrix}2&2\\\\3&0\\end{pmatrix}$",
-    "$\\begin{pmatrix}5&4\\\\13&2\\end{pmatrix}$"
+    "$\\begin{pmatrix}3&3\\\\4&4\\end{pmatrix}$"
    ],
    "a": 1,
    "e": "Zeile mal Spalte. Oben links: $1\\cdot2+2\\cdot1=4$. Unten rechts: $3\\cdot1+0\\cdot4=3$. Feld für Feld malnehmen wäre falsch.",
@@ -7368,12 +7563,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne $\\begin{pmatrix}2&0\\\\1&1\\end{pmatrix}\\cdot\\begin{pmatrix}1&3\\\\0&2\\end{pmatrix}$.",
    "o": [
-    "$\\begin{pmatrix}3&3\\\\1&3\\end{pmatrix}$",
     "$\\begin{pmatrix}2&0\\\\0&2\\end{pmatrix}$",
-    "$\\begin{pmatrix}2&6\\\\1&5\\end{pmatrix}$",
-    "$\\begin{pmatrix}5&3\\\\2&2\\end{pmatrix}$"
+    "$\\begin{pmatrix}5&3\\\\2&2\\end{pmatrix}$",
+    "$\\begin{pmatrix}3&3\\\\1&3\\end{pmatrix}$",
+    "$\\begin{pmatrix}2&6\\\\1&5\\end{pmatrix}$"
    ],
-   "a": 2,
+   "a": 3,
    "e": "Zeile mal Spalte. Oben links: $2\\cdot1+0\\cdot0=2$. Unten rechts: $1\\cdot3+1\\cdot2=5$. Feld für Feld malnehmen wäre falsch.",
    "typ": "Matrix mal Matrix"
   },
@@ -7383,12 +7578,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne $\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}\\cdot\\begin{pmatrix}5&6\\\\7&8\\end{pmatrix}$.",
    "o": [
+    "$\\begin{pmatrix}5&7\\\\8&8\\end{pmatrix}$",
     "$\\begin{pmatrix}7&8\\\\5&6\\end{pmatrix}$",
     "$\\begin{pmatrix}6&5\\\\8&7\\end{pmatrix}$",
-    "$\\begin{pmatrix}5&7\\\\8&8\\end{pmatrix}$",
     "$\\begin{pmatrix}0&6\\\\7&0\\end{pmatrix}$"
    ],
-   "a": 0,
+   "a": 1,
    "e": "Zeile mal Spalte. Oben links: $0\\cdot5+1\\cdot7=7$. Unten rechts: $1\\cdot6+0\\cdot8=6$. Feld für Feld malnehmen wäre falsch.",
    "typ": "Matrix mal Matrix"
   },
@@ -7398,10 +7593,10 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne $\\begin{pmatrix}1&-1\\\\2&3\\end{pmatrix}\\cdot\\begin{pmatrix}4&0\\\\1&2\\end{pmatrix}$.",
    "o": [
-    "$\\begin{pmatrix}5&-1\\\\3&5\\end{pmatrix}$",
+    "$\\begin{pmatrix}4&0\\\\2&6\\end{pmatrix}$",
     "$\\begin{pmatrix}3&-2\\\\11&6\\end{pmatrix}$",
-    "$\\begin{pmatrix}4&-4\\\\5&5\\end{pmatrix}$",
-    "$\\begin{pmatrix}4&0\\\\2&6\\end{pmatrix}$"
+    "$\\begin{pmatrix}5&-1\\\\3&5\\end{pmatrix}$",
+    "$\\begin{pmatrix}4&-4\\\\5&5\\end{pmatrix}$"
    ],
    "a": 1,
    "e": "Zeile mal Spalte. Oben links: $1\\cdot4+(-1)\\cdot1=3$. Unten rechts: $2\\cdot0+3\\cdot2=6$. Feld für Feld malnehmen wäre falsch.",
@@ -7413,12 +7608,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne $\\begin{pmatrix}1&0\\\\2&3\\end{pmatrix}+3\\cdot\\begin{pmatrix}2&1\\\\0&1\\end{pmatrix}$.",
    "o": [
-    "$\\begin{pmatrix}7&3\\\\2&6\\end{pmatrix}$",
-    "$\\begin{pmatrix}3&1\\\\2&4\\end{pmatrix}$",
+    "$\\begin{pmatrix}9&3\\\\6&12\\end{pmatrix}$",
     "$\\begin{pmatrix}5&1\\\\6&10\\end{pmatrix}$",
-    "$\\begin{pmatrix}9&3\\\\6&12\\end{pmatrix}$"
+    "$\\begin{pmatrix}7&3\\\\2&6\\end{pmatrix}$",
+    "$\\begin{pmatrix}3&1\\\\2&4\\end{pmatrix}$"
    ],
-   "a": 0,
+   "a": 2,
    "e": "Erst vervielfachen: $3\\cdot\\begin{pmatrix}2&1\\\\0&1\\end{pmatrix}=\\begin{pmatrix}6&3\\\\0&3\\end{pmatrix}$. Dann Feld für Feld addieren.",
    "typ": "Addieren und Vervielfachen"
   },
@@ -7430,10 +7625,10 @@ window.BAPSY_DATA = {
    "o": [
     "$\\begin{pmatrix}5&-1\\\\0&7\\end{pmatrix}$",
     "$\\begin{pmatrix}10&-2\\\\0&14\\end{pmatrix}$",
-    "$\\begin{pmatrix}6&0\\\\-1&9\\end{pmatrix}$",
-    "$\\begin{pmatrix}9&-3\\\\1&12\\end{pmatrix}$"
+    "$\\begin{pmatrix}9&-3\\\\1&12\\end{pmatrix}$",
+    "$\\begin{pmatrix}6&0\\\\-1&9\\end{pmatrix}$"
    ],
-   "a": 2,
+   "a": 3,
    "e": "Erst vervielfachen: $2\\cdot\\begin{pmatrix}1&1\\\\-1&2\\end{pmatrix}=\\begin{pmatrix}2&2\\\\-2&4\\end{pmatrix}$. Dann Feld für Feld addieren.",
    "typ": "Addieren und Vervielfachen"
   },
@@ -7443,12 +7638,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne $\\begin{pmatrix}5&4\\\\3&6\\end{pmatrix}-2\\cdot\\begin{pmatrix}1&2\\\\0&3\\end{pmatrix}$.",
    "o": [
-    "$\\begin{pmatrix}8&4\\\\6&6\\end{pmatrix}$",
-    "$\\begin{pmatrix}3&0\\\\3&0\\end{pmatrix}$",
     "$\\begin{pmatrix}9&6\\\\6&9\\end{pmatrix}$",
-    "$\\begin{pmatrix}4&2\\\\3&3\\end{pmatrix}$"
+    "$\\begin{pmatrix}4&2\\\\3&3\\end{pmatrix}$",
+    "$\\begin{pmatrix}8&4\\\\6&6\\end{pmatrix}$",
+    "$\\begin{pmatrix}3&0\\\\3&0\\end{pmatrix}$"
    ],
-   "a": 1,
+   "a": 3,
    "e": "Erst vervielfachen: $2\\cdot\\begin{pmatrix}1&2\\\\0&3\\end{pmatrix}=\\begin{pmatrix}2&4\\\\0&6\\end{pmatrix}$. Dann Feld für Feld abziehen.",
    "typ": "Addieren und Vervielfachen"
   },
@@ -7459,11 +7654,11 @@ window.BAPSY_DATA = {
    "q": "Welche Zahl steht in Zeile 2, Spalte 1 von $\\begin{pmatrix}2&1\\\\3&4\\end{pmatrix}\\cdot\\begin{pmatrix}1&5\\\\2&0\\end{pmatrix}$?",
    "o": [
     "$4$",
+    "$10$",
     "$11$",
-    "$6$",
-    "$10$"
+    "$6$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "Zeile 2 der linken Matrix mal Spalte 1 der rechten: $3\\cdot1+4\\cdot2=11$.",
    "typ": "Matrix mal Matrix"
   },
@@ -7473,12 +7668,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Welche Zahl steht in Zeile 2, Spalte 1 von $\\begin{pmatrix}1&0\\\\-2&3\\end{pmatrix}\\cdot\\begin{pmatrix}4&1\\\\2&2\\end{pmatrix}$?",
    "o": [
-    "$-2$",
-    "$4$",
+    "$1$",
     "$-4$",
-    "$1$"
+    "$4$",
+    "$-2$"
    ],
-   "a": 0,
+   "a": 3,
    "e": "Zeile 2 der linken Matrix mal Spalte 1 der rechten: $(-2)\\cdot4+3\\cdot2=-2$.",
    "typ": "Matrix mal Matrix"
   },
@@ -7488,12 +7683,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Zwei Gruppen entwickeln sich pro Jahr gemäß $\\vec v_{\\text{neu}}=M\\cdot\\vec v$ mit $M=\\begin{pmatrix}0{,}7&0{,}2\\\\0{,}3&0{,}8\\end{pmatrix}$ und Startbestand $\\vec v=\\begin{pmatrix}100\\\\400\\end{pmatrix}$. Wie sieht der Bestand nach einem Jahr aus?",
    "o": [
-    "$\\begin{pmatrix}100\\\\400\\end{pmatrix}$",
     "$\\begin{pmatrix}150\\\\350\\end{pmatrix}$",
+    "$\\begin{pmatrix}100\\\\400\\end{pmatrix}$",
     "$\\begin{pmatrix}190\\\\340\\end{pmatrix}$",
     "$\\begin{pmatrix}350\\\\150\\end{pmatrix}$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Matrix mal Vektor, Zeile mal Spalte: oben $0{,}7\\cdot100+0{,}2\\cdot400=150$, unten $0{,}3\\cdot100+0{,}8\\cdot400=350$.",
    "typ": "Übergangsmatrix"
   },
@@ -7503,12 +7698,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Zwei Gruppen entwickeln sich pro Jahr gemäß $\\vec v_{\\text{neu}}=M\\cdot\\vec v$ mit $M=\\begin{pmatrix}0{,}6&0{,}1\\\\0{,}4&0{,}9\\end{pmatrix}$ und Startbestand $\\vec v=\\begin{pmatrix}500\\\\200\\end{pmatrix}$. Wie sieht der Bestand nach einem Jahr aus?",
    "o": [
-    "$\\begin{pmatrix}380\\\\320\\end{pmatrix}$",
-    "$\\begin{pmatrix}320\\\\380\\end{pmatrix}$",
     "$\\begin{pmatrix}500\\\\200\\end{pmatrix}$",
-    "$\\begin{pmatrix}380\\\\230\\end{pmatrix}$"
+    "$\\begin{pmatrix}380\\\\230\\end{pmatrix}$",
+    "$\\begin{pmatrix}380\\\\320\\end{pmatrix}$",
+    "$\\begin{pmatrix}320\\\\380\\end{pmatrix}$"
    ],
-   "a": 1,
+   "a": 3,
    "e": "Matrix mal Vektor, Zeile mal Spalte: oben $0{,}6\\cdot500+0{,}1\\cdot200=320$, unten $0{,}4\\cdot500+0{,}9\\cdot200=380$.",
    "typ": "Übergangsmatrix"
   },
@@ -7518,9 +7713,9 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Ein Bestand $\\vec v$ verändert sich erst eine Woche nach Matrix $A$ und danach eine Woche nach Matrix $B$. Welcher Ausdruck beschreibt den Bestand am Ende?",
    "o": [
-    "$(A+B)\\cdot\\vec v$",
-    "$B\\cdot A\\cdot\\vec v$",
     "$(B-A)\\cdot\\vec v$",
+    "$B\\cdot A\\cdot\\vec v$",
+    "$(A+B)\\cdot\\vec v$",
     "$A\\cdot B\\cdot\\vec v$"
    ],
    "a": 1,
@@ -7533,9 +7728,9 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Was beschreibt der Ausdruck $P_2\\cdot P_1\\cdot\\vec v$?",
    "o": [
-    "beide Veränderungen gleichzeitig nebeneinander",
     "den Unterschied zwischen $P_1$ und $P_2$",
     "erst die Veränderung $P_2$, danach $P_1$",
+    "beide Veränderungen gleichzeitig nebeneinander",
     "erst die Veränderung $P_1$, danach $P_2$"
    ],
    "a": 3,
@@ -7548,12 +7743,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Ein Bestand $\\vec v$ entwickelt sich jedes Jahr nach derselben Matrix $M$. Welcher Ausdruck beschreibt den Bestand nach 3 Jahren?",
    "o": [
-    "$3\\cdot M\\cdot\\vec v$",
     "$M^3\\cdot\\vec v$",
+    "$(M+3)\\cdot\\vec v$",
     "$M\\cdot\\vec v+3$",
-    "$(M+3)\\cdot\\vec v$"
+    "$3\\cdot M\\cdot\\vec v$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Jedes Jahr wird $M$ einmal angewendet, dreimal hintereinander: $M\\cdot M\\cdot M\\cdot\\vec v=M^3\\cdot\\vec v$. Das Dreifache $3M$ wäre etwas anderes.",
    "typ": "Bedeutung der Operationen"
   },
@@ -7563,12 +7758,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Zwei Pflanzenarten mit demselben Startbestand $\\vec v$ entwickeln sich gleichzeitig und unabhängig voneinander, Art 1 nach Matrix $A$, Art 2 nach Matrix $B$. Was beschreibt den Gesamtbestand beider Arten nach einem Schritt?",
    "o": [
-    "$B\\cdot A\\cdot\\vec v$",
     "$A\\cdot B\\cdot\\vec v$",
+    "$(A+B)\\cdot\\vec v$",
     "$(A-B)\\cdot\\vec v$",
-    "$(A+B)\\cdot\\vec v$"
+    "$B\\cdot A\\cdot\\vec v$"
    ],
-   "a": 3,
+   "a": 1,
    "e": "Gleichzeitig und nebeneinander heißt: beide Ergebnisse addieren. $A\\cdot\\vec v+B\\cdot\\vec v=(A+B)\\cdot\\vec v$. Ein Produkt wäre nacheinander.",
    "typ": "Bedeutung der Operationen"
   },
@@ -7595,8 +7790,8 @@ window.BAPSY_DATA = {
    "o": [
     "$E\\cdot\\vec v=2\\vec v$",
     "$E\\cdot\\vec v=\\vec v$",
-    "$E\\cdot\\vec v$ ist nicht definiert",
-    "$E\\cdot\\vec v=\\vec 0$"
+    "$E\\cdot\\vec v=\\vec 0$",
+    "$E\\cdot\\vec v$ ist nicht definiert"
    ],
    "a": 1,
    "e": "Die Einheitsmatrix ändert nichts, sie wirkt wie die Zahl 1 beim Malnehmen.",
@@ -7608,12 +7803,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "$M$ beschreibt die Veränderung eines Bestands von einem Jahr zum nächsten. Heute ist der Bestand $\\vec w$. Wie erhält man den Bestand des Vorjahres?",
    "o": [
-    "$-M\\cdot\\vec w$",
     "$\\vec w-M$",
     "$M^{-1}\\cdot\\vec w$",
+    "$-M\\cdot\\vec w$",
     "$M\\cdot\\vec w$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Die inverse Matrix $M^{-1}$ macht die Veränderung rückgängig, also einen Schritt zurück. $M\\cdot\\vec w$ wäre ein Jahr weiter in die Zukunft.",
    "typ": "Bedeutung der Operationen"
   },
@@ -7623,12 +7818,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Welche Aussage über Matrizen $A$ und $B$ ist richtig?",
    "o": [
-    "$A\\cdot B=B\\cdot A$ gilt immer",
     "$A\\cdot B=B\\cdot A$ gilt immer, wenn beide Produkte definiert sind",
-    "$A+B$ und $B+A$ sind meistens verschieden",
-    "$A\\cdot B$ und $B\\cdot A$ sind meistens verschieden"
+    "$A\\cdot B=B\\cdot A$ gilt immer",
+    "$A\\cdot B$ und $B\\cdot A$ sind meistens verschieden",
+    "$A+B$ und $B+A$ sind meistens verschieden"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Beim Malnehmen zählt die Reihenfolge: erst $A$, dann $B$ ist etwas anderes als umgekehrt. Beim Addieren ist die Reihenfolge dagegen egal.",
    "typ": "Bedeutung der Operationen"
   },
@@ -7639,11 +7834,11 @@ window.BAPSY_DATA = {
    "q": "Wie verändert sich der Bestand $M\\cdot\\vec v$, wenn man statt $M$ die Matrix $2\\cdot M$ verwendet?",
    "o": [
     "Das Ergebnis ändert sich nicht",
-    "Die Veränderung wird zweimal hintereinander ausgeführt",
+    "Jeder Eintrag des Ergebnisses verdoppelt sich",
     "Nur der erste Eintrag verdoppelt sich",
-    "Jeder Eintrag des Ergebnisses verdoppelt sich"
+    "Die Veränderung wird zweimal hintereinander ausgeführt"
    ],
-   "a": 3,
+   "a": 1,
    "e": "$(2M)\\cdot\\vec v=2\\cdot(M\\cdot\\vec v)$: Alles wird doppelt so groß. Zweimal hintereinander wäre $M^2\\cdot\\vec v$.",
    "typ": "Bedeutung der Operationen"
   },
@@ -7653,12 +7848,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Ein Bestand $\\vec v=\\begin{pmatrix}1\\\\2\\end{pmatrix}$ entwickelt sich pro Jahr nach $M=\\begin{pmatrix}2&0\\\\1&1\\end{pmatrix}$. Wie sieht der Bestand nach 2 Jahren aus?",
    "o": [
+    "$\\begin{pmatrix}4\\\\5\\end{pmatrix}$",
     "$\\begin{pmatrix}4\\\\3\\end{pmatrix}$",
     "$\\begin{pmatrix}2\\\\3\\end{pmatrix}$",
-    "$\\begin{pmatrix}4\\\\5\\end{pmatrix}$",
     "$\\begin{pmatrix}4\\\\6\\end{pmatrix}$"
    ],
-   "a": 2,
+   "a": 0,
    "e": "Zwei Schritte nacheinander. Erst $M\\cdot\\vec v=\\begin{pmatrix}2\\\\3\\end{pmatrix}$, dann noch einmal $M$ darauf anwenden: $\\begin{pmatrix}2&0\\\\1&1\\end{pmatrix}\\cdot\\begin{pmatrix}2\\\\3\\end{pmatrix}=\\begin{pmatrix}4\\\\5\\end{pmatrix}$.",
    "typ": "Bedeutung der Operationen"
   },
@@ -7669,11 +7864,11 @@ window.BAPSY_DATA = {
    "q": "Auf $\\vec v=\\begin{pmatrix}1\\\\1\\end{pmatrix}$ wird erst $A=\\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}$ und danach $B=\\begin{pmatrix}2&0\\\\0&1\\end{pmatrix}$ angewendet. Was kommt heraus?",
    "o": [
     "$\\begin{pmatrix}3\\\\1\\end{pmatrix}$",
-    "$\\begin{pmatrix}2\\\\1\\end{pmatrix}$",
     "$\\begin{pmatrix}4\\\\2\\end{pmatrix}$",
-    "$\\begin{pmatrix}4\\\\1\\end{pmatrix}$"
+    "$\\begin{pmatrix}4\\\\1\\end{pmatrix}$",
+    "$\\begin{pmatrix}2\\\\1\\end{pmatrix}$"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Erst $A\\cdot\\vec v=\\begin{pmatrix}2\\\\1\\end{pmatrix}$, dann $B$ darauf: $\\begin{pmatrix}4\\\\1\\end{pmatrix}$. In der umgekehrten Reihenfolge käme $\\begin{pmatrix}3\\\\1\\end{pmatrix}$ heraus.",
    "typ": "Bedeutung der Operationen"
   },
@@ -7683,12 +7878,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Gegeben sind $f(x)=2x+3$ und $g(x)=x^{2}-1$. Berechne $f(g(4))$.",
    "o": [
-    "$33$",
-    "$26$",
     "$120$",
-    "$165$"
+    "$165$",
+    "$26$",
+    "$33$"
    ],
-   "a": 0,
+   "a": 3,
    "e": "Von innen nach außen. Erst $g(4)=4^2-1=15$. Dann $f(15)=2\\cdot15+3=33$.",
    "typ": "Verkettung"
   },
@@ -7698,12 +7893,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Was ist der größtmögliche Definitionsbereich von $f(x)=\\sqrt{-2x+14}$?",
    "o": [
-    "$x<7$",
-    "$x\\ge7$",
     "$x\\le-7$",
-    "$x\\le7$"
+    "$x<7$",
+    "$x\\le7$",
+    "$x\\ge7$"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Unter der Wurzel darf nichts Negatives stehen: $-2x+14\\ge0$, also $-2x\\ge-14$, und beim Teilen durch die negative Zahl dreht sich das Zeichen: $x\\le7$.",
    "typ": "Definitionsbereich"
   },
@@ -7713,12 +7908,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Welche Steigung hat der Graph von $f(x)=x^{3}-2x^{2}+x$ an der Stelle $x=3$?",
    "o": [
-    "$40$",
-    "$16$",
     "$14$",
-    "$12$"
+    "$12$",
+    "$16$",
+    "$40$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "Steigung heißt ableiten: $f'(x)=3x^{2}-4x+1$. Einsetzen: $f'(3)=16$. Nicht in $f$ einsetzen.",
    "typ": "Steigung an einer Stelle"
   },
@@ -7728,12 +7923,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Wie lautet die Gleichung der Tangente an $f(x)=x^{2}+2x$ an der Stelle $x=1$?",
    "o": [
-    "$y=3x-1$",
+    "$y=4x-1$",
     "$y=4x+3$",
-    "$y=4x$",
-    "$y=4x-1$"
+    "$y=3x-1$",
+    "$y=4x$"
    ],
-   "a": 3,
+   "a": 0,
    "e": "Steigung: $f'(x)=2x+2$, also $m=f'(1)=4$. Punkt: $f(1)=3$. Einsetzen in $y=mx+b$: $3=4\\cdot1+b$, also $b=-1$.",
    "typ": "Tangente"
   },
@@ -7743,12 +7938,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme den Extrempunkt von $f(x)=-x^{2}+8x-9$.",
    "o": [
-    "$H(4\\,|\\,7)$",
+    "$H(-4\\,|\\,7)$",
     "$T(4\\,|\\,7)$",
     "$H(4\\,|\\,-9)$",
-    "$H(-4\\,|\\,7)$"
+    "$H(4\\,|\\,7)$"
    ],
-   "a": 0,
+   "a": 3,
    "e": "$f'(x)=-2x+8=0$ ergibt $x=4$. $f''(x)=-2$ ist negativ: Hochpunkt. $y$-Wert mit $f$: $f(4)=7$.",
    "typ": "Hoch- und Tiefpunkte"
   },
@@ -7758,10 +7953,10 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme die Wendestelle von $f(x)=x^{3}-6x^{2}+5x$.",
    "o": [
-    "$x=-2$",
+    "$x=6$",
     "$x=2$",
-    "$x=4$",
-    "$x=6$"
+    "$x=-2$",
+    "$x=4$"
    ],
    "a": 1,
    "e": "Zweimal ableiten: $f'(x)=3x^{2}-12x+5$ und $f''(x)=6x-12$. Null setzen: $6x-12=0$ ergibt $x=2$.",
@@ -7773,12 +7968,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Berechne $\\displaystyle\\int_{1}^{3}\\left(3x^{2}-2x\\right)dx$.",
    "o": [
-    "$17$",
     "$18$",
-    "$-18$",
-    "$20$"
+    "$20$",
+    "$17$",
+    "$-18$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Stammfunktion: $F(x)=x^{3}-x^{2}$. Obere Grenze minus untere Grenze: $F(3)-F(1)=18-0=18$.",
    "typ": "Integral"
   },
@@ -7788,12 +7983,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Welche Symmetrie hat der Graph von $f(x)=3x^{5}-4x$?",
    "o": [
+    "beide Symmetrien",
     "keine dieser Symmetrien",
-    "Punktsymmetrie zum Ursprung",
     "Achsensymmetrie zur $y$-Achse",
-    "beide Symmetrien"
+    "Punktsymmetrie zum Ursprung"
    ],
-   "a": 1,
+   "a": 3,
    "e": "Nur ungerade Hochzahlen: Punktsymmetrie.",
    "typ": "Symmetrie"
   },
@@ -7803,10 +7998,10 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Zwei Würfel werden geworfen. Wie wahrscheinlich ist die Augensumme 5?",
    "o": [
-    "$\\dfrac{1}{6}$",
-    "$\\dfrac{1}{9}$",
     "$\\dfrac{1}{12}$",
-    "$\\dfrac{5}{36}$"
+    "$\\dfrac{1}{9}$",
+    "$\\dfrac{5}{36}$",
+    "$\\dfrac{1}{6}$"
    ],
    "a": 1,
    "e": "Passende Paare zählen: $(1,4),(2,3),(3,2),(4,1)$. Das sind 4 von 36, also $\\tfrac{1}{9}$.",
@@ -7820,10 +8015,10 @@ window.BAPSY_DATA = {
    "o": [
     "$\\dfrac{3}{10}$",
     "$\\dfrac{9}{100}$",
-    "$\\dfrac{1}{15}$",
-    "$\\dfrac{1}{10}$"
+    "$\\dfrac{1}{10}$",
+    "$\\dfrac{1}{15}$"
    ],
-   "a": 2,
+   "a": 3,
    "e": "Entlang des Weges malnehmen. Erste Kugel rot: $\\tfrac{3}{10}$. Dann fehlt eine rote Kugel: $\\tfrac{2}{9}$. Zusammen $\\tfrac{3}{10}\\cdot\\tfrac{2}{9}=\\tfrac{1}{15}$.",
    "typ": "Urne"
   },
@@ -7833,12 +8028,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Aus 9 Bewerberinnen werden 3 für ein Gespräch eingeladen. Wie viele Möglichkeiten gibt es?",
    "o": [
+    "$729$",
     "$27$",
     "$84$",
-    "$729$",
     "$504$"
    ],
-   "a": 1,
+   "a": 2,
    "e": "Die Reihenfolge ist egal: $\\binom{9}{3}=\\dfrac{9\\cdot8\\cdot7}{3\\cdot2\\cdot1}=84$. Mit Reihenfolge wären es $504$.",
    "typ": "Auswahl ohne Reihenfolge"
   },
@@ -7848,12 +8043,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Bei 8 Teams werden ein Sieger und ein Zweiter ermittelt. Wie viele Möglichkeiten gibt es?",
    "o": [
-    "$56$",
-    "$64$",
     "$28$",
-    "$16$"
+    "$64$",
+    "$16$",
+    "$56$"
    ],
-   "a": 0,
+   "a": 3,
    "e": "Die Reihenfolge zählt, und niemand kommt doppelt vor: $8\\cdot7=56$.",
    "typ": "Auswahl mit Reihenfolge"
   },
@@ -7864,11 +8059,11 @@ window.BAPSY_DATA = {
    "q": "Ein Spiel kostet 4 € Einsatz. Dann gilt: mit Wahrscheinlichkeit $0{,}25$ werden 8 € ausgezahlt, mit Wahrscheinlichkeit $0{,}5$ werden 2 € ausgezahlt, sonst nichts. Was gilt für den erwarteten Gewinn pro Spiel?",
    "o": [
     "3 € Gewinn",
-    "0 € (faires Spiel)",
     "1 € Verlust",
-    "1 € Gewinn"
+    "1 € Gewinn",
+    "0 € (faires Spiel)"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Erwartete Auszahlung: $0{,}25\\cdot8+0{,}5\\cdot2=3$ €. Minus 4 € Einsatz ergibt $-1$ €.",
    "typ": "Erwartungswert"
   },
@@ -7878,9 +8073,9 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Eine Münze wird fünfmal geworfen. Wie wahrscheinlich ist genau dreimal Kopf?",
    "o": [
-    "$\\dfrac{1}{32}$",
-    "$\\dfrac{3}{5}$",
     "$\\dfrac{5}{32}$",
+    "$\\dfrac{3}{5}$",
+    "$\\dfrac{1}{32}$",
     "$\\dfrac{5}{16}$"
    ],
    "a": 3,
@@ -7894,11 +8089,11 @@ window.BAPSY_DATA = {
    "q": "Aus den Zahlen 1 bis 40 wird eine zufällig gezogen. Wie wahrscheinlich ist sie durch 5 oder durch 8 teilbar?",
    "o": [
     "$\\dfrac{11}{40}$",
-    "$\\dfrac{1}{40}$",
     "$\\dfrac{3}{10}$",
-    "$\\dfrac{13}{40}$"
+    "$\\dfrac{13}{40}$",
+    "$\\dfrac{1}{40}$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "8 Zahlen sind durch 5 teilbar, 5 durch 8. Doppelt gezählt ist die eine Zahl, die durch beides teilbar ist. Also $\\tfrac{8+5-1}{40}=\\tfrac{3}{10}$.",
    "typ": "Oder-Regel"
   },
@@ -7908,12 +8103,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Wie weit sind $P(3\\,|\\,0\\,|\\,-2)$ und $Q(4\\,|\\,4\\,|\\,6)$ voneinander entfernt?",
    "o": [
-    "$81$",
     "$13$",
-    "$9$",
-    "$\\sqrt{13}$"
+    "$\\sqrt{13}$",
+    "$81$",
+    "$9$"
    ],
-   "a": 2,
+   "a": 3,
    "e": "Erst der Vektor dazwischen: $\\overrightarrow{PQ}=\\begin{pmatrix}1\\\\4\\\\8\\end{pmatrix}$. Dann seine Länge: $\\sqrt{1+16+64}=\\sqrt{81}=9$.",
    "typ": "Länge und Abstand"
   },
@@ -7923,12 +8118,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Für welches $a$ stehen $\\begin{pmatrix}a\\\\2\\\\3\\end{pmatrix}$ und $\\begin{pmatrix}1\\\\a\\\\-4\\end{pmatrix}$ senkrecht aufeinander?",
    "o": [
+    "$a=12$",
     "$a=4$",
     "$a=-4$",
-    "$a=12$",
     "$a=5$"
    ],
-   "a": 0,
+   "a": 1,
    "e": "Senkrecht heißt Skalarprodukt null: $a+2a-12=0$, also $3a=12$ und $a=4$.",
    "typ": "Rechter Winkel"
   },
@@ -7938,12 +8133,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Für welchen Wert von $t$ liegt $P(7\\,|\\,5\\,|\\,-4)$ auf $g:\\ \\vec x=\\begin{pmatrix}4\\\\-1\\\\2\\end{pmatrix}+t\\begin{pmatrix}1\\\\2\\\\-2\\end{pmatrix}$?",
    "o": [
-    "$t=4$",
-    "$P$ liegt nicht auf $g$",
+    "$t=3$",
     "$t=2$",
-    "$t=3$"
+    "$P$ liegt nicht auf $g$",
+    "$t=4$"
    ],
-   "a": 3,
+   "a": 0,
    "e": "Erste Zeile: $4+t=7$ ergibt $t=3$. Probe: zweite Zeile $5$, dritte Zeile $-4$. Beides passt.",
    "typ": "Geraden im Raum"
   },
@@ -7954,11 +8149,11 @@ window.BAPSY_DATA = {
    "q": "$A$ ist eine $5\\times2$-Matrix, $B$ eine $2\\times3$-Matrix. Welches Format hat $A\\cdot B$?",
    "o": [
     "$2\\times2$",
-    "$5\\times3$",
     "$3\\times5$",
-    "$5\\times2$"
+    "$5\\times2$",
+    "$5\\times3$"
    ],
-   "a": 1,
+   "a": 3,
    "e": "$(5\\times2)\\cdot(2\\times3)$: Die inneren Zahlen sind gleich (2), also geht es. Das Ergebnis hat die äußeren Zahlen: $5\\times3$.",
    "typ": "Format"
   },
@@ -7968,12 +8163,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne $\\begin{pmatrix}3&1\\\\0&2\\end{pmatrix}\\cdot\\begin{pmatrix}1&2\\\\4&0\\end{pmatrix}$.",
    "o": [
-    "$\\begin{pmatrix}7&6\\\\8&0\\end{pmatrix}$",
-    "$\\begin{pmatrix}3&2\\\\0&0\\end{pmatrix}$",
     "$\\begin{pmatrix}4&3\\\\4&2\\end{pmatrix}$",
-    "$\\begin{pmatrix}3&5\\\\12&4\\end{pmatrix}$"
+    "$\\begin{pmatrix}7&6\\\\8&0\\end{pmatrix}$",
+    "$\\begin{pmatrix}3&5\\\\12&4\\end{pmatrix}$",
+    "$\\begin{pmatrix}3&2\\\\0&0\\end{pmatrix}$"
    ],
-   "a": 0,
+   "a": 1,
    "e": "Zeile mal Spalte. Oben links: $3\\cdot1+1\\cdot4=7$. Unten rechts: $0\\cdot2+2\\cdot0=0$. Feld für Feld malnehmen wäre falsch.",
    "typ": "Matrix mal Matrix"
   }
@@ -8011,25 +8206,25 @@ window.BAPSY_DATA = {
    "titel": "Probetest 2",
    "minuten": 23,
    "ids": [
-    "C20",
-    "C10",
-    "C7",
-    "C13",
-    "C5",
-    "C18",
-    "C6",
-    "C9",
+    "C14",
     "C19",
+    "C5",
+    "C16",
+    "C17",
+    "C1",
+    "C9",
+    "C18",
+    "C4",
+    "C7",
     "C8",
     "C3",
-    "C1",
-    "C17",
-    "C4",
-    "C16",
-    "C12",
     "C15",
-    "C14",
+    "C12",
+    "C10",
     "C11",
+    "C20",
+    "C13",
+    "C6",
     "C2"
    ]
   }
