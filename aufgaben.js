@@ -7513,17 +7513,182 @@ window.BAPSY_DATA = {
    "typ": "Übergangsmatrix"
   },
   {
+   "id": "G11.22",
+   "kap": 11,
+   "th": "Vektoren und Matrizen",
+   "q": "Ein Bestand $\\vec v$ verändert sich erst eine Woche nach Matrix $A$ und danach eine Woche nach Matrix $B$. Welcher Ausdruck beschreibt den Bestand am Ende?",
+   "o": [
+    "$(A+B)\\cdot\\vec v$",
+    "$B\\cdot A\\cdot\\vec v$",
+    "$(B-A)\\cdot\\vec v$",
+    "$A\\cdot B\\cdot\\vec v$"
+   ],
+   "a": 1,
+   "e": "Nacheinander heißt malnehmen. Gelesen wird von rechts nach links: Zuerst wirkt $A$ auf $\\vec v$, dann $B$ auf das Ergebnis. Also $B\\cdot(A\\cdot\\vec v)$.",
+   "typ": "Bedeutung der Operationen"
+  },
+  {
+   "id": "G11.23",
+   "kap": 11,
+   "th": "Vektoren und Matrizen",
+   "q": "Was beschreibt der Ausdruck $P_2\\cdot P_1\\cdot\\vec v$?",
+   "o": [
+    "beide Veränderungen gleichzeitig nebeneinander",
+    "den Unterschied zwischen $P_1$ und $P_2$",
+    "erst die Veränderung $P_2$, danach $P_1$",
+    "erst die Veränderung $P_1$, danach $P_2$"
+   ],
+   "a": 3,
+   "e": "Matrixprodukte liest man von rechts nach links. Die Matrix direkt vor $\\vec v$ wirkt zuerst, also $P_1$, danach $P_2$.",
+   "typ": "Bedeutung der Operationen"
+  },
+  {
+   "id": "G11.24",
+   "kap": 11,
+   "th": "Vektoren und Matrizen",
+   "q": "Ein Bestand $\\vec v$ entwickelt sich jedes Jahr nach derselben Matrix $M$. Welcher Ausdruck beschreibt den Bestand nach 3 Jahren?",
+   "o": [
+    "$3\\cdot M\\cdot\\vec v$",
+    "$M^3\\cdot\\vec v$",
+    "$M\\cdot\\vec v+3$",
+    "$(M+3)\\cdot\\vec v$"
+   ],
+   "a": 1,
+   "e": "Jedes Jahr wird $M$ einmal angewendet, dreimal hintereinander: $M\\cdot M\\cdot M\\cdot\\vec v=M^3\\cdot\\vec v$. Das Dreifache $3M$ wäre etwas anderes.",
+   "typ": "Bedeutung der Operationen"
+  },
+  {
+   "id": "G11.25",
+   "kap": 11,
+   "th": "Vektoren und Matrizen",
+   "q": "Zwei Pflanzenarten mit demselben Startbestand $\\vec v$ entwickeln sich gleichzeitig und unabhängig voneinander, Art 1 nach Matrix $A$, Art 2 nach Matrix $B$. Was beschreibt den Gesamtbestand beider Arten nach einem Schritt?",
+   "o": [
+    "$B\\cdot A\\cdot\\vec v$",
+    "$A\\cdot B\\cdot\\vec v$",
+    "$(A-B)\\cdot\\vec v$",
+    "$(A+B)\\cdot\\vec v$"
+   ],
+   "a": 3,
+   "e": "Gleichzeitig und nebeneinander heißt: beide Ergebnisse addieren. $A\\cdot\\vec v+B\\cdot\\vec v=(A+B)\\cdot\\vec v$. Ein Produkt wäre nacheinander.",
+   "typ": "Bedeutung der Operationen"
+  },
+  {
+   "id": "G11.26",
+   "kap": 11,
+   "th": "Vektoren und Matrizen",
+   "q": "Zwei Maßnahmen wirken auf denselben Bestand $\\vec v$, beschrieben durch $A$ und $B$. Welcher Ausdruck gibt an, um wie viel das Ergebnis von $A$ größer ist als das von $B$?",
+   "o": [
+    "$(B-A)\\cdot\\vec v$",
+    "$(A-B)\\cdot\\vec v$",
+    "$(A+B)\\cdot\\vec v$",
+    "$A\\cdot B\\cdot\\vec v$"
+   ],
+   "a": 1,
+   "e": "Unterschied heißt abziehen: $A\\cdot\\vec v-B\\cdot\\vec v=(A-B)\\cdot\\vec v$. Die Reihenfolge beim Minus zählt: Ergebnis von $A$ minus Ergebnis von $B$.",
+   "typ": "Bedeutung der Operationen"
+  },
+  {
+   "id": "G11.27",
+   "kap": 11,
+   "th": "Vektoren und Matrizen",
+   "q": "$E$ ist die Einheitsmatrix, zum Beispiel $\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}$. Was gilt für $E\\cdot\\vec v$?",
+   "o": [
+    "$E\\cdot\\vec v=2\\vec v$",
+    "$E\\cdot\\vec v=\\vec v$",
+    "$E\\cdot\\vec v$ ist nicht definiert",
+    "$E\\cdot\\vec v=\\vec 0$"
+   ],
+   "a": 1,
+   "e": "Die Einheitsmatrix ändert nichts, sie wirkt wie die Zahl 1 beim Malnehmen.",
+   "typ": "Bedeutung der Operationen"
+  },
+  {
+   "id": "G11.28",
+   "kap": 11,
+   "th": "Vektoren und Matrizen",
+   "q": "$M$ beschreibt die Veränderung eines Bestands von einem Jahr zum nächsten. Heute ist der Bestand $\\vec w$. Wie erhält man den Bestand des Vorjahres?",
+   "o": [
+    "$-M\\cdot\\vec w$",
+    "$\\vec w-M$",
+    "$M^{-1}\\cdot\\vec w$",
+    "$M\\cdot\\vec w$"
+   ],
+   "a": 2,
+   "e": "Die inverse Matrix $M^{-1}$ macht die Veränderung rückgängig, also einen Schritt zurück. $M\\cdot\\vec w$ wäre ein Jahr weiter in die Zukunft.",
+   "typ": "Bedeutung der Operationen"
+  },
+  {
+   "id": "G11.29",
+   "kap": 11,
+   "th": "Vektoren und Matrizen",
+   "q": "Welche Aussage über Matrizen $A$ und $B$ ist richtig?",
+   "o": [
+    "$A\\cdot B=B\\cdot A$ gilt immer",
+    "$A\\cdot B=B\\cdot A$ gilt immer, wenn beide Produkte definiert sind",
+    "$A+B$ und $B+A$ sind meistens verschieden",
+    "$A\\cdot B$ und $B\\cdot A$ sind meistens verschieden"
+   ],
+   "a": 3,
+   "e": "Beim Malnehmen zählt die Reihenfolge: erst $A$, dann $B$ ist etwas anderes als umgekehrt. Beim Addieren ist die Reihenfolge dagegen egal.",
+   "typ": "Bedeutung der Operationen"
+  },
+  {
+   "id": "G11.30",
+   "kap": 11,
+   "th": "Vektoren und Matrizen",
+   "q": "Wie verändert sich der Bestand $M\\cdot\\vec v$, wenn man statt $M$ die Matrix $2\\cdot M$ verwendet?",
+   "o": [
+    "Das Ergebnis ändert sich nicht",
+    "Die Veränderung wird zweimal hintereinander ausgeführt",
+    "Nur der erste Eintrag verdoppelt sich",
+    "Jeder Eintrag des Ergebnisses verdoppelt sich"
+   ],
+   "a": 3,
+   "e": "$(2M)\\cdot\\vec v=2\\cdot(M\\cdot\\vec v)$: Alles wird doppelt so groß. Zweimal hintereinander wäre $M^2\\cdot\\vec v$.",
+   "typ": "Bedeutung der Operationen"
+  },
+  {
+   "id": "G11.31",
+   "kap": 11,
+   "th": "Vektoren und Matrizen",
+   "q": "Ein Bestand $\\vec v=\\begin{pmatrix}1\\\\2\\end{pmatrix}$ entwickelt sich pro Jahr nach $M=\\begin{pmatrix}2&0\\\\1&1\\end{pmatrix}$. Wie sieht der Bestand nach 2 Jahren aus?",
+   "o": [
+    "$\\begin{pmatrix}4\\\\3\\end{pmatrix}$",
+    "$\\begin{pmatrix}2\\\\3\\end{pmatrix}$",
+    "$\\begin{pmatrix}4\\\\5\\end{pmatrix}$",
+    "$\\begin{pmatrix}4\\\\6\\end{pmatrix}$"
+   ],
+   "a": 2,
+   "e": "Zwei Schritte nacheinander. Erst $M\\cdot\\vec v=\\begin{pmatrix}2\\\\3\\end{pmatrix}$, dann noch einmal $M$ darauf anwenden: $\\begin{pmatrix}2&0\\\\1&1\\end{pmatrix}\\cdot\\begin{pmatrix}2\\\\3\\end{pmatrix}=\\begin{pmatrix}4\\\\5\\end{pmatrix}$.",
+   "typ": "Bedeutung der Operationen"
+  },
+  {
+   "id": "G11.32",
+   "kap": 11,
+   "th": "Vektoren und Matrizen",
+   "q": "Auf $\\vec v=\\begin{pmatrix}1\\\\1\\end{pmatrix}$ wird erst $A=\\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}$ und danach $B=\\begin{pmatrix}2&0\\\\0&1\\end{pmatrix}$ angewendet. Was kommt heraus?",
+   "o": [
+    "$\\begin{pmatrix}3\\\\1\\end{pmatrix}$",
+    "$\\begin{pmatrix}2\\\\1\\end{pmatrix}$",
+    "$\\begin{pmatrix}4\\\\2\\end{pmatrix}$",
+    "$\\begin{pmatrix}4\\\\1\\end{pmatrix}$"
+   ],
+   "a": 3,
+   "e": "Erst $A\\cdot\\vec v=\\begin{pmatrix}2\\\\1\\end{pmatrix}$, dann $B$ darauf: $\\begin{pmatrix}4\\\\1\\end{pmatrix}$. In der umgekehrten Reihenfolge käme $\\begin{pmatrix}3\\\\1\\end{pmatrix}$ heraus.",
+   "typ": "Bedeutung der Operationen"
+  },
+  {
    "id": "C1",
    "kap": null,
    "th": "Analysis",
    "q": "Gegeben sind $f(x)=2x+3$ und $g(x)=x^{2}-1$. Berechne $f(g(4))$.",
    "o": [
-    "$165$",
     "$33$",
     "$26$",
-    "$120$"
+    "$120$",
+    "$165$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Von innen nach außen. Erst $g(4)=4^2-1=15$. Dann $f(15)=2\\cdot15+3=33$.",
    "typ": "Verkettung"
   },
@@ -7533,9 +7698,9 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Was ist der größtmögliche Definitionsbereich von $f(x)=\\sqrt{-2x+14}$?",
    "o": [
-    "$x\\le-7$",
     "$x<7$",
     "$x\\ge7$",
+    "$x\\le-7$",
     "$x\\le7$"
    ],
    "a": 3,
@@ -7548,10 +7713,10 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Welche Steigung hat der Graph von $f(x)=x^{3}-2x^{2}+x$ an der Stelle $x=3$?",
    "o": [
-    "$12$",
+    "$40$",
     "$16$",
     "$14$",
-    "$40$"
+    "$12$"
    ],
    "a": 1,
    "e": "Steigung heißt ableiten: $f'(x)=3x^{2}-4x+1$. Einsetzen: $f'(3)=16$. Nicht in $f$ einsetzen.",
@@ -7563,9 +7728,9 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Wie lautet die Gleichung der Tangente an $f(x)=x^{2}+2x$ an der Stelle $x=1$?",
    "o": [
-    "$y=4x$",
-    "$y=4x+3$",
     "$y=3x-1$",
+    "$y=4x+3$",
+    "$y=4x$",
     "$y=4x-1$"
    ],
    "a": 3,
@@ -7578,12 +7743,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme den Extrempunkt von $f(x)=-x^{2}+8x-9$.",
    "o": [
-    "$T(4\\,|\\,7)$",
     "$H(4\\,|\\,7)$",
-    "$H(-4\\,|\\,7)$",
-    "$H(4\\,|\\,-9)$"
+    "$T(4\\,|\\,7)$",
+    "$H(4\\,|\\,-9)$",
+    "$H(-4\\,|\\,7)$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "$f'(x)=-2x+8=0$ ergibt $x=4$. $f''(x)=-2$ ist negativ: Hochpunkt. $y$-Wert mit $f$: $f(4)=7$.",
    "typ": "Hoch- und Tiefpunkte"
   },
@@ -7593,10 +7758,10 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Bestimme die Wendestelle von $f(x)=x^{3}-6x^{2}+5x$.",
    "o": [
-    "$x=6$",
+    "$x=-2$",
     "$x=2$",
     "$x=4$",
-    "$x=-2$"
+    "$x=6$"
    ],
    "a": 1,
    "e": "Zweimal ableiten: $f'(x)=3x^{2}-12x+5$ und $f''(x)=6x-12$. Null setzen: $6x-12=0$ ergibt $x=2$.",
@@ -7608,12 +7773,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Berechne $\\displaystyle\\int_{1}^{3}\\left(3x^{2}-2x\\right)dx$.",
    "o": [
-    "$20$",
     "$17$",
     "$18$",
-    "$-18$"
+    "$-18$",
+    "$20$"
    ],
-   "a": 2,
+   "a": 1,
    "e": "Stammfunktion: $F(x)=x^{3}-x^{2}$. Obere Grenze minus untere Grenze: $F(3)-F(1)=18-0=18$.",
    "typ": "Integral"
   },
@@ -7623,12 +7788,12 @@ window.BAPSY_DATA = {
    "th": "Analysis",
    "q": "Welche Symmetrie hat der Graph von $f(x)=3x^{5}-4x$?",
    "o": [
-    "Achsensymmetrie zur $y$-Achse",
     "keine dieser Symmetrien",
-    "beide Symmetrien",
-    "Punktsymmetrie zum Ursprung"
+    "Punktsymmetrie zum Ursprung",
+    "Achsensymmetrie zur $y$-Achse",
+    "beide Symmetrien"
    ],
-   "a": 3,
+   "a": 1,
    "e": "Nur ungerade Hochzahlen: Punktsymmetrie.",
    "typ": "Symmetrie"
   },
@@ -7639,11 +7804,11 @@ window.BAPSY_DATA = {
    "q": "Zwei Würfel werden geworfen. Wie wahrscheinlich ist die Augensumme 5?",
    "o": [
     "$\\dfrac{1}{6}$",
-    "$\\dfrac{5}{36}$",
+    "$\\dfrac{1}{9}$",
     "$\\dfrac{1}{12}$",
-    "$\\dfrac{1}{9}$"
+    "$\\dfrac{5}{36}$"
    ],
-   "a": 3,
+   "a": 1,
    "e": "Passende Paare zählen: $(1,4),(2,3),(3,2),(4,1)$. Das sind 4 von 36, also $\\tfrac{1}{9}$.",
    "typ": "Zwei Würfel"
   },
@@ -7668,12 +7833,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Aus 9 Bewerberinnen werden 3 für ein Gespräch eingeladen. Wie viele Möglichkeiten gibt es?",
    "o": [
-    "$504$",
-    "$729$",
     "$27$",
-    "$84$"
+    "$84$",
+    "$729$",
+    "$504$"
    ],
-   "a": 3,
+   "a": 1,
    "e": "Die Reihenfolge ist egal: $\\binom{9}{3}=\\dfrac{9\\cdot8\\cdot7}{3\\cdot2\\cdot1}=84$. Mit Reihenfolge wären es $504$.",
    "typ": "Auswahl ohne Reihenfolge"
   },
@@ -7684,9 +7849,9 @@ window.BAPSY_DATA = {
    "q": "Bei 8 Teams werden ein Sieger und ein Zweiter ermittelt. Wie viele Möglichkeiten gibt es?",
    "o": [
     "$56$",
-    "$16$",
+    "$64$",
     "$28$",
-    "$64$"
+    "$16$"
    ],
    "a": 0,
    "e": "Die Reihenfolge zählt, und niemand kommt doppelt vor: $8\\cdot7=56$.",
@@ -7698,12 +7863,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Ein Spiel kostet 4 € Einsatz. Dann gilt: mit Wahrscheinlichkeit $0{,}25$ werden 8 € ausgezahlt, mit Wahrscheinlichkeit $0{,}5$ werden 2 € ausgezahlt, sonst nichts. Was gilt für den erwarteten Gewinn pro Spiel?",
    "o": [
-    "0 € (faires Spiel)",
     "3 € Gewinn",
-    "1 € Gewinn",
-    "1 € Verlust"
+    "0 € (faires Spiel)",
+    "1 € Verlust",
+    "1 € Gewinn"
    ],
-   "a": 3,
+   "a": 2,
    "e": "Erwartete Auszahlung: $0{,}25\\cdot8+0{,}5\\cdot2=3$ €. Minus 4 € Einsatz ergibt $-1$ €.",
    "typ": "Erwartungswert"
   },
@@ -7713,12 +7878,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Eine Münze wird fünfmal geworfen. Wie wahrscheinlich ist genau dreimal Kopf?",
    "o": [
-    "$\\dfrac{5}{32}$",
-    "$\\dfrac{5}{16}$",
+    "$\\dfrac{1}{32}$",
     "$\\dfrac{3}{5}$",
-    "$\\dfrac{1}{32}$"
+    "$\\dfrac{5}{32}$",
+    "$\\dfrac{5}{16}$"
    ],
-   "a": 1,
+   "a": 3,
    "e": "$n=5$, $k=3$, $p=\\tfrac12$: $\\binom{5}{3}\\cdot\\left(\\tfrac12\\right)^{5}=10\\cdot\\tfrac{1}{32}=\\tfrac{5}{16}$. Die $10$ zählt, an welchen Stellen Kopf fallen kann.",
    "typ": "Binomialverteilung"
   },
@@ -7728,12 +7893,12 @@ window.BAPSY_DATA = {
    "th": "Stochastik",
    "q": "Aus den Zahlen 1 bis 40 wird eine zufällig gezogen. Wie wahrscheinlich ist sie durch 5 oder durch 8 teilbar?",
    "o": [
-    "$\\dfrac{1}{40}$",
-    "$\\dfrac{13}{40}$",
     "$\\dfrac{11}{40}$",
-    "$\\dfrac{3}{10}$"
+    "$\\dfrac{1}{40}$",
+    "$\\dfrac{3}{10}$",
+    "$\\dfrac{13}{40}$"
    ],
-   "a": 3,
+   "a": 2,
    "e": "8 Zahlen sind durch 5 teilbar, 5 durch 8. Doppelt gezählt ist die eine Zahl, die durch beides teilbar ist. Also $\\tfrac{8+5-1}{40}=\\tfrac{3}{10}$.",
    "typ": "Oder-Regel"
   },
@@ -7743,12 +7908,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Wie weit sind $P(3\\,|\\,0\\,|\\,-2)$ und $Q(4\\,|\\,4\\,|\\,6)$ voneinander entfernt?",
    "o": [
-    "$9$",
-    "$\\sqrt{13}$",
     "$81$",
-    "$13$"
+    "$13$",
+    "$9$",
+    "$\\sqrt{13}$"
    ],
-   "a": 0,
+   "a": 2,
    "e": "Erst der Vektor dazwischen: $\\overrightarrow{PQ}=\\begin{pmatrix}1\\\\4\\\\8\\end{pmatrix}$. Dann seine Länge: $\\sqrt{1+16+64}=\\sqrt{81}=9$.",
    "typ": "Länge und Abstand"
   },
@@ -7758,12 +7923,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Für welches $a$ stehen $\\begin{pmatrix}a\\\\2\\\\3\\end{pmatrix}$ und $\\begin{pmatrix}1\\\\a\\\\-4\\end{pmatrix}$ senkrecht aufeinander?",
    "o": [
-    "$a=-4$",
     "$a=4$",
+    "$a=-4$",
     "$a=12$",
     "$a=5$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Senkrecht heißt Skalarprodukt null: $a+2a-12=0$, also $3a=12$ und $a=4$.",
    "typ": "Rechter Winkel"
   },
@@ -7773,12 +7938,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Für welchen Wert von $t$ liegt $P(7\\,|\\,5\\,|\\,-4)$ auf $g:\\ \\vec x=\\begin{pmatrix}4\\\\-1\\\\2\\end{pmatrix}+t\\begin{pmatrix}1\\\\2\\\\-2\\end{pmatrix}$?",
    "o": [
-    "$P$ liegt nicht auf $g$",
-    "$t=3$",
     "$t=4$",
-    "$t=2$"
+    "$P$ liegt nicht auf $g$",
+    "$t=2$",
+    "$t=3$"
    ],
-   "a": 1,
+   "a": 3,
    "e": "Erste Zeile: $4+t=7$ ergibt $t=3$. Probe: zweite Zeile $5$, dritte Zeile $-4$. Beides passt.",
    "typ": "Geraden im Raum"
   },
@@ -7803,12 +7968,12 @@ window.BAPSY_DATA = {
    "th": "Vektoren und Matrizen",
    "q": "Berechne $\\begin{pmatrix}3&1\\\\0&2\\end{pmatrix}\\cdot\\begin{pmatrix}1&2\\\\4&0\\end{pmatrix}$.",
    "o": [
-    "$\\begin{pmatrix}4&3\\\\4&2\\end{pmatrix}$",
     "$\\begin{pmatrix}7&6\\\\8&0\\end{pmatrix}$",
     "$\\begin{pmatrix}3&2\\\\0&0\\end{pmatrix}$",
+    "$\\begin{pmatrix}4&3\\\\4&2\\end{pmatrix}$",
     "$\\begin{pmatrix}3&5\\\\12&4\\end{pmatrix}$"
    ],
-   "a": 1,
+   "a": 0,
    "e": "Zeile mal Spalte. Oben links: $3\\cdot1+1\\cdot4=7$. Unten rechts: $0\\cdot2+2\\cdot0=0$. Feld für Feld malnehmen wäre falsch.",
    "typ": "Matrix mal Matrix"
   }
@@ -7846,26 +8011,26 @@ window.BAPSY_DATA = {
    "titel": "Probetest 2",
    "minuten": 23,
    "ids": [
-    "C2",
-    "C3",
-    "C4",
+    "C20",
+    "C10",
+    "C7",
     "C13",
+    "C5",
     "C18",
-    "C14",
+    "C6",
+    "C9",
+    "C19",
+    "C8",
+    "C3",
+    "C1",
     "C17",
+    "C4",
     "C16",
     "C12",
-    "C9",
-    "C7",
-    "C8",
-    "C20",
-    "C1",
-    "C10",
-    "C5",
-    "C11",
-    "C6",
     "C15",
-    "C19"
+    "C14",
+    "C11",
+    "C2"
    ]
   }
  ]
