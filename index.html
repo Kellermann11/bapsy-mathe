@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#5B3FD6">
+<title>BaPsy Mathe-Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root{
+  --nebel:#F4F2FB; --tinte:#1F1A3D; --leise:#6E6890; --linie:#E2DCF5; --karte:#fff;
+  --veil:#5B3FD6; --veil-tief:#3D2A9E; --veil-hell:#ECE7FF;
+  --minze:#0F9B72; --minze-hell:#DDF6EC; --koralle:#DC3F47; --koralle-hell:#FDE6E7; --sonne:#FFC53D; --sonne-hell:#FFF4D2;
+  --anzeige:"Fredoka","Nunito",system-ui,sans-serif; --text:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--text);font-weight:500;background:var(--nebel);color:var(--tinte);font-size:17px;line-height:1.45;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--sonne);outline-offset:2px}
+h1,h2,h3{font-family:var(--anzeige);font-weight:600;margin:0;line-height:1.2}
+main{max-width:640px;margin:0 auto;padding:18px 16px 108px}
+.leise{color:var(--leise);font-size:15px}
+a{color:var(--veil-tief);font-weight:700}
+
+/* Reiter unten */
+#reiter{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;border-top:1px solid var(--linie);display:flex;justify-content:center;padding-bottom:env(safe-area-inset-bottom)}
+#reiter div{display:flex;width:100%;max-width:640px}
+#reiter button{flex:1;background:none;border:0;padding:9px 2px 10px;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:12.5px;font-weight:700;color:var(--leise)}
+#reiter svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#reiter button.an{color:var(--veil)}
+#reiter button.an svg{fill:var(--veil-hell)}
+
+/* Bausteine */
+.karte{background:var(--karte);border-radius:20px;padding:18px;margin-bottom:14px;box-shadow:0 1px 0 var(--linie),0 8px 24px -18px rgba(61,42,158,.45)}
+.knopf{display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;padding:12px 18px;border-radius:16px;border:0;background:var(--veil);color:#fff;font-family:var(--anzeige);font-weight:600;font-size:18px;text-decoration:none;box-shadow:0 4px 0 var(--veil-tief);transition:transform .08s,box-shadow .08s}
+.knopf:active{transform:translateY(3px);box-shadow:0 1px 0 var(--veil-tief)}
+.knopf.still{background:#fff;color:var(--veil-tief);box-shadow:0 0 0 2px var(--linie) inset,0 4px 0 var(--linie)}
+.knopf.still:active{box-shadow:0 0 0 2px var(--linie) inset,0 1px 0 var(--linie)}
+.knopf:disabled{opacity:.4}
+.reihe{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.reihe .knopf{flex:1 1 140px}
+.zahl{font-family:var(--anzeige);font-weight:700;font-size:40px;line-height:1;color:var(--veil-tief)}
+
+/* Start: Kopf und Lernpfad */
+.gruss{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:6px 2px 18px}
+.gruss h1{font-size:30px}
+.marken{display:flex;gap:8px}
+.marke{background:#fff;border-radius:14px;padding:7px 12px;text-align:center;box-shadow:0 1px 0 var(--linie)}
+.marke b{display:block;font-family:var(--anzeige);font-size:20px;line-height:1.1;color:var(--veil-tief)}
+.marke span{font-size:12px;color:var(--leise);font-weight:700}
+.pfad{position:relative;padding-left:0;margin-top:6px}
+.pfad::before{content:"";position:absolute;left:31px;top:30px;bottom:30px;width:4px;border-radius:2px;background:var(--linie)}
+.knoten{position:relative;display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:none;border:0;padding:7px 4px;border-radius:18px}
+.knoten .ring{flex:0 0 56px;position:relative;z-index:1}
+.knoten .ring svg{display:block;width:56px;height:56px}
+.knoten .kt b{display:block;font-family:var(--anzeige);font-weight:600;font-size:17.5px;line-height:1.2}
+.knoten .kt small{color:var(--leise);font-size:14px;font-weight:700}
+.knoten.dran{background:#fff;padding:14px 12px;margin:8px 0;box-shadow:0 1px 0 var(--linie),0 10px 26px -18px rgba(61,42,158,.6);flex-wrap:wrap}
+.knoten.dran .kt{flex:1}
+.knoten.dran .weiter{flex:1 0 100%;margin-top:4px}
+.dran-schild{display:inline-block;background:var(--sonne);color:#5a4200;font-size:12px;font-weight:800;border-radius:99px;padding:2px 9px;margin-bottom:3px}
+
+/* Kapitel */
+.zur{background:none;border:0;color:var(--veil-tief);font-weight:800;padding:8px 2px;min-height:44px}
+.kapkopf{display:flex;gap:16px;align-items:center;margin-bottom:6px}
+.kapkopf h1{font-size:25px}
+.kapkopf>svg{flex:0 0 76px}
+.kurz{margin:0;padding:0;list-style:none}
+.kurz li{padding:9px 0;border-top:1px solid var(--linie);overflow-x:auto}
+.kurz li:first-child{border-top:0}
+details.klapp>summary{font-family:var(--anzeige);font-weight:600;font-size:19px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.klapp>summary::-webkit-details-marker{display:none}
+details.klapp>summary::after{content:"";width:10px;height:10px;border-right:3px solid var(--veil);border-bottom:3px solid var(--veil);transform:rotate(45deg);transition:transform .2s;margin-right:4px}
+details.klapp[open]>summary::after{transform:rotate(-135deg)}
+.typen{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.typ{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:15.5px}
+.typ .pkt{display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end;max-width:45%}
+.typ .pkt i{width:9px;height:9px;border-radius:50%;background:var(--linie)}
+.typ .pkt i.ok{background:var(--minze)} .typ .pkt i.off{background:var(--koralle)}
+
+/* Aufgabe */
+.leiste{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.leiste .zu{flex:0 0 40px;height:40px;border-radius:12px;border:0;background:#fff;font-size:20px;color:var(--leise);box-shadow:0 1px 0 var(--linie)}
+.fort{flex:1;height:12px;background:#fff;border-radius:99px;overflow:hidden;box-shadow:0 0 0 1px var(--linie) inset}
+.fort i{display:block;height:100%;background:var(--minze);border-radius:99px;transition:width .35s cubic-bezier(.3,1.4,.5,1)}
+.serie{font-family:var(--anzeige);font-weight:700;background:var(--sonne-hell);color:#7a5a00;border-radius:99px;padding:5px 11px;font-size:15px;white-space:nowrap}
+.serie.null{background:#fff;color:var(--leise)}
+.frage{font-size:19px;font-weight:700;margin-bottom:14px;overflow-x:auto}
+.thema{font-size:13.5px;font-weight:800;color:var(--veil);margin-bottom:6px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#fff;border:2px solid var(--linie);border-bottom-width:4px;border-radius:16px;padding:11px 12px;margin-bottom:10px;min-height:58px;overflow-x:auto;transition:border-color .12s,background .12s}
+.opt .b{flex:0 0 32px;height:32px;border-radius:10px;background:var(--veil-hell);color:var(--veil-tief);display:flex;align-items:center;justify-content:center;font-family:var(--anzeige);font-weight:700;font-size:16px}
+.opt.gew{border-color:var(--veil);background:var(--veil-hell)}
+.opt.gew .b{background:var(--veil);color:#fff}
+.opt.ok{border-color:var(--minze);background:var(--minze-hell)} .opt.ok .b{background:var(--minze);color:#fff}
+.opt.falsch{border-color:var(--koralle);background:var(--koralle-hell)} .opt.falsch .b{background:var(--koralle);color:#fff}
+.opt:disabled{cursor:default;color:inherit}
+.raten{display:flex;align-items:center;gap:9px;font-size:15px;color:var(--leise);margin:2px 0 0;font-weight:700}
+.raten input{width:22px;height:22px;accent-color:var(--veil)}
+.nach{border-radius:18px;padding:14px 16px 16px;margin-top:14px}
+.nach.ok{background:var(--minze-hell)} .nach.falsch{background:var(--koralle-hell)}
+.nach h3{font-size:21px;margin-bottom:8px}
+.nach.ok h3{color:#0a6e51} .nach.falsch h3{color:#a52b32}
+.weg{background:#fff;border-radius:14px;padding:11px 13px;margin-bottom:12px;overflow-x:auto}
+.weg b{display:block;font-size:13.5px;font-weight:800;color:var(--leise);margin-bottom:3px}
+.nach.ok .knopf{background:var(--minze);box-shadow:0 4px 0 #0a6e51} .nach.falsch .knopf{background:var(--koralle);box-shadow:0 4px 0 #a52b32}
+table.daten{border-collapse:separate;border-spacing:0;margin:2px 0 14px;font-size:15.5px;border:2px solid var(--linie);border-radius:12px;overflow:hidden}
+table.daten td,table.daten th{padding:7px 11px;text-align:center;border-top:1px solid var(--linie);border-left:1px solid var(--linie)}
+table.daten tr:first-child>*{border-top:0} table.daten tr>*:first-child{border-left:0;text-align:left}
+table.daten th,table.daten td:first-child{background:var(--veil-hell);font-weight:800}
+svg.plot{display:block;margin:2px 0 14px;max-width:100%;height:auto;background:#fff;border:2px solid var(--linie);border-radius:14px}
+
+/* Prüfung */
+.uhr{position:sticky;top:0;z-index:15;background:var(--veil-tief);color:#fff;margin:-18px -16px 14px;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.uhr .zeit{font-family:var(--anzeige);font-variant-numeric:tabular-nums;font-size:24px;font-weight:700}
+.uhr .zeit.knapp{color:var(--sonne)}
+.uhr button{background:#fff;color:var(--veil-tief);border:0;border-radius:12px;padding:9px 15px;font-weight:800;min-height:42px}
+.gitter{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:14px}
+.gitter button{aspect-ratio:1;border:2px solid var(--linie);background:#fff;border-radius:10px;font-size:14px;font-weight:800;padding:0}
+.gitter button.da{background:var(--veil-hell);border-color:#c9bdf7}
+.gitter button.akt{background:var(--veil);color:#fff;border-color:var(--veil)}
+.bogen{display:grid;grid-template-columns:30px repeat(4,1fr);gap:7px;align-items:center;margin-bottom:7px}
+.bogen .n{color:var(--leise);font-weight:800;text-align:right}
+.bogen button,.bogen span.f{min-height:44px;border:2px solid var(--linie);background:#fff;border-radius:12px;font-family:var(--anzeige);font-weight:600;font-size:17px;display:flex;align-items:center;justify-content:center}
+.bogen button.gew{background:var(--veil);color:#fff;border-color:var(--veil)}
+.bogen .f.ok,.bogen button.ok{background:var(--minze);color:#fff;border-color:var(--minze)}
+.bogen .f.falsch{background:var(--koralle);color:#fff;border-color:var(--koralle)}
+.bogen .f.waere{border-color:var(--minze);color:#0a6e51;background:var(--minze-hell)}
+details.auf{border-top:1px solid var(--linie);padding:11px 0}
+details.auf summary{cursor:pointer;font-weight:800}
+details.auf .frage{font-size:17px;margin-top:10px}
+ul.links{list-style:none;padding:0;margin:6px 0 0}
+ul.links li{border-top:1px solid var(--linie)}
+ul.links li:first-child{border-top:0}
+ul.links a{display:block;padding:12px 0;text-decoration:none}
+table.merk{width:100%;border-collapse:collapse;font-size:15.5px}
+table.merk td{border-top:1px solid var(--linie);padding:10px 4px;vertical-align:top}
+table.merk tr:first-child td{border-top:0}
+table.merk td:first-child{font-weight:800;width:38%}
+.frag{background:var(--sonne-hell);border-radius:16px;padding:14px;margin-bottom:14px;font-weight:700}
+
+/* Tafel */
+#tafelknopf{position:fixed;right:16px;bottom:18px;z-index:30;border-radius:18px;border:0;background:var(--tinte);color:#fff;font-family:var(--anzeige);font-weight:600;padding:13px 18px;box-shadow:0 6px 16px -4px rgba(31,26,61,.5);min-height:50px}
+#tafel{position:fixed;left:0;right:0;bottom:0;height:52vh;background:#fff;border-radius:22px 22px 0 0;z-index:40;display:none;flex-direction:column;box-shadow:0 -10px 30px -10px rgba(31,26,61,.35);overflow:hidden}
+#tafel.auf{display:flex}
+#tafel .werkzeug{display:flex;gap:6px;padding:9px 10px;border-bottom:1px solid var(--linie);align-items:center;overflow-x:auto}
+#tafel .werkzeug button{border:2px solid var(--linie);background:#fff;border-radius:11px;padding:6px 11px;min-height:40px;font-size:14.5px;font-weight:800;white-space:nowrap}
+#tafel .werkzeug button.an{border-color:var(--veil);background:var(--veil-hell)}
+#tafel .farbe{width:40px;padding:0!important}
+#tafel .farbe i{display:block;width:18px;height:18px;border-radius:50%;margin:auto}
+#tafel .platz{flex:1;min-width:2px}
+#tafel canvas{flex:1;width:100%;touch-action:none;cursor:crosshair;background:radial-gradient(circle,#d9d3ee 1.2px,transparent 1.3px) 0 0/22px 22px}
+body.tafelauf main{padding-bottom:56vh}
+
+/* Bewegung */
+#fest{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+.teil{position:absolute;width:10px;height:14px;border-radius:3px;animation:flieg var(--t,1s) cubic-bezier(.15,.8,.3,1) forwards}
+@keyframes flieg{0%{transform:translate(0,0) rotate(0);opacity:1}70%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(var(--r));opacity:0}}
+.regen{position:absolute;top:-20px;width:10px;height:14px;border-radius:3px;animation:fall var(--t,2.4s) linear forwards}
+@keyframes fall{to{transform:translate(var(--dx),105vh) rotate(var(--r));opacity:.9}}
+.huepf{animation:huepf .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes huepf{0%{transform:scale(1)}40%{transform:scale(1.045)}100%{transform:scale(1)}}
+.wackel{animation:wackel .4s}
+@keyframes wackel{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+.leucht{animation:leucht 1.1s ease-out 1}
+@keyframes leucht{0%{box-shadow:0 0 0 0 rgba(15,155,114,.55)}100%{box-shadow:0 0 0 14px rgba(15,155,114,0)}}
+.rein{animation:rein .28s ease-out}
+@keyframes rein{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
+.stoss{animation:stoss .5s cubic-bezier(.3,1.8,.5,1)}
+@keyframes stoss{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+#jubel{position:fixed;left:50%;top:18%;transform:translate(-50%,0) scale(.6);opacity:0;z-index:61;pointer-events:none;background:var(--tinte);color:#fff;font-family:var(--anzeige);font-weight:700;font-size:26px;padding:14px 26px;border-radius:22px;white-space:nowrap;box-shadow:0 12px 30px -8px rgba(31,26,61,.6)}
+#jubel small{display:block;font-family:var(--text);font-weight:700;font-size:14px;color:var(--sonne);text-align:center}
+#jubel.zeig{animation:jubel 1.7s cubic-bezier(.3,1.5,.5,1) forwards}
+@keyframes jubel{0%{transform:translate(-50%,10px) scale(.6);opacity:0}14%{transform:translate(-50%,0) scale(1);opacity:1}80%{transform:translate(-50%,0) scale(1);opacity:1}100%{transform:translate(-50%,-14px) scale(.95);opacity:0}}
+.ringlauf{transition:stroke-dashoffset 1s cubic-bezier(.3,1,.4,1)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main id="main"></main>
+
+<nav id="reiter" aria-label="Bereiche"><div>
+  <button data-tab="pfad"><svg viewBox="0 0 24 24"><path d="M5 20c0-5 4-4 4-8s-4-3-4-8"/><circle cx="17" cy="6" r="3"/><circle cx="17" cy="18" r="3"/></svg>Lernpfad</button>
+  <button data-tab="alles"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>Alles</button>
+  <button data-tab="pruefung"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg>Prüfung</button>
+  <button data-tab="merk"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Merkzettel</button>
+</div></nav>
+
+<button id="tafelknopf" hidden>✎ Tafel</button>
+<div id="tafel" aria-label="Tafel zum Rechnen und Skizzieren">
+  <div class="werkzeug">
+    <button class="farbe an" data-farbe="#1F1A3D" aria-label="Dunkel"><i style="background:#1F1A3D"></i></button>
+    <button class="farbe" data-farbe="#5B3FD6" aria-label="Violett"><i style="background:#5B3FD6"></i></button>
+    <button class="farbe" data-farbe="#DC3F47" aria-label="Rot"><i style="background:#DC3F47"></i></button>
+    <button id="t-rad">Radierer</button>
+    <button id="t-undo" aria-label="Letzten Strich zurücknehmen">↶</button>
+    <button id="t-leer">Leeren</button>
+    <span class="platz"></span>
+    <button id="t-zu" aria-label="Tafel schließen" style="padding:6px 14px">✕</button>
+  </div>
+  <canvas id="leinwand"></canvas>
+</div>
+<div id="fest" aria-hidden="true"></div>
+<div id="jubel" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="aufgaben.js"></script>
+<script>
+"use strict";
+if (!window.BAPSY_DATA) {
+  document.getElementById("main").innerHTML = '<div class="karte"><h2>Aufgaben nicht gefunden</h2><p class="leise">Die Datei aufgaben.js muss im selben Ordner liegen wie diese Seite. Auf dem Handy klappt das nur, wenn die App online ist (zum Beispiel über GitHub Pages) oder wenn du die Einzeldatei-Version öffnest.</p></div>';
+  throw new Error("aufgaben.js fehlt");
+}
+const D = window.BAPSY_DATA, C = window.BAPSY_CONFIG;
+const NACH_ID = Object.fromEntries(D.aufgaben.map(a => [a.id, a]));
+const BUCHST = ["A", "B", "C", "D"];
+const main = document.getElementById("main");
+const RUHIG = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- Speicher (nur auf diesem Gerät) ---------- */
+const KEY = "bapsy-mathe-v1";
+let S = { stats: {}, pt: {}, tage: [] };
+try { const alt = JSON.parse(localStorage.getItem(KEY) || "null"); if (alt && alt.stats) S = Object.assign(S, alt); } catch (e) {}
+function sichern() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+function tagStr(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+function heuteGeuebt() { const h = tagStr(new Date()); if (!S.tage.includes(h)) { S.tage.push(h); S.tage = S.tage.slice(-400); } }
+function lernserie() {            // Tage in Folge, endend heute oder gestern
+  const d = new Date(); let n = 0;
+  if (!S.tage.includes(tagStr(d))) d.setDate(d.getDate() - 1);
+  while (S.tage.includes(tagStr(d))) { n++; d.setDate(d.getDate() - 1); }
+  return n;
+}
+
+/* ---------- Hilfen ---------- */
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+function rich(s) {            // Text mit $Formeln$ in HTML umwandeln
+  return s.split("$").map((p, i) => {
+    if (i % 2 === 0) return p;
+    if (window.katex) { try { return katex.renderToString(p, { throwOnError: false }); } catch (e) {} }
+    return "<code>" + esc(p) + "</code>";
+  }).join("");
+}
+function mischen(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function mmss(sek) { sek = Math.max(0, Math.round(sek)); return String(Math.floor(sek / 60)).padStart(2, "0") + ":" + String(sek % 60).padStart(2, "0"); }
+function geloest(id) { const s = S.stats[id]; return !!(s && s.ok); }
+function zustand(id) { const s = S.stats[id]; return !s ? 0 : (s.ok ? 2 : 1); }   // 0 neu, 1 falsch oder geraten, 2 gelöst
+function ring(anteil, gr, inhalt, farbe) {
+  const r = gr / 2 - 5, u = 2 * Math.PI * r, off = u * (1 - Math.max(0, Math.min(1, anteil)));
+  return `<svg viewBox="0 0 ${gr} ${gr}" width="${gr}" height="${gr}"><circle cx="${gr / 2}" cy="${gr / 2}" r="${r}" fill="#fff" stroke="#E2DCF5" stroke-width="6"/>
+    <circle class="ringlauf" cx="${gr / 2}" cy="${gr / 2}" r="${r}" fill="none" stroke="${farbe || "#0F9B72"}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${u}" stroke-dashoffset="${off}" transform="rotate(-90 ${gr / 2} ${gr / 2})"/>
+    <text x="50%" y="50%" dy=".35em" text-anchor="middle" font-family="Fredoka,sans-serif" font-weight="700" font-size="${gr * 0.34}" fill="#3D2A9E">${inhalt}</text></svg>`;
+}
+function grafik(g) {          // Funktionsgraph als SVG
+  const W = 320, H = Math.round(W * (g.ymax - g.ymin) / (g.xmax - g.xmin)), f = new Function("x", "return " + g.fn);
+  const X = x => (x - g.xmin) / (g.xmax - g.xmin) * W, Y = y => H - (y - g.ymin) / (g.ymax - g.ymin) * H;
+  let s = `<svg class="plot" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Funktionsgraph"><defs><clipPath id="cp"><rect width="${W}" height="${H}"/></clipPath></defs>`;
+  for (let x = Math.ceil(g.xmin); x <= g.xmax; x++) s += `<line x1="${X(x)}" y1="0" x2="${X(x)}" y2="${H}" stroke="#ECE7FF"/>`;
+  for (let y = Math.ceil(g.ymin); y <= g.ymax; y++) s += `<line x1="0" y1="${Y(y)}" x2="${W}" y2="${Y(y)}" stroke="#ECE7FF"/>`;
+  s += `<line x1="0" y1="${Y(0)}" x2="${W}" y2="${Y(0)}" stroke="#1F1A3D" stroke-width="1.4"/><line x1="${X(0)}" y1="0" x2="${X(0)}" y2="${H}" stroke="#1F1A3D" stroke-width="1.4"/>`;
+  for (let x = Math.ceil(g.xmin) + 1; x < g.xmax; x++) if (x) s += `<text x="${X(x)}" y="${Y(0) + 14}" font-size="11" text-anchor="middle" fill="#6E6890">${x}</text>`;
+  for (let y = Math.ceil(g.ymin) + 1; y < g.ymax; y++) if (y) s += `<text x="${X(0) - 6}" y="${Y(y) + 4}" font-size="11" text-anchor="end" fill="#6E6890">${y}</text>`;
+  s += `<text x="${W - 9}" y="${Y(0) - 6}" font-size="12" font-style="italic" fill="#1F1A3D">x</text><text x="${X(0) + 7}" y="13" font-size="12" font-style="italic" fill="#1F1A3D">y</text>`;
+  let d = ""; const n = 240;
+  for (let i = 0; i <= n; i++) { const x = g.xmin + (g.xmax - g.xmin) * i / n, y = f(x); d += (i ? "L" : "M") + X(x).toFixed(1) + " " + Y(y).toFixed(1); }
+  return s + `<path d="${d}" fill="none" stroke="#5B3FD6" stroke-width="3" stroke-linecap="round" clip-path="url(#cp)"/></svg>`;
+}
+function tabelle(t) {
+  return '<div style="overflow-x:auto"><table class="daten">' + t.map((z, i) => "<tr>" + z.map(c => i === 0 ? `<th>${esc(c)}</th>` : `<td>${esc(c)}</td>`).join("") + "</tr>").join("") + "</table></div>";
+}
+function frageHtml(a) {
+  return `<div class="frage">${rich(a.q)}</div>` + (a.grafik ? grafik(a.grafik) : "") + (a.tabelle ? tabelle(a.tabelle) : "");
+}
+
+/* ---------- Bewegung: Konfetti, Jubel ---------- */
+const FARBEN = ["#5B3FD6", "#0F9B72", "#FFC53D", "#DC3F47", "#8E7BEA", "#4CC9A0"];
+const fest = document.getElementById("fest");
+function funken(el, n) {         // kleiner Konfetti-Stoß aus einem Element heraus
+  if (RUHIG || !el) return;
+  const r = el.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement("i"), w = Math.random() * Math.PI * 2, s = 60 + Math.random() * 110;
+    p.className = "teil"; p.style.left = x + "px"; p.style.top = y + "px"; p.style.background = FARBEN[i % FARBEN.length];
+    p.style.setProperty("--dx", Math.cos(w) * s + "px"); p.style.setProperty("--dy", (Math.sin(w) * s - 40) + "px");
+    p.style.setProperty("--r", (Math.random() * 720 - 360) + "deg"); p.style.setProperty("--t", (0.7 + Math.random() * 0.5) + "s");
+    fest.appendChild(p); setTimeout(() => p.remove(), 1300);
+  }
+}
+function regen(n) {              // Konfetti von oben über den ganzen Bildschirm
+  if (RUHIG) return;
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement("i");
+    p.className = "regen"; p.style.left = Math.random() * 100 + "vw"; p.style.background = FARBEN[i % FARBEN.length];
+    p.style.setProperty("--dx", (Math.random() * 120 - 60) + "px"); p.style.setProperty("--r", (Math.random() * 900 - 450) + "deg");
+    p.style.setProperty("--t", (1.6 + Math.random() * 1.6) + "s"); p.style.animationDelay = Math.random() * 0.5 + "s";
+    fest.appendChild(p); setTimeout(() => p.remove(), 3800);
+  }
+}
+const jubelEl = document.getElementById("jubel");
+function jubel(gross, klein) {
+  jubelEl.innerHTML = esc(gross) + (klein ? `<small>${esc(klein)}</small>` : "");
+  if (RUHIG) return;
+  jubelEl.classList.remove("zeig"); void jubelEl.offsetWidth; jubelEl.classList.add("zeig");
+}
+function animiere(el, klasse) { if (!el || RUHIG) return; el.classList.remove(klasse); void el.offsetWidth; el.classList.add(klasse); }
+const LOB = ["Richtig!", "Genau!", "Stark!", "Passt!", "Sauber gelöst!"], TROST = ["Noch nicht.", "Knapp daneben.", "Das war die Falle."];
+const SERIEN = { 3: ["3 in Folge!", "Du bist drin"], 5: ["5 in Folge!", "Läuft richtig gut"], 8: ["8 in Folge!", "Kaum zu stoppen"], 10: ["10 in Folge!", "Alles richtig bisher"], 15: ["15 in Folge!", "Wahnsinn"], 20: ["20 in Folge!", "Testreif"] };
+
+/* ---------- Reiter ---------- */
+let laeuft = null;   // Timer-Intervall einer Prüfung
+const reiter = document.getElementById("reiter");
+reiter.addEventListener("click", e => { const b = e.target.closest("button"); if (b) zeige(b.dataset.tab); });
+function rahmen(tab) {            // tab = aktiver Reiter oder null (Reiter ausblenden)
+  stoppeUhr(); fest.innerHTML = ""; jubelEl.classList.remove("zeig"); reiter.hidden = tab === null; reiter.style.display = tab === null ? "none" : "";
+  reiter.querySelectorAll("button").forEach(b => b.classList.toggle("an", b.dataset.tab === tab));
+}
+function zeige(t) {
+  tafelFuer(null); rahmen(t);
+  ({ pfad: ansichtPfad, alles: ansichtAlles, pruefung: ansichtPruefung, merk: ansichtMerk })[t]();
+  window.scrollTo(0, 0);
+}
+function stoppeUhr() { if (laeuft) { clearInterval(laeuft); laeuft = null; } }
+
+/* ---------- Lernpfad ---------- */
+function kapAufgaben(nr) { return D.aufgaben.filter(a => a.kap === nr); }
+function ansichtPfad() {
+  const akt = C.aktuellesKapitel, pool = D.aufgaben.filter(a => a.kap), gel = pool.filter(a => geloest(a.id)).length, tage = lernserie();
+  let h = `<div class="gruss"><h1>Dein Lernpfad</h1><div class="marken">
+      <div class="marke"><b>${tage}</b><span>${tage === 1 ? "Tag" : "Tage"} in Folge</span></div>
+      <div class="marke"><b>${gel}</b><span>gelöst</span></div></div></div><div class="pfad">`;
+  for (const k of D.kapitel) {
+    const alle = kapAufgaben(k.nr), g = alle.filter(a => geloest(a.id)).length, ant = alle.length ? g / alle.length : 0, dran = k.nr === akt;
+    h += `<button class="knoten ${dran ? "dran" : ""}" data-kap="${k.nr}">
+      <span class="ring">${ring(ant, 56, ant >= 1 ? "✓" : k.nr, dran ? "#5B3FD6" : "#0F9B72")}</span>
+      <span class="kt">${dran ? '<span class="dran-schild">Gerade dran</span>' : ""}<b>${esc(k.titel)}</b><small>${g} von ${alle.length} gelöst</small></span>
+      ${dran ? '<span class="knopf weiter">Weiter üben</span>' : ""}</button>`;
+  }
+  main.innerHTML = h + "</div>";
+  main.querySelectorAll("[data-kap]").forEach(b => b.onclick = () => ansichtKapitel(+b.dataset.kap));
+}
+
+const KURZ = {
+  1: ["Reihenfolge: Klammern, dann Hochzahlen, dann Mal und Geteilt, dann Plus und Minus.", "Brüche addieren: erst gleicher Nenner, dann nur die Zähler verrechnen. $\\tfrac12+\\tfrac13=\\tfrac36+\\tfrac26=\\tfrac56$", "Brüche malnehmen: Zähler mal Zähler, Nenner mal Nenner.", "Durch einen Bruch teilen: mit dem Kehrwert malnehmen.", "Prozent heißt Hundertstel: $25\\,\\%=\\tfrac14=0{,}25$", "$-3^2=-9$, aber $(-3)^2=9$"],
+  2: ["Nur Gleichartiges zusammenfassen: $x$ mit $x$, Zahlen mit Zahlen.", "Ein Minus vor der Klammer dreht alle Vorzeichen darin um.", "$(a+b)^2=a^2+2ab+b^2$ und $(a-b)^2=a^2-2ab+b^2$", "$(a+b)(a-b)=a^2-b^2$", "Gleichung lösen: auf beiden Seiten dasselbe tun, bis $x$ allein steht.", "Ungleichung: Beim Malnehmen oder Teilen mit einer negativen Zahl dreht sich das Zeichen."],
+  3: ["$a^m\\cdot a^n=a^{m+n}$, $\\;\\dfrac{a^m}{a^n}=a^{m-n}$, $\\;(a^m)^n=a^{m\\cdot n}$", "$a^0=1$, $\\;a^{-n}=\\dfrac{1}{a^n}$, $\\;a^{\\frac12}=\\sqrt a$", "$x^2=c$: Wurzel ziehen, Plus und Minus. Ohne einzelne Zahl: $x$ ausklammern.", "pq-Formel für $x^2+px+q=0$: $x=-\\tfrac p2\\pm\\sqrt{\\left(\\tfrac p2\\right)^2-q}$", "Schneller: zwei Zahlen mit Produkt $q$ und Summe $-p$ suchen.", "$\\log_2 8=3$, weil $2^3=8$. Der Logarithmus fragt nach der Hochzahl."],
+  4: ["$f(2)$ heißt: für jedes $x$ die 2 einsetzen.", "Gerade $y=mx+b$: $m$ ist die Steigung, $b$ der Schnitt mit der $y$-Achse. $m=\\dfrac{y_2-y_1}{x_2-x_1}$", "Parabel $a(x-d)^2+e$: Scheitel $S(d\\,|\\,e)$. $(x-2)^2$ verschiebt nach rechts.", "$f(g(x))$: von innen nach außen einsetzen.", "Definitionsbereich: Nenner $\\ne0$, unter der Wurzel $\\ge0$, im $\\ln$ $>0$.", "$e$ und $\\ln$ heben sich auf: $\\ln(e^3)=3$, $\\;e^{\\ln5}=5$"],
+  5: ["Die Ableitung $f'(x)$ ist die Steigung des Graphen an der Stelle $x$.", "Potenzregel: $x^n\\to n\\cdot x^{n-1}$. Zahlen davor bleiben, einzelne Zahlen fallen weg.", "Erst umschreiben: $\\tfrac1x=x^{-1}$ und $\\sqrt x=x^{\\frac12}$", "$e^x\\to e^x$, $\\;\\ln x\\to\\tfrac1x$, $\\;\\sin x\\to\\cos x$, $\\;\\cos x\\to-\\sin x$", "Steigung an einer Stelle: $f'$ bilden, dann einsetzen.", "Tangente: $m=f'(x_0)$, dann $b$ aus dem Punkt bestimmen."],
+  6: ["Hoch- und Tiefpunkte: $f'(x)=0$ lösen.", "Lösung in $f''$ einsetzen: positiv heißt Tiefpunkt, negativ heißt Hochpunkt.", "Den $y$-Wert liefert immer $f$ selbst.", "Wendestelle: $f''(x)=0$ lösen.", "Symmetrie: nur gerade Hochzahlen: Achse. Nur ungerade: Punkt.", "Für sehr große $x$ entscheidet der Teil mit der höchsten Hochzahl."],
+  7: ["Stammfunktion: Hochzahl um 1 größer, durch die neue Hochzahl teilen.", "Im Test: die Antworten ableiten und schauen, welche $f$ ergibt.", "$\\displaystyle\\int_a^b f(x)\\,dx=F(b)-F(a)$, also oben minus unten.", "Fläche zwischen zwei Graphen: Schnittstellen, dann obere minus untere Funktion.", "Kettenregel: äußere mal innere Ableitung. $(3x+1)^2\\to2(3x+1)\\cdot3$", "Produktregel: $(u\\cdot v)'=u'v+uv'$"],
+  8: ["Wahrscheinlichkeit = günstige Fälle durch mögliche Fälle.", "„Mindestens einmal“: 1 minus „kein Mal“.", "Baumdiagramm: entlang eines Weges malnehmen, mehrere Wege addieren.", "Ohne Zurücklegen ändern sich die Brüche im zweiten Schritt.", "A oder B: $P(A)+P(B)-P(A\\text{ und }B)$", "„Unter denen, die …“: Nur diese Zeile oder Spalte ist die Grundmenge."],
+  9: ["Zwei Fragen: Zählt die Reihenfolge? Darf sich etwas wiederholen?", "Mit Wiederholung: $n^k$. Ohne: $n\\cdot(n-1)\\cdot(n-2)\\cdots$", "Alle $n$ anordnen: $n!$", "Auswahl ohne Reihenfolge: $\\dbinom nk$, zum Beispiel $\\dbinom62=\\dfrac{6\\cdot5}{2\\cdot1}=15$", "Erwartungswert: jeden Wert mal seine Wahrscheinlichkeit, alles addieren. Gewinn = Auszahlung minus Einsatz.", "Binomialverteilung: $\\mu=n\\cdot p$ und $\\sigma=\\sqrt{n\\cdot p\\cdot(1-p)}$"],
+  10: ["Mit Vektoren rechnet man Zeile für Zeile.", "Vektor von $A$ nach $B$: $B$ minus $A$.", "Länge: $\\sqrt{x^2+y^2+z^2}$. Abstand zweier Punkte: Länge des Vektors dazwischen.", "Skalarprodukt: Zeile für Zeile malnehmen und addieren. Null heißt senkrecht.", "Gerade: $\\vec x=\\vec a+t\\cdot\\overrightarrow{AB}$", "Punkt auf der Geraden? $t$ aus einer Zeile ausrechnen, in den anderen prüfen."],
+  11: ["Format: Zeilen mal Spalten.", "Addieren und Vervielfachen: Feld für Feld.", "Multiplizieren: Zeile der linken mal Spalte der rechten Matrix.", "$(m\\times n)\\cdot(n\\times k)=m\\times k$. Die inneren Zahlen müssen gleich sein.", "$A\\cdot B$ ist meist nicht $B\\cdot A$.", "Übergangsmatrix mal Bestand ergibt den Bestand im nächsten Schritt."],
+};
+
+function rundeAus(alle, n) {      // Fehler zuerst, dann Neues, dann Bekanntes; Aufgabentypen abwechseln
+  const mischTyp = liste => {
+    const gr = {}; mischen(liste).forEach(a => (gr[a.typ || a.id] = gr[a.typ || a.id] || []).push(a));
+    const reihen = mischen(Object.values(gr)), out = [];
+    for (let i = 0; out.length < liste.length; i++) reihen.forEach(r => { if (r[i]) out.push(r[i]); });
+    return out;
+  };
+  const fehler = mischTyp(alle.filter(a => zustand(a.id) === 1)), neu = mischTyp(alle.filter(a => zustand(a.id) === 0)), ok = mischTyp(alle.filter(a => zustand(a.id) === 2));
+  return mischen(fehler.slice(0, Math.ceil(n / 2)).concat(neu, fehler.slice(Math.ceil(n / 2)), ok).slice(0, n));
+}
+function ansichtKapitel(nr) {
+  tafelFuer(null); rahmen("pfad");
+  const k = D.kapitel.find(x => x.nr === nr), alle = kapAufgaben(nr), g = alle.filter(a => geloest(a.id)).length, off = alle.filter(a => zustand(a.id) === 1);
+  const typen = {}; alle.forEach(a => (typen[a.typ || "Gemischt"] = typen[a.typ || "Gemischt"] || []).push(a));
+  main.innerHTML = `<button class="zur" id="zur">‹ Lernpfad</button>
+    <div class="karte"><div class="kapkopf">${ring(alle.length ? g / alle.length : 0, 76, nr, "#5B3FD6")}<div><div class="leise">Kapitel ${nr}</div><h1>${esc(k.titel)}</h1><div class="leise">${g} von ${alle.length} gelöst</div></div></div>
+      <div class="reihe"><button class="knopf" id="ueben">10 Aufgaben üben</button>${off.length ? `<button class="knopf still" id="fehler">${off.length} offene Fehler</button>` : ""}</div></div>
+    <div class="karte"><details class="klapp" ${g === 0 ? "open" : ""}><summary>Kurz erklärt</summary><ul class="kurz">${(KURZ[nr] || []).map(z => `<li>${rich(z)}</li>`).join("")}</ul>
+      <p class="leise" style="margin:10px 0 0">Die ausführliche Erklärung mit Beispielen steht im Skript, Kapitel ${nr}.</p></details></div>
+    <div class="karte"><h2 style="font-size:19px">Was hier geübt wird</h2><div class="typen">${Object.entries(typen).map(([t, l]) =>
+      `<div class="typ"><span>${esc(t)}</span><span class="pkt">${l.map(a => `<i class="${["", "off", "ok"][zustand(a.id)]}"></i>`).join("")}</span></div>`).join("")}</div></div>`;
+  const zurueck = () => ansichtKapitel(nr);
+  document.getElementById("zur").onclick = () => zeige("pfad");
+  document.getElementById("ueben").onclick = () => starteRunde(rundeAus(alle, 10), "Kapitel " + nr, zurueck);
+  const f = document.getElementById("fehler"); if (f) f.onclick = () => starteRunde(mischen(off).slice(0, 15), "Kapitel " + nr + ": offene Fehler", zurueck);
+  window.scrollTo(0, 0);
+}
+
+/* ---------- Alles gemischt ---------- */
+function ansichtAlles() {
+  const pool = D.aufgaben.filter(a => a.kap), g = pool.filter(a => geloest(a.id)).length, off = pool.filter(a => zustand(a.id) === 1);
+  main.innerHTML = `<div class="gruss"><h1>Alles gemischt</h1></div>
+    <div class="karte"><div style="display:flex;gap:16px;align-items:center">${ring(g / pool.length, 84, Math.round(100 * g / pool.length) + "%", "#5B3FD6")}
+      <div><div class="zahl">${g}</div><div class="leise">von ${pool.length} Aufgaben gelöst</div></div></div>
+      <p class="leise" style="margin:14px 0 0">Aufgaben aus allen Kapiteln durcheinander, so wie im Test. Was zuletzt falsch oder geraten war, kommt zuerst wieder.</p>
+      <div class="reihe"><button class="knopf" id="mix10">10 Aufgaben</button><button class="knopf still" id="mix20">20 Aufgaben</button></div>
+      ${off.length ? `<div class="reihe"><button class="knopf still" id="nurfalsch">${off.length} offene Fehler wiederholen</button></div>` : ""}</div>
+    <div class="karte"><h2 style="font-size:19px">Fortschritt</h2><p class="leise">Der Fortschritt wird nur auf diesem Gerät gespeichert.</p>
+      <div id="resetfrage"></div><button class="knopf still" id="reset">Fortschritt zurücksetzen</button></div>`;
+  const zurueck = () => zeige("alles");
+  document.getElementById("mix10").onclick = () => starteRunde(rundeAus(pool, 10), "Alles gemischt", zurueck);
+  document.getElementById("mix20").onclick = () => starteRunde(rundeAus(pool, 20), "Alles gemischt", zurueck);
+  const nf = document.getElementById("nurfalsch"); if (nf) nf.onclick = () => starteRunde(mischen(off).slice(0, 20), "Offene Fehler", zurueck);
+  document.getElementById("reset").onclick = () => {
+    document.getElementById("resetfrage").innerHTML = `<div class="frag">Wirklich alles löschen? Das lässt sich nicht rückgängig machen.
+      <div class="reihe"><button class="knopf" id="resetja">Ja, löschen</button><button class="knopf still" id="resetnein">Abbrechen</button></div></div>`;
+    document.getElementById("resetja").onclick = () => { S = { stats: {}, pt: {}, tage: [] }; sichern(); ansichtAlles(); };
+    document.getElementById("resetnein").onclick = () => { document.getElementById("resetfrage").innerHTML = ""; };
+  };
+}
+
+/* ---------- Übungsrunde mit Erklärung nach jeder Antwort ---------- */
+function starteRunde(aufgaben, titel, zurueck) {
+  if (!aufgaben.length) return;
+  rahmen(null);
+  let i = 0, richtig = 0, serie = 0, besteSerie = 0; const falsche = [];
+  const zeigeAufgabe = () => {
+    const a = aufgaben[i], reihenfolge = mischen([0, 1, 2, 3]);
+    tafelFuer(a.id);
+    main.innerHTML = `<div class="leiste"><button class="zu" id="zu" aria-label="Runde beenden">✕</button>
+        <div class="fort" role="progressbar" aria-label="${i} von ${aufgaben.length} Aufgaben"><i style="width:${100 * i / aufgaben.length}%"></i></div>
+        <span class="serie ${serie ? "" : "null"}" id="serie">${serie} in Folge</span></div>
+      <div class="karte rein" data-id="${a.id}">${a.typ ? `<div class="thema">${esc(a.typ)}</div>` : ""}${frageHtml(a)}
+        <div id="opts">${reihenfolge.map((o, p) => `<button class="opt" data-o="${o}"><span class="b">${BUCHST[p]}</span><span>${rich(a.o[o])}</span></button>`).join("")}</div>
+        <label class="raten"><input type="checkbox" id="raten"> Ich bin unsicher und rate nur</label>
+        <div id="nach"></div>
+      </div>`;
+    document.getElementById("zu").onclick = zurueck;
+    main.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+      const gewaehlt = +b.dataset.o, ok = gewaehlt === a.a, geraten = document.getElementById("raten").checked;
+      let richtigeOpt = null;
+      main.querySelectorAll(".opt").forEach(x => { x.disabled = true; if (+x.dataset.o === a.a) { x.classList.add("ok"); richtigeOpt = x; } });
+      document.getElementById("raten").disabled = true;
+      const st = S.stats[a.id] || { n: 0 }; st.n++; st.ok = ok && !geraten; S.stats[a.id] = st; heuteGeuebt(); sichern();
+      const serieEl = document.getElementById("serie");
+      if (ok) {
+        richtig++; serie++; besteSerie = Math.max(besteSerie, serie);
+        animiere(b, "huepf"); funken(b, 16);
+        serieEl.textContent = serie + " in Folge"; serieEl.classList.remove("null"); animiere(serieEl, "stoss");
+        if (SERIEN[serie]) { jubel(SERIEN[serie][0], SERIEN[serie][1]); regen(serie >= 10 ? 70 : 36); }
+      } else {
+        b.classList.add("falsch"); animiere(b, "wackel"); setTimeout(() => animiere(richtigeOpt, "leucht"), 380);
+        serie = 0; serieEl.textContent = "0 in Folge"; serieEl.classList.add("null");
+      }
+      if (!ok || geraten) falsche.push(a);
+      main.querySelector(".fort i").style.width = (100 * (i + 1) / aufgaben.length) + "%";
+      const letzte = i === aufgaben.length - 1;
+      const kopf = ok ? (geraten ? "Richtig geraten" : LOB[Math.floor(Math.random() * LOB.length)]) : TROST[Math.floor(Math.random() * TROST.length)];
+      document.getElementById("nach").innerHTML = `<div class="nach rein ${ok ? "ok" : "falsch"}"><h3>${kopf}</h3>
+        ${ok && geraten ? '<p style="margin:0 0 8px">Schau dir den Weg trotzdem an, dann sitzt es beim nächsten Mal.</p>' : ""}
+        <div class="weg"><b>So löst man es</b>${rich(a.e)}</div>
+        <button class="knopf" id="weiter">${letzte ? "Auswertung" : "Weiter"}</button></div>`;
+      document.getElementById("weiter").onclick = () => { i++; if (i < aufgaben.length) { zeigeAufgabe(); window.scrollTo(0, 0); } else ende(); };
+      setTimeout(() => { const w = document.getElementById("weiter"); if (w) w.scrollIntoView({ block: "nearest", behavior: RUHIG ? "auto" : "smooth" }); }, 60);
+    });
+  };
+  const ende = () => {
+    tafelFuer(null);
+    const ant = richtig / aufgaben.length, alles = richtig === aufgaben.length;
+    const satz = alles ? "Alles richtig. Besser geht es nicht." : ant >= 0.8 ? "Sehr stark. Nur noch Kleinigkeiten." : ant >= 0.5 ? "Guter Stand. Die Fehler kommen wieder dran." : "Dranbleiben. Schau noch einmal in „Kurz erklärt“ und ins Skript.";
+    main.innerHTML = `<div class="karte rein" style="text-align:center;padding:26px 18px">
+      <div id="endring" style="display:inline-block">${ring(0, 132, richtig + "/" + aufgaben.length, ant >= 0.5 ? "#0F9B72" : "#5B3FD6")}</div>
+      <h1 style="font-size:26px;margin-top:8px">${esc(titel)}</h1>
+      <p style="margin:8px 0 2px;font-weight:700">${satz}</p>
+      <p class="leise" style="margin:0">Längste Serie: ${besteSerie} in Folge</p>
+      <div class="reihe">${falsche.length ? `<button class="knopf" id="nochmal">${falsche.length === 1 ? "Die eine" : "Diese " + falsche.length} gleich nochmal</button>` : ""}
+        <button class="knopf ${falsche.length ? "still" : ""}" id="fertig">Fertig</button></div></div>`;
+    setTimeout(() => { const c = main.querySelector("#endring .ringlauf"); if (c) c.style.strokeDashoffset = (+c.getAttribute("stroke-dasharray")) * (1 - ant); }, 60);
+    if (ant >= 0.8) { regen(alles ? 110 : 60); if (alles) jubel("Alles richtig!", aufgaben.length + " von " + aufgaben.length); }
+    const n = document.getElementById("nochmal"); if (n) n.onclick = () => starteRunde(mischen(falsche), titel, zurueck);
+    document.getElementById("fertig").onclick = zurueck;
+    window.scrollTo(0, 0);
+  };
+  zeigeAufgabe(); window.scrollTo(0, 0);
+}
+
+/* ---------- Prüfung ---------- */
+function ansichtPruefung() {
+  const L = C.links, hatSchluessel = C.offiziell && /^[abcd]{20}$/.test(C.offiziell.loesungen || "");
+  let h = `<div class="gruss"><h1>Prüfung</h1></div>`;
+  for (const pt of D.probetests) {
+    const erg = S.pt[pt.id];
+    h += `<div class="karte"><h2>${esc(pt.titel)}</h2>
+      <p class="leise" style="margin:6px 0 0">${pt.ids.length} eigene Aufgaben im Stil des Tests, ${pt.minuten} Minuten. Lösungen und Erklärungen siehst du erst nach dem Abgeben, wie im echten Test.</p>
+      ${erg ? `<p style="margin:10px 0 0;font-weight:700">Letztes Ergebnis: ${erg.punkte} von ${pt.ids.length} <span class="leise">(${esc(erg.datum)})</span></p>` : ""}
+      <div class="reihe"><button class="knopf" data-pt="${pt.id}">${erg ? "Nochmal starten" : "Starten"}</button></div></div>`;
+  }
+  h += `<div class="karte"><h2>Offizieller Übungssatz der DGPs</h2>
+    <p class="leise" style="margin:6px 0 4px">Die echten Übungsaufgaben der Testmacher. Die 20 Mathe-Aufgaben stehen im selben PDF wie die Textteile. Öffne das PDF, starte hier Uhr und Antwortbogen und kreuze an. ${hatSchluessel ? "Nach dem Abgeben wertet die App deine Kreuze aus." : "Danach vergleichst du mit dem Lösungs-PDF."}</p>
+    <ul class="links"><li><a href="${esc(L.matheAufgaben)}" target="_blank" rel="noopener">Aufgaben-PDF öffnen (ohne Lösungen)</a></li>
+      <li><a href="${esc(L.matheLoesungen)}" target="_blank" rel="noopener">Lösungs-PDF öffnen</a></li></ul>
+    <div class="reihe"><button class="knopf" id="bogenstart">Uhr und Antwortbogen starten</button></div></div>
+  <div class="karte"><h2>Alle offiziellen Übungssätze</h2>
+    <ul class="links"><li><a href="${esc(L.uebersicht)}" target="_blank" rel="noopener">Übersicht auf der DGPs-Seite mit Videos und allen PDFs</a></li>
+      <li><a href="${esc(L.numerisch)}" target="_blank" rel="noopener">Schlussfolgerndes Denken numerisch</a></li>
+      <li><a href="${esc(L.verbal)}" target="_blank" rel="noopener">Schlussfolgerndes Denken verbal</a></li>
+      <li><a href="${esc(L.figural)}" target="_blank" rel="noopener">Schlussfolgerndes Denken figural</a></li>
+      <li><a href="${esc(L.osa)}" target="_blank" rel="noopener">Online-Self-Assessment OSA-Psych</a></li></ul></div>`;
+  main.innerHTML = h;
+  main.querySelectorAll("[data-pt]").forEach(b => b.onclick = () => starteProbetest(D.probetests.find(p => p.id === b.dataset.pt)));
+  document.getElementById("bogenstart").onclick = starteBogen;
+}
+
+function starteProbetest(pt) {
+  const aufgaben = pt.ids.map(id => NACH_ID[id]), n = aufgaben.length;
+  const reihen = aufgaben.map(() => mischen([0, 1, 2, 3])), antw = new Array(n).fill(null);
+  const start = Date.now(), ende = start + pt.minuten * 60000;
+  let i = 0, fragtAb = false, fertig = false;
+  rahmen(null);
+  const rest = () => (ende - Date.now()) / 1000;
+  const zeichne = () => {
+    const a = aufgaben[i];
+    tafelFuer(a.id);
+    main.innerHTML = `<div class="uhr"><span class="zeit" id="zeit"></span><span>Aufgabe ${i + 1} von ${n}</span><button id="abgeben">Abgeben</button></div>
+      <div id="abfrage"></div>
+      <div class="karte">${frageHtml(a)}
+        ${reihen[i].map((o, p) => `<button class="opt ${antw[i] === o ? "gew" : ""}" data-o="${o}"><span class="b">${BUCHST[p]}</span><span>${rich(a.o[o])}</span></button>`).join("")}
+        <div class="reihe"><button class="knopf still" id="vor" ${i === 0 ? "disabled" : ""}>‹ Zurück</button><button class="knopf" id="nae">${i === n - 1 ? "Zur Abgabe" : "Weiter ›"}</button></div>
+        <div class="gitter">${aufgaben.map((_, k) => `<button data-k="${k}" class="${k === i ? "akt" : (antw[k] !== null ? "da" : "")}">${k + 1}</button>`).join("")}</div>
+      </div>`;
+    tick();
+    main.querySelectorAll(".opt").forEach(b => b.onclick = () => { antw[i] = +b.dataset.o; main.querySelectorAll(".opt").forEach(x => x.classList.toggle("gew", x === b)); });
+    document.getElementById("vor").onclick = () => { i--; zeichne(); };
+    document.getElementById("nae").onclick = () => { if (i === n - 1) frageAbgabe(); else { i++; zeichne(); window.scrollTo(0, 0); } };
+    main.querySelectorAll(".gitter button").forEach(b => b.onclick = () => { i = +b.dataset.k; zeichne(); window.scrollTo(0, 0); });
+    document.getElementById("abgeben").onclick = frageAbgabe;
+    if (fragtAb) frageAbgabe();
+  };
+  const frageAbgabe = () => {
+    fragtAb = true;
+    const offen = antw.filter(x => x === null).length;
+    document.getElementById("abfrage").innerHTML = `<div class="frag">${offen ? `Es ${offen === 1 ? "ist noch 1 Aufgabe" : "sind noch " + offen + " Aufgaben"} ohne Kreuz. Im echten Test kostet Raten nichts.` : "Alle Aufgaben sind angekreuzt."} Jetzt abgeben?
+      <div class="reihe"><button class="knopf" id="ja">Ja, abgeben</button><button class="knopf still" id="nein">Weiter rechnen</button></div></div>`;
+    document.getElementById("ja").onclick = auswerten;
+    document.getElementById("nein").onclick = () => { fragtAb = false; document.getElementById("abfrage").innerHTML = ""; };
+    window.scrollTo(0, 0);
+  };
+  const tick = () => {
+    const z = document.getElementById("zeit"); if (!z || fertig) return;
+    const r = rest(); z.textContent = mmss(r); z.classList.toggle("knapp", r < 120);
+    if (r <= 0) auswerten();
+  };
+  const auswerten = () => {
+    if (fertig) return; fertig = true;
+    stoppeUhr(); tafelFuer(null); rahmen("pruefung");
+    const gebraucht = Math.min(pt.minuten * 60, (Date.now() - start) / 1000);
+    const punkte = aufgaben.filter((a, k) => antw[k] === a.a).length;
+    S.pt[pt.id] = { punkte, datum: new Date().toLocaleDateString("de-DE") }; heuteGeuebt(); sichern();
+    const themen = {};
+    aufgaben.forEach((a, k) => { const t = themen[a.th] || (themen[a.th] = [0, 0]); t[1]++; if (antw[k] === a.a) t[0]++; });
+    main.innerHTML = `<div class="karte rein" style="text-align:center"><div id="endring" style="display:inline-block">${ring(0, 132, punkte + "/" + n, "#5B3FD6")}</div>
+        <h1 style="font-size:26px;margin-top:8px">${esc(pt.titel)}</h1><p class="leise" style="margin:4px 0 12px">${punkte} von ${n} Punkten in ${mmss(gebraucht)} Minuten</p>
+        <table class="daten" style="margin:0 auto 14px">${Object.entries(themen).map(([t, v]) => `<tr><td>${esc(t)}</td><td>${v[0]} von ${v[1]}</td></tr>`).join("")}</table>
+        <button class="knopf still" id="pzur">Zur Übersicht</button></div>
+      <div class="karte"><h2 style="margin-bottom:8px">Alle Aufgaben mit Erklärung</h2>
+        ${aufgaben.map((a, k) => { const ok = antw[k] === a.a; return `<details class="auf" ${ok ? "" : "open"}><summary style="color:${ok ? "#0a6e51" : "#a52b32"}">Aufgabe ${k + 1}: ${ok ? "richtig" : (antw[k] === null ? "nicht angekreuzt" : "falsch")}</summary>
+          ${frageHtml(a)}
+          ${antw[k] !== null && !ok ? `<div class="opt falsch"><span class="b">✗</span><span>${rich(a.o[antw[k]])}</span></div>` : ""}
+          <div class="opt ok"><span class="b">✓</span><span>${rich(a.o[a.a])}</span></div>
+          <div class="weg" style="background:var(--nebel)"><b>So löst man es</b>${rich(a.e)}</div></details>`; }).join("")}</div>`;
+    setTimeout(() => { const c = main.querySelector("#endring .ringlauf"); if (c) c.style.strokeDashoffset = (+c.getAttribute("stroke-dasharray")) * (1 - punkte / n); }, 60);
+    if (punkte / n >= 0.6) regen(punkte / n >= 0.8 ? 110 : 50);
+    document.getElementById("pzur").onclick = () => zeige("pruefung");
+    window.scrollTo(0, 0);
+  };
+  zeichne(); window.scrollTo(0, 0);
+  laeuft = setInterval(tick, 500);
+}
+
+/* ---------- Antwortbogen für den offiziellen Satz ---------- */
+function starteBogen() {
+  const n = 20, minuten = 23, antw = new Array(n).fill(null), ende = Date.now() + minuten * 60000;
+  const key = (C.offiziell && /^[abcd]{20}$/.test(C.offiziell.loesungen || "")) ? C.offiziell.loesungen.split("").map(c => "abcd".indexOf(c)) : null;
+  let fertig = false;
+  rahmen(null); tafelFuer("bogen");
+  main.innerHTML = `<div class="uhr"><span class="zeit" id="zeit"></span><span>Offizieller Satz</span><button id="fertig">Abgeben</button></div>
+    <div class="karte"><p class="leise" style="margin:0 0 6px">Löse die 20 Mathe-Aufgaben im PDF und tippe hier deine Antwort an. Du kannst jede Antwort ändern.</p>
+    <p style="margin:0 0 14px"><a href="${esc(C.links.matheAufgaben)}" target="_blank" rel="noopener">Aufgaben-PDF öffnen</a></p>
+    ${antw.map((_, k) => `<div class="bogen" data-k="${k}"><span class="n">${k + 1}</span>${BUCHST.map((b, p) => `<button data-p="${p}">${b.toLowerCase()}</button>`).join("")}</div>`).join("")}</div>`;
+  main.querySelectorAll(".bogen").forEach(z => z.querySelectorAll("button").forEach(b => b.onclick = () => {
+    antw[+z.dataset.k] = +b.dataset.p; z.querySelectorAll("button").forEach(x => x.classList.toggle("gew", x === b));
+  }));
+  const tick = () => { const z = document.getElementById("zeit"); if (!z || fertig) return; const r = (ende - Date.now()) / 1000; z.textContent = mmss(r); z.classList.toggle("knapp", r < 120); if (r <= 0) vergleich(); };
+  const vergleich = () => {
+    if (fertig) return; fertig = true;
+    stoppeUhr(); tafelFuer(null); rahmen("pruefung"); heuteGeuebt(); sichern();
+    if (key) {
+      const punkte = antw.filter((a, k) => a === key[k]).length;
+      main.innerHTML = `<div class="karte rein" style="text-align:center"><div id="endring" style="display:inline-block">${ring(0, 132, punkte + "/" + n, "#5B3FD6")}</div>
+          <h1 style="font-size:26px;margin-top:8px">Offizieller Übungssatz</h1>
+          <p class="leise" style="margin:6px 0 0">Grün ist richtig, rot ist falsch. Das hell umrandete Feld zeigt, was richtig gewesen wäre.</p></div>
+        <div class="karte">${antw.map((a, k) => `<div class="bogen"><span class="n">${k + 1}</span>${BUCHST.map((b, p) =>
+          `<span class="f ${a === p ? (p === key[k] ? "ok" : "falsch") : (p === key[k] ? "waere" : "")}">${b.toLowerCase()}</span>`).join("")}</div>`).join("")}
+          <p class="leise" style="margin:12px 0 10px">Lösungsschlüssel aus dem Lösungs-PDF der DGPs, Fassung vom ${esc(C.offiziell.stand)}. Den Rechenweg findest du dort nicht, frag bei falschen Aufgaben in der Nachhilfe nach.</p>
+          <p style="margin:0 0 12px"><a href="${esc(C.links.matheLoesungen)}" target="_blank" rel="noopener">Lösungs-PDF öffnen</a></p>
+          <button class="knopf still" id="bzur">Zur Übersicht</button></div>`;
+      setTimeout(() => { const c = main.querySelector("#endring .ringlauf"); if (c) c.style.strokeDashoffset = (+c.getAttribute("stroke-dasharray")) * (1 - punkte / n); }, 60);
+      if (punkte / n >= 0.6) regen(punkte / n >= 0.8 ? 110 : 50);
+    } else {
+      const ok = new Array(n).fill(false);
+      main.innerHTML = `<div class="karte"><h2>Jetzt vergleichen</h2>
+        <p class="leise">Öffne das Lösungs-PDF und tippe bei jeder Aufgabe, die du richtig hast, auf dein Kreuz. Es wird dann grün.</p>
+        <p><a href="${esc(C.links.matheLoesungen)}" target="_blank" rel="noopener">Lösungs-PDF öffnen</a></p>
+        <div class="zahl"><span id="summe">0</span> <span class="leise">von ${n} richtig</span></div></div>
+        <div class="karte">${antw.map((a, k) => `<div class="bogen" data-k="${k}"><span class="n">${k + 1}</span>${BUCHST.map((b, p) => `<button data-p="${p}" class="${a === p ? "gew" : ""}" ${a === p ? "" : "disabled"}>${b.toLowerCase()}</button>`).join("")}</div>`).join("")}
+        <button class="knopf still" id="bzur" style="margin-top:10px">Zur Übersicht</button></div>`;
+      main.querySelectorAll(".bogen button.gew").forEach(b => b.onclick = () => {
+        const k = +b.parentElement.dataset.k; ok[k] = !ok[k]; b.classList.toggle("ok", ok[k]); b.classList.toggle("gew", !ok[k]);
+        document.getElementById("summe").textContent = ok.filter(Boolean).length;
+      });
+    }
+    document.getElementById("bzur").onclick = () => zeige("pruefung");
+    window.scrollTo(0, 0);
+  };
+  document.getElementById("fertig").onclick = vergleich;
+  tick(); laeuft = setInterval(tick, 500); window.scrollTo(0, 0);
+}
+
+/* ---------- Merkzettel ---------- */
+const MERK = [
+  ["Quadratische Gleichung", "$x^2=c$: Wurzel mit $\\pm$. Ohne einzelne Zahl: $x$ ausklammern. Sonst pq-Formel: $x=-\\tfrac p2\\pm\\sqrt{\\left(\\tfrac p2\\right)^2-q}$"],
+  ["Binomische Formeln", "$(a\\pm b)^2=a^2\\pm2ab+b^2$ und $(a+b)(a-b)=a^2-b^2$"],
+  ["Potenzen", "$a^m\\cdot a^n=a^{m+n}$, $\\;a^0=1$, $\\;a^{-n}=\\tfrac1{a^n}$, $\\;a^{1/2}=\\sqrt a$"],
+  ["Definitionsbereich", "Nenner $\\ne0$, unter der Wurzel $\\ge0$, im $\\ln$ $>0$"],
+  ["Scheitel einer Parabel", "Aus $a(x-d)^2+e$ ablesen: $S(d\\,|\\,e)$"],
+  ["Verkettung $f(g(x))$", "von innen nach außen einsetzen"],
+  ["Ableiten", "$x^n\\to n\\,x^{n-1}$, $\\;e^x\\to e^x$, $\\;\\ln x\\to\\tfrac1x$"],
+  ["Steigung an einer Stelle", "$f'$ bilden, Stelle einsetzen"],
+  ["Tangente", "$m=f'(x_0)$, dann $b$ aus dem Punkt"],
+  ["Hoch- oder Tiefpunkt", "$f'(x)=0$, in $f''$ einsetzen: $>0$ Tief, $<0$ Hoch. $y$-Wert mit $f$"],
+  ["Wendestelle", "$f''(x)=0$"],
+  ["Symmetrie", "nur gerade Hochzahlen: Achse. Nur ungerade: Punkt"],
+  ["Stammfunktion", "Hochzahl plus 1, durch die neue Hochzahl teilen"],
+  ["Integral", "$\\int_a^b f(x)\\,dx=F(b)-F(a)$"],
+  ["Fläche zwischen Graphen", "Schnittstellen bestimmen, obere minus untere Funktion integrieren"],
+  ["Kettenregel", "äußere mal innere Ableitung"],
+  ["Produktregel", "$(u\\cdot v)'=u'v+uv'$"],
+  ["Wahrscheinlichkeit", "günstige durch mögliche Fälle"],
+  ["„Mindestens einmal“", "1 minus „kein Mal“"],
+  ["Mehrere Ziehungen", "Baum: entlang malnehmen, Wege addieren"],
+  ["Auswahl ohne Reihenfolge", "$\\binom nk$, zum Beispiel $\\binom62=\\tfrac{6\\cdot5}{2}=15$"],
+  ["Erwartungswert", "jeden Wert mal seine Wahrscheinlichkeit, alles addieren"],
+  ["Binomialverteilung", "$\\mu=n\\,p$, $\\;\\sigma=\\sqrt{n\\,p\\,(1-p)}$"],
+  ["Vektor von $A$ nach $B$", "$B$ minus $A$"],
+  ["Länge, Abstand", "$\\sqrt{x^2+y^2+z^2}$"],
+  ["Senkrecht (orthogonal)", "Skalarprodukt $=0$"],
+  ["Gerade durch $A$ und $B$", "$\\vec x=\\vec a+t\\cdot\\overrightarrow{AB}$"],
+  ["Matrixprodukt", "Zeile mal Spalte. Format: $(m\\times n)\\cdot(n\\times k)=m\\times k$"],
+];
+function ansichtMerk() {
+  main.innerHTML = `<div class="gruss"><h1>Merkzettel</h1></div>
+    <div class="karte"><p class="leise" style="margin:0 0 6px">Alle Rechenwege auf einen Blick. Im Test hast du ihn nicht, also immer wieder mal abdecken und aufsagen.</p>
+    <table class="merk">${MERK.map(z => `<tr><td>${rich(z[0])}</td><td>${rich(z[1])}</td></tr>`).join("")}</table></div>
+    <div class="karte"><h2 style="font-size:19px">Im Test</h2><p class="leise" style="margin:6px 0 0">20 Aufgaben in 23 Minuten. Erst alles lösen, was sofort klar ist, dann den Rest. Falsche Antworten kosten nichts: nie ein Feld leer lassen.</p></div>`;
+}
+
+/* ---------- Tafel ---------- */
+const tafel = document.getElementById("tafel"), knopf = document.getElementById("tafelknopf"), cv = document.getElementById("leinwand"), cx = cv.getContext("2d");
+const tafeln = {}; let tafelId = null, striche = [], farbe = "#1F1A3D", radierer = false, zieht = null;
+function tafelFuer(id) {          // id = Aufgabe, zu der die Tafel gehört; null = Tafel aus
+  tafelId = id; knopf.hidden = id === null;
+  if (id === null) { tafel.classList.remove("auf"); document.body.classList.remove("tafelauf"); return; }
+  striche = tafeln[id] || (tafeln[id] = []);
+  if (tafel.classList.contains("auf")) { knopf.hidden = true; malen(); }
+}
+function groesse() { const r = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1; cv.width = Math.round(r.width * d); cv.height = Math.round(r.height * d); cx.setTransform(d, 0, 0, d, 0, 0); malen(); }
+function malen() {
+  const d = window.devicePixelRatio || 1; cx.clearRect(0, 0, cv.width / d, cv.height / d); cx.lineCap = "round"; cx.lineJoin = "round";
+  for (const s of striche) {
+    cx.globalCompositeOperation = s.rad ? "destination-out" : "source-over"; cx.strokeStyle = s.farbe; cx.lineWidth = s.rad ? 22 : 2.8;
+    cx.beginPath(); s.p.forEach((q, i) => i ? cx.lineTo(q[0], q[1]) : cx.moveTo(q[0], q[1]));
+    if (s.p.length === 1) cx.lineTo(s.p[0][0] + 0.1, s.p[0][1] + 0.1);
+    cx.stroke();
+  }
+  cx.globalCompositeOperation = "source-over";
+}
+function pos(e) { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; }
+cv.addEventListener("pointerdown", e => { e.preventDefault(); try { cv.setPointerCapture(e.pointerId); } catch (x) {} zieht = { farbe, rad: radierer, p: [pos(e)] }; striche.push(zieht); malen(); });
+cv.addEventListener("pointermove", e => { if (!zieht) return; e.preventDefault(); zieht.p.push(pos(e)); malen(); });
+["pointerup", "pointercancel", "pointerleave"].forEach(t => cv.addEventListener(t, () => { zieht = null; }));
+knopf.onclick = () => { tafel.classList.add("auf"); document.body.classList.add("tafelauf"); knopf.hidden = true; groesse(); };
+document.getElementById("t-zu").onclick = () => { tafel.classList.remove("auf"); document.body.classList.remove("tafelauf"); knopf.hidden = tafelId === null; };
+document.getElementById("t-leer").onclick = () => { striche.length = 0; malen(); };
+document.getElementById("t-undo").onclick = () => { striche.pop(); malen(); };
+document.getElementById("t-rad").onclick = e => { radierer = !radierer; e.currentTarget.classList.toggle("an", radierer); };
+tafel.querySelectorAll(".farbe").forEach(b => b.onclick = () => {
+  farbe = b.dataset.farbe; radierer = false; document.getElementById("t-rad").classList.remove("an");
+  tafel.querySelectorAll(".farbe").forEach(x => x.classList.toggle("an", x === b));
+});
+window.addEventListener("resize", () => { if (tafel.classList.contains("auf")) groesse(); });
+
+zeige("pfad");
+</script>
+</body>
+</html>
